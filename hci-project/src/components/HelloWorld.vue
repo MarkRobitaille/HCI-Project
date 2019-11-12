@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <h1>{{ counter }}</h1>
+    <button @click="addToCounter()">CLICK ME</button>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
       check out the
@@ -31,10 +32,25 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'HelloWorld',
   props: {
-    msg: String
+    msg: {
+      type: String,
+      required: false
+    }
+  },
+  computed: {
+    ...mapGetters({
+      counter: 'getCounter'
+    })
+  },
+  methods: {
+    addToCounter() {
+      this.$store.dispatch("incrementCounter");
+    }
   }
 }
 </script>
