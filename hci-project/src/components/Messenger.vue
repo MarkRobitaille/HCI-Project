@@ -13,11 +13,57 @@
       <div class="message_list_header">
         <p><b>CONVERSATIONS</b></p>
       </div>
+
       <div class="message_list_items">
-        <div class="convo" id="activeConvo">Family</div>
-        <div class="convo">Mom</div>
-        <div class="convo">Dad</div>
-        <div class="convo">Alex</div>
+        <div class="convo" id="activeConvo">
+          <img src="../assets/DefaultProfilePic.png">
+          <p>Family</p>
+        </div>
+
+        <div class="convo">
+          <img src="../assets/DefaultProfilePic.png"><p>Mom</p>
+        </div>
+
+        <div class="convo">
+          <img src="../assets/DefaultProfilePic.png">
+          <p>Dad</p>
+        </div>
+
+        <div class="convo">
+          <img src="../assets/DefaultProfilePic.png">
+          <p>Alex</p>
+        </div>
+
+        <div class="convo">
+          <img src="../assets/DefaultProfilePic.png">
+          <p>Alina</p>
+        </div>
+
+        <div class="convo">
+          <img src="../assets/DefaultProfilePic.png">
+          <p>Mamaie</p>
+        </div>
+
+        <div class="convo">
+          <img src="../assets/DefaultProfilePic.png">
+          <p>Tataie</p>
+        </div>
+
+        <div class="convo">
+          <img src="../assets/DefaultProfilePic.png">
+          <p>Britt</p>
+        </div>
+
+        <div class="convo">
+          <img src="../assets/DefaultProfilePic.png">
+          <p>Mark</p>
+        </div>
+
+        <div class="convo">
+          <img src="../assets/DefaultProfilePic.png">
+          <p>Ceilidh</p>
+        </div>
+
       </div>
 
     </div> 
@@ -44,6 +90,14 @@
         yeah get garlic dip!!!!! :)
       </div>
 
+      <div class="receiveBubble">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nec tincidunt praesent semper feugiat nibh sed pulvinar proin gravida. Laoreet suspendisse interdum consectetur libero id faucibus. Etiam sit amet nisl purus in mollis nunc. Odio ut enim blandit volutpat. Mattis pellentesque id nibh tortor id aliquet lectus proin. In mollis nunc sed id semper. Nisl nunc mi ipsum faucibus vitae aliquet nec ullamcorper sit. Commodo nulla facilisi nullam vehicula ipsum a arcu cursus vitae. Posuere urna nec tincidunt praesent semper. Semper auctor neque vitae tempus quam. Tempor commodo ullamcorper a lacus vestibulum sed arcu non odio. Ultrices dui sapien eget mi proin sed libero enim. Convallis posuere morbi leo urna molestie at elementum eu.
+        Nec tincidunt praesent semper feugiat nibh sed pulvinar proin. Est placerat in egestas erat imperdiet sed euismod. Tincidunt ornare massa eget egestas purus viverra accumsan in nisl. Duis at tellus at urna condimentum mattis pellentesque id nibh. Sed adipiscing diam donec adipiscing tristique. Auctor neque vitae tempus quam pellentesque. Enim blandit volutpat maecenas volutpat blandit aliquam. Faucibus purus in massa tempor nec feugiat nisl pretium fusce. Quis vel eros donec ac. Eget est lorem ipsum dolor.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nec tincidunt praesent semper feugiat nibh sed pulvinar proin gravida. Laoreet suspendisse interdum consectetur libero id faucibus. Etiam sit amet nisl purus in mollis nunc. Odio ut enim blandit volutpat. Mattis pellentesque id nibh tortor id aliquet lectus proin. In mollis nunc sed id semper. Nisl nunc mi ipsum faucibus vitae aliquet nec ullamcorper sit. Commodo nulla facilisi nullam vehicula ipsum a arcu cursus vitae. Posuere urna nec tincidunt praesent semper. Semper auctor neque vitae tempus quam. Tempor commodo ullamcorper a lacus vestibulum sed arcu non odio. Ultrices dui sapien eget mi proin sed libero enim. Convallis posuere morbi leo urna molestie at elementum eu.
+        Nec tincidunt praesent semper feugiat nibh sed pulvinar proin. Est placerat in egestas erat imperdiet sed euismod. Tincidunt ornare massa eget egestas purus viverra accumsan in nisl. Duis at tellus at urna condimentum mattis pellentesque id nibh. Sed adipiscing diam donec adipiscing tristique. Auctor neque vitae tempus quam pellentesque. Enim blandit volutpat maecenas volutpat blandit aliquam. Faucibus purus in massa tempor nec feugiat nisl pretium fusce. Quis vel eros donec ac. Eget est lorem ipsum dolor.
+      
+      </div>
+    
     </div> 
 
       <div class="input">
@@ -102,10 +156,15 @@ export default {
 
     background: #def5fc;
     width: 25%;
-    min-height: 90vh;
+    height: 90vh;
     float: left;
-    overflow-y: scroll;
 
+  }
+
+  .message_list_items{
+      width:100%;
+      height:80vh;
+      overflow-y: scroll;
   }
 
   .message_list_header{
@@ -116,12 +175,18 @@ export default {
   .convo{
 
     border-bottom: solid  1px #c3dde6;
-    padding: 20px;
+    padding: 10px;
 
   }
 
   #activeConvo{
     background-color: #bce7f7;
+  }
+
+  .convo img{
+    width: 20%;
+    float:left;
+    margin-left: 10%;
   }
 
   .messageArea {
@@ -194,7 +259,7 @@ export default {
     min-height: 10vh; 
     min-width: 75%;
     margin-left: 25%;
-    background: #d6d6d6;
+    background: #bce7f7;
     bottom: 0;
 
   }
