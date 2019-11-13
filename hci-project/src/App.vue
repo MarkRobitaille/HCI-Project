@@ -52,6 +52,7 @@ body {
 }
 h1 {
   margin: 0;
+  font-size: 8vh;
   padding: 1%;
 }
 
@@ -79,5 +80,6 @@ h1 {
   padding: 0;
   margin-top: 0;
   height: 100vh;
+  position: relative;
 }
 </style>
