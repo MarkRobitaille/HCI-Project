@@ -18,11 +18,23 @@
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'app',
   components: {
     // HelloWorld
+  },
+  created() {
+    this.$store.dispatch("initializeJSONData");
+  },
+  computed: {
+    ...mapGetters({
+      users: 'getUsers',
+      messenger: 'getMessenger',
+      calendar: 'getCalendar',
+      lists: 'getLists'
+    })
   }
 }
 </script>
