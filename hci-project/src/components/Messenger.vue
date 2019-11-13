@@ -10,12 +10,15 @@
 
     <div class="message_list"> 
 
-      <p>MESSAGES</p>
-
-      <div>Family</div>
-      <div>Mom</div>
-      <div>Hello</div>
-      <div>Bro</div>
+      <div class="message_list_header">
+        <p><b>CONVERSATIONS</b></p>
+      </div>
+      <div class="message_list_items">
+        <div class="convo" id="activeConvo">Family</div>
+        <div class="convo">Mom</div>
+        <div class="convo">Dad</div>
+        <div class="convo">Alex</div>
+      </div>
 
     </div> 
 
@@ -46,7 +49,7 @@
       <div class="input">
         
           <input class= "typingBox" type="text" name="type here" placeholder="Message"> 
-          <!-- <input class= "send" type="button" value="S" >  -->
+          <input class= "send" type="button" value="SEND" >
 
       </div> 
 
@@ -78,136 +81,168 @@ export default {
   }
 } //export default
 
-
 //* SEND MESSAGES *//
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <!-- We'll put global css in App.vue -->
 <style scoped>
 
-.header {
+  .header {
 
-  background: white;
-  border-bottom: solid 1px #ededed;
-  height: 10vh;
-  color:black;
+    background: white;
+    border-bottom: solid 1px #ededed;
+    height: 10vh;
+    color:black;
 
-}
+  }
 
-.message_list {
+  .message_list {
 
-  background: #def5fc;
-  width: 25%;
-  min-height: 90vh;
-  float: left;
-  overflow-y: scroll;
+    background: #def5fc;
+    width: 25%;
+    min-height: 90vh;
+    float: left;
+    overflow-y: scroll;
 
-}
+  }
 
-.messageArea {
+  .message_list_header{
+    border-bottom: solid 1px #c3dde6;
+    font-size: 20px;
+  }
 
-  background-color:white;
-  width:75%;
-  height: 80vh;
-  overflow-y: scroll;
+  .convo{
 
-}
+    border-bottom: solid  1px #c3dde6;
+    padding: 20px;
 
-.date{
+  }
 
-  font: italic;
-  margin-top:20px;
-  margin-bottom: 20px;
-  font-size: 12px;
-  color:gray;
+  #activeConvo{
+    background-color: #bce7f7;
+  }
 
-}
+  .messageArea {
 
-.bubble{
+    background-color:white;
+    width:75%;
+    height: 80vh;
+    overflow-y: scroll;
 
-  box-sizing: border-box;
-  float: right;
-  width: auto;
-  max-width: 80%;
-  position: relative;
-  clear: both;
- 
-  background: #def5fc;
- 
-  border: solid 1px rgba(0,0,0,0);
-  border-radius: 20px 20px 0px 20px;
- 
-  margin-bottom: 20px;
-  padding: 6px 20px;
-  margin-right: 20px;
-  color: #000;
-  word-wrap: break-word;
+  }
 
-}
+  .date{
 
-.receiveBubble{
+    font: italic;
+    margin-top:20px;
+    margin-bottom: 20px;
+    font-size: 12px;
+    color:gray;
 
-  box-sizing: border-box;
-  float: left;
-  width: auto;
-  max-width: 80%;
-  position: relative;
-  clear: both;
- 
-  background: #d6d6d6;
- 
-  border: solid 1px rgba(0,0,0,0);
-  border-radius: 20px 20px 20px 0px;
- 
-  margin-bottom: 20px;
-  margin-left: 20px;
-  padding: 6px 20px;
-  color: #000;
-  word-wrap: break-word;
+  }
 
-}
+  .bubble{
 
-.input{
-
-  display: flex;
-  position: absolute;
-  min-height: 10vh; 
-  min-width: 75%;
-  margin-left: 25%;
-  background: #d6d6d6;
-  bottom: 0;
-
-}
-
-.typingBox{
-
-  box-sizing: border-box;
-  float: left;
-  min-width: 80%;
-  min-height: 5vh;
-  position: relative;
-  font-size: 16px;
+    box-sizing: border-box;
+    float: right;
+    width: auto;
+    max-width: 80%;
+    position: relative;
+    clear: both;
   
-  background: white;
- 
-  border: solid 1px rgba(0,0,0,0);
-  border-radius: 20px;
- 
-  padding: 6px 20px;
-  margin: 22px;
-  color: #000;
-  word-wrap: break-word;
-  /* display:inline-block; */
+    background: #bce7f7;
+  
+    border: solid 1px rgba(0,0,0,0);
+    border-radius: 20px 20px 0px 20px;
+  
+    margin-bottom: 20px;
+    padding: 6px 20px;
+    margin-right: 20px;
+    color: #000;
+    word-wrap: break-word;
 
-} 
+  }
 
-input[type=text]:focus {
+  .receiveBubble{
 
-  background-color: white;
-  outline:none;
+    box-sizing: border-box;
+    float: left;
+    width: auto;
+    max-width: 80%;
+    position: relative;
+    clear: both;
+  
+    background: #d6d6d6;
+  
+    border: solid 1px rgba(0,0,0,0);
+    border-radius: 20px 20px 20px 0px;
+  
+    margin-bottom: 20px;
+    margin-left: 20px;
+    padding: 6px 20px;
+    color: #000;
+    word-wrap: break-word;
 
-}
+  }
+
+  .input{
+
+    display: flex;
+    position: absolute;
+    min-height: 10vh; 
+    min-width: 75%;
+    margin-left: 25%;
+    background: #d6d6d6;
+    bottom: 0;
+
+  }
+
+  .typingBox{
+
+    box-sizing: border-box;
+    float: left;
+    min-width: 80%;
+    min-height: 5vh;
+    position: relative;
+    font-size: 16px;
+    
+    background: white;
+  
+    border: solid 1px rgba(0,0,0,0);
+    border-radius: 20px;
+  
+    padding: 6px 20px;
+    margin: 22px;
+    color: #000;
+    word-wrap: break-word;
+
+  } 
+
+  input[type=text]:focus {
+
+    background-color: white;
+    outline:none;
+
+  }
+
+  .send{
+
+    box-sizing: border-box;
+    background: white;
+    height: 5.5vh;
+    font-size: 16px;
+    display: inline-flex;
+    margin-top:3.5vh;
+    border-radius:10px;
+    float:right;
+
+  }
+
+  .send:focus{
+    outline:none;
+  }
 
 /* Use classes to create css */
 /* If you want dynamic application of css, create a computed variable in computed section */
