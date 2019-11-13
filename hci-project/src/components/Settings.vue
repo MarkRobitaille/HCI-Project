@@ -1,7 +1,36 @@
 <template>
   <div> <!-- Can only have 1 parent element in a component -->
     <!-- All template inside of here -->
+    <div class="settingsHead">
     <h1>Settings</h1>
+    </div>
+
+    <div class="settingsBody">
+      <!-- General Profile Settings -->
+      <!-- Make the name customize for who's profile you're in -->
+      <h2>Bobby's Profile</h2> 
+      <img src="../assets/DefaultProfilePic.png" alt="Default profile picture" class="profileImg">
+      <h3>
+      <a href="#/settings" class="settingsLink">Change profile picture</a>
+      <a href="#/settings" class="settingsLink">Change username</a>
+      <a href="#/settings" class="settingsLink">Change password</a>
+      <a href="#/settings" class="settingsLink">Change email</a>
+      </h3>
+
+      <!-- Calendar Settings -->
+      <h2>Calendar</h2>
+      <h3>
+      <a href="#/settings" class="settingsLink">Change calendar color</a>
+      <a href="#/settings" class="settingsLink">Change calendar icon</a>
+      </h3>
+
+      <!-- Family code -->
+      <div class="familyCode">
+        <h2>Family code: <br/>
+        <div class="code">HN21Z77</div>
+        </h2>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -36,5 +65,33 @@ export default {
 /* Use classes to create css */
 /* If you want dynamic application of css, create a computed variable in computed section */
 /* Then apply by binding it to html tag by using :class="computedClass" */
+
+.settingsLink{
+  display: block;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+.familyCode{
+  margin-left: 0%;
+  text-align: center;
+}
+.code{
+  width: 10%;
+  height: 10%;
+  text-size-adjust: 10%;
+  margin-left: 45%;
+  border: 1px solid black;
+}
+.settingsHead{
+  text-align: center;
+}
+.settingsBody{
+  margin-left: 5%;
+  text-align: justify;
+}
+.profileImg{
+   width: 10%;
+   height: 10%;
+}
 
 </style>
