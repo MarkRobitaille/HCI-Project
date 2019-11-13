@@ -227,6 +227,7 @@ export default {
     margin-right: 20px;
     color: #000;
     word-wrap: break-word;
+    text-align: right;
 
   }
 
@@ -249,6 +250,7 @@ export default {
     padding: 6px 20px;
     color: #000;
     word-wrap: break-word;
+    text-align: left;
 
   }
 
