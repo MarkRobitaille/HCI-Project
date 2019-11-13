@@ -1,9 +1,14 @@
 import HelloWorld from './components/HelloWorld.vue'
+// import Home from './components/Home.vue'
+import Messenger from './components/Messenger.vue'
+import Calendar from './components/Calendar.vue'
+import Lists from './components/Lists.vue'
+import Settings from './components/Settings.vue'
 
 const routes = [
     {
         path: '/',
-        component: HelloWorld,
+        component: HelloWorld, // Change to Home once implemented
         name: "Home",
         meta: {
             title: "Home"
@@ -11,7 +16,7 @@ const routes = [
     },
     {
         path: '/messenger',
-        component: HelloWorld,
+        component: Messenger,
         name: "Messenger",
         meta: {
             title: "Messenger"
@@ -19,7 +24,7 @@ const routes = [
     },
     {
         path: '/calendar',
-        component: HelloWorld,
+        component: Calendar,
         name: "Calendar",
         meta: {
             title: "Calendar"
@@ -27,7 +32,7 @@ const routes = [
     },
     {
         path: '/lists',
-        component: HelloWorld,
+        component: Lists,
         name: "Lists",
         meta: {
             title: "Lists"
@@ -35,7 +40,7 @@ const routes = [
     },
     {
         path: '/settings',
-        component: HelloWorld,
+        component: Settings,
         name: "Settings",
         meta: {
             title: "Settings"

@@ -1,16 +1,15 @@
 <template>
   <div class="main">
     <div class="navbar">
-      <a href="#" class="active">Home</a>
-      <a href="#">Link 1</a>
-      <a href="#">Link 2</a>
-      <a href="#">Link 3</a>
-      <a href="#">Link 4</a>
+      <a href="#/" class="active">Home</a>
+      <a href="#/messenger">Messenger</a>
+      <a href="#/calendar">Calendar</a>
+      <a href="#/lists">Lists</a>
+      <a href="#/settings">Settings</a>
     </div>
     <div class="content">
       <div id="app">
-        <img alt="Vue logo" src="./assets/logo.png" />
-        <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+        <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
         <router-view></router-view>
       </div>
     </div>
@@ -29,6 +28,7 @@ export default {
 </script>
 
 <style>
+/* IDs */
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -38,6 +38,7 @@ export default {
   padding: 0;
   margin: 0;
 }
+/* HTML elements */
 html {
   padding: 0;
   margin: 0;
@@ -49,6 +50,12 @@ body {
   overflow-y: scroll;
   min-height: 100vh;
 }
+h1 {
+  margin: 0;
+  padding: 1%;
+}
+
+/* Custom classes */
 .main {
   padding: 0;
   margin: 0;
@@ -65,7 +72,7 @@ body {
   padding: 5%;
   margin: 0;
 }
-.content {
+.content { 
   background-color: lightblue;
   width: 80%;
   margin-left: 20%;
