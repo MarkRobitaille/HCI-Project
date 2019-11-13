@@ -1,8 +1,57 @@
 <template>
   <div> <!-- Can only have 1 parent element in a component -->
+
+    <div class="header">
+
+      <h1>Messenger</h1>
+
+    </div>
     <!-- All template inside of here -->
-    <h1>Messenger</h1>
-  </div>
+
+    <div class="message_list"> 
+
+      <p>MESSAGES</p>
+
+      <div>Family</div>
+      <div>Mom</div>
+      <div>Hello</div>
+      <div>Bro</div>
+
+    </div> 
+
+    <div class="messageArea">
+
+      <div class="date">
+        Today 9:38am
+      </div>
+
+      <div class="bubble">
+        Hey can we get pizza for dinner?
+      </div>
+
+      <div class="receiveBubble">
+        yeah sure I'll pick it up
+      </div>
+
+      <div class="receiveBubble">
+        i'll get a pepperoni pizza and a cheese pizza. should i get some dips?
+      </div>
+
+      <div class="bubble">
+        yeah get garlic dip!!!!! :)
+      </div>
+
+    </div> 
+
+      <div class="input">
+        
+          <input class= "typingBox" type="text" name="type here" placeholder="Message"> 
+          <!-- <input class= "send" type="button" value="S" >  -->
+
+      </div> 
+
+  </div> 
+
 </template>
 
 <script>
@@ -27,12 +76,139 @@ export default {
   methods: { // Methods in this component
 
   }
-}
+} //export default
+
+
+//* SEND MESSAGES *//
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <!-- We'll put global css in App.vue -->
 <style scoped>
+
+.header {
+
+  background: white;
+  border-bottom: solid 1px #ededed;
+  height: 10vh;
+  color:black;
+
+}
+
+.message_list {
+
+  background: #def5fc;
+  width: 25%;
+  min-height: 90vh;
+  float: left;
+  overflow-y: scroll;
+
+}
+
+.messageArea {
+
+  background-color:white;
+  width:75%;
+  height: 80vh;
+  overflow-y: scroll;
+
+}
+
+.date{
+
+  font: italic;
+  margin-top:20px;
+  margin-bottom: 20px;
+  font-size: 12px;
+  color:gray;
+
+}
+
+.bubble{
+
+  box-sizing: border-box;
+  float: right;
+  width: auto;
+  max-width: 80%;
+  position: relative;
+  clear: both;
+ 
+  background: #def5fc;
+ 
+  border: solid 1px rgba(0,0,0,0);
+  border-radius: 20px 20px 0px 20px;
+ 
+  margin-bottom: 20px;
+  padding: 6px 20px;
+  margin-right: 20px;
+  color: #000;
+  word-wrap: break-word;
+
+}
+
+.receiveBubble{
+
+  box-sizing: border-box;
+  float: left;
+  width: auto;
+  max-width: 80%;
+  position: relative;
+  clear: both;
+ 
+  background: #d6d6d6;
+ 
+  border: solid 1px rgba(0,0,0,0);
+  border-radius: 20px 20px 20px 0px;
+ 
+  margin-bottom: 20px;
+  margin-left: 20px;
+  padding: 6px 20px;
+  color: #000;
+  word-wrap: break-word;
+
+}
+
+.input{
+
+  display: flex;
+  position: absolute;
+  min-height: 10vh; 
+  min-width: 75%;
+  margin-left: 25%;
+  background: #d6d6d6;
+  bottom: 0;
+
+}
+
+.typingBox{
+
+  box-sizing: border-box;
+  float: left;
+  min-width: 80%;
+  min-height: 5vh;
+  position: relative;
+  font-size: 16px;
+  
+  background: white;
+ 
+  border: solid 1px rgba(0,0,0,0);
+  border-radius: 20px;
+ 
+  padding: 6px 20px;
+  margin: 22px;
+  color: #000;
+  word-wrap: break-word;
+  /* display:inline-block; */
+
+} 
+
+input[type=text]:focus {
+
+  background-color: white;
+  outline:none;
+
+}
+
 /* Use classes to create css */
 /* If you want dynamic application of css, create a computed variable in computed section */
 /* Then apply by binding it to html tag by using :class="computedClass" */

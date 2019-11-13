@@ -79,5 +79,6 @@ h1 {
   padding: 0;
   margin-top: 0;
   height: 100vh;
+  position: relative;
 }
 </style>
