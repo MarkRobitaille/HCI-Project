@@ -1,0 +1,32 @@
+{
+    "users": [
+      { 
+        "id": 1,
+        "email": "karentables@gmail.com",
+        "username": "Karen Tables",
+        "password": "karen123",
+        "image": "../assets/DefaultProfilePic.png"
+      },
+      { 
+        "id": 2,
+        "email": "bobtables@gmail.com",
+        "username": "Bob Tables",
+        "password": "bob123",
+        "image": "../assets/DefaultProfilePic.png"
+      },
+      { 
+        "id": 3,
+        "email": "baseballbobby@gmail.com",
+        "username": "Bobby Tables",
+        "password": "baseball123",
+        "image": "../assets/DefaultProfilePic.png"
+      },
+      { 
+        "id": 4,
+        "email": "timmylovescrayons@gmail.com",
+        "username": "Timmy Tables",
+        "password": "crayola5",
+        "image": "../assets/DefaultProfilePic.png"
+      }
+    ]
+  }

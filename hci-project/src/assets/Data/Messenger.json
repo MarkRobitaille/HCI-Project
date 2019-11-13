@@ -1,0 +1,51 @@
+{
+    "conversations": [
+      { 
+        "name": "Everyone",
+        "image": "../assets/images/everyoneConversation.png",
+        "notifications": false,
+        "messenges": [
+          { 
+            "message": "Hey everybody",
+            "sender": 1,
+            "timeSent": "2019-11-13T18:25:43.000F"
+          },
+          { 
+            "message": "Hey! :)",
+            "sender": 2,
+            "timeSent": "2019-11-13T18:25:43.000F"
+          },
+          { 
+            "message": "What's happening tomorrow?",
+            "sender": 1,
+            "timeSent": "2019-11-13T18:25:43.000F"
+          },
+          { 
+            "message": "I don't think anything is tomorrow",
+            "sender": 3,
+            "timeSent": "2019-11-13T18:25:43.000F"
+          },
+          { 
+            "message": "When is Bobby's big game??",
+            "sender": 1,
+            "timeSent": "2019-11-13T18:25:43.000F"
+          },
+          { 
+            "message": "I think it's the 25th?",
+            "sender": 3,
+            "timeSent": "2019-11-13T18:25:43.000F"
+          },
+          { 
+            "message": "Yeah, hope you do well!",
+            "sender": 2,
+            "timeSent": "2019-11-13T18:25:43.000F"
+          },
+          { 
+            "message": "Thanks",
+            "sender": 3,
+            "timeSent": "2019-11-13T18:25:43.000F"
+          }
+        ]
+      }
+    ]
+  }

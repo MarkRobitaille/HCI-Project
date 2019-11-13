@@ -1,0 +1,46 @@
+{
+    "lists": [
+      { 
+        "name": "To-dos",
+        "checkboxes": true,
+        "listItems": [
+          { 
+            "itemName": "Do HCI Project",
+            "completed": false
+          }
+        ]
+      },
+      { 
+        "name": "Chores",
+        "checkboxes": true,
+        "listItems": [
+          { 
+            "itemName": "Vacuum the house",
+            "completed": true
+          },
+          { 
+            "itemName": "Do dishes",
+            "completed": false
+          }
+        ]
+      },
+      { 
+        "name": "Shopping List",
+        "checkboxes": false,
+        "listItems": [
+          { 
+            "itemName": "Pizza",
+            "completed": false
+          },
+          { 
+            "itemName": "Subs",
+            "completed": false
+          },
+          { 
+            "itemName": "Ketchup",
+            "completed": false
+          }
+        ]
+      }
+    ]
+  }
