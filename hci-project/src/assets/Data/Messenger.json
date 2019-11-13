@@ -1,51 +1,73 @@
 {
-    "conversations": [
-      { 
-        "name": "Everyone",
-        "image": "../assets/images/everyoneConversation.png",
-        "notifications": false,
-        "messenges": [
-          { 
-            "message": "Hey everybody",
-            "sender": 1,
-            "timeSent": "2019-11-13T18:25:43.000F"
-          },
-          { 
-            "message": "Hey! :)",
-            "sender": 2,
-            "timeSent": "2019-11-13T18:25:43.000F"
-          },
-          { 
-            "message": "What's happening tomorrow?",
-            "sender": 1,
-            "timeSent": "2019-11-13T18:25:43.000F"
-          },
-          { 
-            "message": "I don't think anything is tomorrow",
-            "sender": 3,
-            "timeSent": "2019-11-13T18:25:43.000F"
-          },
-          { 
-            "message": "When is Bobby's big game??",
-            "sender": 1,
-            "timeSent": "2019-11-13T18:25:43.000F"
-          },
-          { 
-            "message": "I think it's the 25th?",
-            "sender": 3,
-            "timeSent": "2019-11-13T18:25:43.000F"
-          },
-          { 
-            "message": "Yeah, hope you do well!",
-            "sender": 2,
-            "timeSent": "2019-11-13T18:25:43.000F"
-          },
-          { 
-            "message": "Thanks",
-            "sender": 3,
-            "timeSent": "2019-11-13T18:25:43.000F"
-          }
-        ]
-      }
-    ]
-  }
+  "conversations": [
+    {
+      "name": "Everyone",
+      "image": "../assets/DefaultProfilePic.png",
+      "notifications": false,
+      "messenges": [
+        {
+          "message": "Hey everybody",
+          "sender": 1,
+          "timeSent": "2019-11-13T18:25:43.000F"
+        },
+        {
+          "message": "Hey! :)",
+          "sender": 2,
+          "timeSent": "2019-11-13T18:25:43.000F"
+        },
+        {
+          "message": "What's happening tomorrow?",
+          "sender": 1,
+          "timeSent": "2019-11-13T18:25:43.000F"
+        },
+        {
+          "message": "I don't think anything is tomorrow",
+          "sender": 3,
+          "timeSent": "2019-11-13T18:25:43.000F"
+        },
+        {
+          "message": "When is Bobby's big game??",
+          "sender": 1,
+          "timeSent": "2019-11-13T18:25:43.000F"
+        },
+        {
+          "message": "I think it's the 25th?",
+          "sender": 3,
+          "timeSent": "2019-11-13T18:25:43.000F"
+        },
+        {
+          "message": "Yeah, hope you do well!",
+          "sender": 2,
+          "timeSent": "2019-11-13T18:25:43.000F"
+        },
+        {
+          "message": "Thanks",
+          "sender": 3,
+          "timeSent": "2019-11-13T18:25:43.000F"
+        }
+      ]
+    },
+    {
+      "name": "Karen Tables",
+      "image": "../assets/DefaultProfilePic.png",
+      "notifications": true,
+      "messenges": [
+        {
+          "message": "When are you going to be home?",
+          "sender": 1,
+          "timeSent": "2019-11-13T18:25:43.000F"
+        },
+        {
+          "message": "Probably around 8",
+          "sender": 3,
+          "timeSent": "2019-11-13T18:25:43.000F"
+        },
+        {
+          "message": "Okay, be safe <3",
+          "sender": 1,
+          "timeSent": "2019-11-13T18:25:43.000F"
+        }
+      ]
+    }
+  ]
+}

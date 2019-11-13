@@ -15,15 +15,26 @@
       </div>
 
       <div class="message_list_items">
-        <div class="convo" id="activeConvo">
+
+        <div 
+        v-for="(item, i ) in messenger" 
+        :key="i"
+        :class="{'convo': true, 'selectedConvo': i === selected}"
+        >
+          <img :src="item.image + ''">
+          {{item.image}}
+          <p>{{item.name}}</p>
+        </div>
+
+        <!-- <div @click="console.log("test")" class="convo" id="activeConvo">
           <img src="../assets/DefaultProfilePic.png">
           <p>Family</p>
-        </div>
+        </div> -->
 
         <div class="convo">
           <img src="../assets/DefaultProfilePic.png"><p>Mom</p>
         </div>
-
+<!-- 
         <div class="convo">
           <img src="../assets/DefaultProfilePic.png">
           <p>Dad</p>
@@ -62,7 +73,7 @@
         <div class="convo">
           <img src="../assets/DefaultProfilePic.png">
           <p>Ceilidh</p>
-        </div>
+        </div> -->
 
       </div>
 
@@ -112,7 +123,7 @@
 </template>
 
 <script>
-// import { mapGetters } from 'vuex' // Used to get data from Vuex store
+import { mapGetters } from 'vuex' // Used to get data from Vuex store
 
 export default {
   name: 'Messenger',
@@ -125,10 +136,13 @@ export default {
   data() { // List of local data in this component
     return {
         // Variables go in here
+        selected: 0
     }
   },
   computed: { // Computed variables 
-
+    ...mapGetters({
+      messenger: 'getMessenger',
+    })
   },
   methods: { // Methods in this component
 
