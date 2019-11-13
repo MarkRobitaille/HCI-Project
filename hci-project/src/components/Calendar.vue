@@ -11,9 +11,9 @@
     <table class="table">
       <!-- Month Name and prev, next buttons -->
       <tr>
-        <th class="monthHeader" valign="baseline"><button class="prevMonthButton">Prev</button></th>      
+        <th class="prevButtonHeader"><button class="prevNextMonthButton">Prev</button></th>      
         <th colspan="5" class="monthHeader">November</th>
-        <th class="monthHeader" valign="baseline"><button class="nextMonthButton">Next</button></th>
+        <th class="nextButtonHeader"><button class="prevNextMonthButton">Next</button></th>
         
       </tr>
       <!-- Days of the week -->
@@ -126,7 +126,7 @@ export default {
 .addEventButton {
   position: absolute;
   right: 5vh;
-  top: 2.5vh;
+  top: 4vh;
   min-height: 20px;
   height: 5vh;
 }
@@ -134,17 +134,25 @@ export default {
 
 .table {
   height: 85vh;
-  width: 100%;
+  width: 99%;
   table-layout: fixed;
   border-collapse: collapse;
   border-spacing: 0;
   margin-top: 2.5vh;
   margin-bottom: 2.5vh; 
+  margin-left: auto;
+  margin-right: auto;
 }
 
 th,
 td {
   border: 0.13vw solid black;
+}
+
+.prevNextMonthButton {
+  vertical-align: middle;
+  min-height: 20px;
+  height: 5vh;
 }
 
 .monthHeader {
@@ -154,11 +162,20 @@ td {
   padding: 0;
   height: 10vh;
   vertical-align: middle;
-  border-top: 0;
   border-left:0;
   border-right: 0;
   background-color: darkslategray;
   color: white;
+}
+
+.prevButtonHeader{
+  border-right: 0;
+  background-color: darkslategray;
+}
+
+.nextButtonHeader{
+  border-left: 0;
+  background-color: darkslategray;
 }
 
 .weekdayHeader {
@@ -174,5 +191,6 @@ td {
 
 .inactiveDay {
   background-color: darkgrey;
+  color: darkgray;
 }
 </style>
