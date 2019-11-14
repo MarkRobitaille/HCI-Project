@@ -187,8 +187,8 @@ td {
 }
 
 .week {
-  height: calc(70vh/6vh);
   background-color: #def5fc;
+  height: calc(70/6)vh;
 }
 
 .inactiveDay {

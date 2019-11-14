@@ -18,11 +18,35 @@
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'app',
   components: {
     // HelloWorld
+  },
+  data() {
+    return {
+      tempDate: null,
+      currDate: null,
+      convertedDate: null,
+      today: null
+    }
+  },
+  created() {
+    this.$store.dispatch("initializeJSONData");
+    this.tempDate = this.calendar[0].days[0].events[0].startTime
+    this.currDate = new Date(this.calendar[0].days[0].events[0].startTime);
+    this.convertedDate = this.currDate.toString();
+    this.today = new Date();
+  },
+  computed: {
+    ...mapGetters({
+      users: 'getUsers',
+      messenger: 'getMessenger',
+      calendar: 'getCalendar',
+      lists: 'getLists'
+    })
   }
 }
 </script>
