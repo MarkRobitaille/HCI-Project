@@ -10,7 +10,8 @@ const storeModule = {
         users: [],
         messenger: [],
         calendar: [],
-        lists: []
+        lists: [],
+        selectedDate: {}
     },
 
     getters: {
@@ -31,6 +32,9 @@ const storeModule = {
         },
         getCurrentUser: function (state) {
             return state.currentUser;
+        },
+        getSelectedDate: function (state) {
+            return state.selectedDate;
         }
     },
 
@@ -53,6 +57,12 @@ const storeModule = {
         },
         setLists(state, payload) {
             state.lists = payload.lists;
+        },
+        setSelectedDate(state, payload) {
+            state.selectedDate = payload;
+        },
+        clearSelectedDate(state) {
+            state.selectedDate = {};
         }
     },
 
@@ -65,6 +75,12 @@ const storeModule = {
             commit('setMessenger', Messenger);
             commit('setCalendar', Calendar);
             commit('setLists', Lists);
+        },
+        setSelectedDate({commit}, payload) {
+            commit('setSelectedDate', payload);
+        },
+        clearSelectedDate({commit}) {
+            commit('clearSelectedDate');
         }
     }
 
