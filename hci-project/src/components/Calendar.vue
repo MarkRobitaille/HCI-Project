@@ -121,6 +121,7 @@ export default {
 <style scoped>
 .header {
   height: 10vh;
+  color:black;
 }
 
 .addEventButton {
@@ -146,7 +147,7 @@ export default {
 
 th,
 td {
-  border: 0.13vw solid black;
+  border: 0.1vw solid black;
 }
 
 .prevNextMonthButton {
@@ -164,21 +165,21 @@ td {
   vertical-align: middle;
   border-left:0;
   border-right: 0;
-  background-color: darkslategray;
-  color: white;
+  background-color: #bce7f7;
 }
 
 .prevButtonHeader{
   border-right: 0;
-  background-color: darkslategray;
+  background-color: #bce7f7;
 }
 
 .nextButtonHeader{
   border-left: 0;
-  background-color: darkslategray;
+  background-color: #bce7f7;
 }
 
 .weekdayHeader {
+  background-color: #def5fc;
   height: 5vh;
   text-align: center;
   text-transform: uppercase;
@@ -187,10 +188,11 @@ td {
 
 .week {
   height: calc(70vh/6vh);
+  background-color: #def5fc;
 }
 
 .inactiveDay {
-  background-color: darkgrey;
-  color: darkgray;
+  background-color: lightgrey;
+  color: lightgray;
 }
 </style>

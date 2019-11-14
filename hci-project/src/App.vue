@@ -51,6 +51,7 @@ body {
   min-height: 100vh;
 }
 h1 {
+  color: black;
   margin: 0;
   font-size: 8vh;
   padding: 1%;
@@ -74,7 +75,7 @@ h1 {
   margin: 0;
 }
 .content { 
-  background-color: lightblue;
+  background-color: #def5fc;
   width: 80%;
   margin-left: 20%;
   padding: 0;
