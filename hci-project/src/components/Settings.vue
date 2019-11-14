@@ -11,17 +11,17 @@
       <h2>Bobby's Profile</h2> 
       <img src="../assets/DefaultProfilePic.png" alt="Default profile picture" class="profileImg">
       <h3>
-      <a href="#/settings" class="settingsLink">Change profile picture</a>
-      <a href="#/settings" class="settingsLink">Change username</a>
-      <a href="#/settings" class="settingsLink">Change password</a>
-      <a href="#/settings" class="settingsLink">Change email</a>
+      <div class="settingsLink"><a href="#/settings">Change profile picture</a></div>
+      <div class="settingsLink"><a href="#/settings">Change username</a></div>
+      <div class="settingsLink"><a href="#/settings">Change password</a></div>
+      <div class="settingsLink"><a href="#/settings">Change email</a></div>
       </h3>
 
       <!-- Calendar Settings -->
       <h2>Calendar</h2>
       <h3>
-      <a href="#/settings" class="settingsLink">Change calendar color</a>
-      <a href="#/settings" class="settingsLink">Change calendar icon</a>
+      <div class="settingsLink"><a href="#/settings">Change calendar color</a></div>
+      <div class="settingsLink"><a href="#/settings">Change calendar icon</a></div>
       </h3>
 
       <!-- Family code -->
