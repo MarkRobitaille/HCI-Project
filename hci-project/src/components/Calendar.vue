@@ -186,7 +186,7 @@ td {
 }
 
 .week {
-  height: calc(70vh/6vh);
+  height: calc(70/6)vh;
 }
 
 .inactiveDay {
