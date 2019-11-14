@@ -1,0 +1,73 @@
+{
+  "conversations": [
+    {
+      "name": "Everyone",
+      "image": "DefaultProfilePic.png",
+      "notification": false,
+      "messages": [
+        {
+          "message": "Hey everybody",
+          "senderId": 1,
+          "timeSent": "2019-11-11 18:25:43 GMT-0600"
+        },
+        {
+          "message": "Hey! :)",
+          "senderId": 2,
+          "timeSent": "2019-11-11 18:25:43 GMT-0600"
+        },
+        {
+          "message": "What's happening tomorrow?",
+          "senderId": 1,
+          "timeSent": "2019-11-12 18:25:43 GMT-0600"
+        },
+        {
+          "message": "I don't think anything is tomorrow",
+          "senderId": 3,
+          "timeSent": "2019-11-12 18:25:43 GMT-0600"
+        },
+        {
+          "message": "When is Bobby's big game??",
+          "senderId": 1,
+          "timeSent": "2019-11-13 18:25:43 GMT-0600"
+        },
+        {
+          "message": "I think it's the 25th?",
+          "senderId": 3,
+          "timeSent": "2019-11-13 18:25:43 GMT-0600"
+        },
+        {
+          "message": "Yeah, hope you do well!",
+          "senderId": 2,
+          "timeSent": "2019-11-13 18:25:43 GMT-0600"
+        },
+        {
+          "message": "Thanks",
+          "senderId": 3,
+          "timeSent": "2019-11-13 18:25:43 GMT-0600"
+        }
+      ]
+    },
+    {
+      "name": "Karen Tables",
+      "image": "DefaultProfilePic.png",
+      "notification": true,
+      "messages": [
+        {
+          "message": "When are you going to be home?",
+          "senderId": 1,
+          "timeSent": "2019-11-13 18:25:43 GMT-0600"
+        },
+        {
+          "message": "Probably around 8",
+          "senderId": 3,
+          "timeSent": "2019-11-13 18:25:43 GMT-0600"
+        },
+        {
+          "message": "Okay, be safe <3",
+          "senderId": 1,
+          "timeSent": "2019-11-13 18:25:43 GMT-0600"
+        }
+      ]
+    }
+  ]
+}
