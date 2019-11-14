@@ -40,7 +40,7 @@ const storeModule = {
         },
         setUsers(state, payload) {
             state.users = payload.users;
-            state.currentUser = state.users[2];
+            // state.currentUser = state.users[2];
         },
         setMessenger(state, payload) {
             state.messenger = payload.conversations;

@@ -1,16 +1,19 @@
 <template>
   <div class="main">
-    <div class="navbar">
-      <a href="#/" class="active">Home</a>
-      <a href="#/messenger">Messenger</a>
-      <a href="#/calendar">Calendar</a>
-      <a href="#/lists">Lists</a>
-      <a href="#/settings">Settings</a>
-    </div>
-    <div class="content">
-      <div id="app">
-        <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
-        <router-view></router-view>
+    <div class="splash" v-if="currentUser.id == 0"></div>
+    <div v-else>
+      <div class="navbar">
+        <a href="#/" class="active">Home</a>
+        <a href="#/messenger">Messenger</a>
+        <a href="#/calendar">Calendar</a>
+        <a href="#/lists">Lists</a>
+        <a href="#/settings">Settings</a>
+      </div>
+      <div class="content">
+        <div id="app">
+          <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
+          <router-view></router-view>
+        </div>
       </div>
     </div>
   </div>
@@ -18,37 +21,38 @@
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
-import { mapGetters } from 'vuex'
+import { mapGetters } from "vuex";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
     // HelloWorld
   },
   data() {
     return {
-      tempDate: null,
-      currDate: null,
-      convertedDate: null,
-      today: null
-    }
+      // tempDate: null,
+      // currDate: null,
+      // convertedDate: null,
+      // today: null
+    };
   },
   created() {
     this.$store.dispatch("initializeJSONData");
-    this.tempDate = this.calendar[0].days[0].events[0].startTime
-    this.currDate = new Date(this.calendar[0].days[0].events[0].startTime);
-    this.convertedDate = this.currDate.toString();
-    this.today = new Date();
+    // this.tempDate = this.calendar[0].days[0].events[0].startTime
+    // this.currDate = new Date(this.calendar[0].days[0].events[0].startTime);
+    // this.convertedDate = this.currDate.toString();
+    // this.today = new Date();
   },
   computed: {
     ...mapGetters({
-      users: 'getUsers',
-      messenger: 'getMessenger',
-      calendar: 'getCalendar',
-      lists: 'getLists'
+      currentUser: "getCurrentUser",
+      users: "getUsers",
+      messenger: "getMessenger",
+      calendar: "getCalendar",
+      lists: "getLists"
     })
   }
-}
+};
 </script>
 
 <style>
@@ -98,7 +102,7 @@ h1 {
   padding: 5%;
   margin: 0;
 }
-.content { 
+.content {
   background-color: #def5fc;
   width: 80%;
   margin-left: 20%;
