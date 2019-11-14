@@ -6,7 +6,7 @@ import Lists from "./assets/data/Lists.json"
 const storeModule = {
     state: {
         counter: 1,
-        loggedIn: { id: 0 },
+        currentUser: { id: 0 },
         users: [],
         messenger: [],
         calendar: [],
@@ -28,6 +28,9 @@ const storeModule = {
         },
         getLists: function (state) {
             return state.lists;
+        },
+        getCurrentUser: function (state) {
+            return state.currentUser;
         }
     },
 
@@ -37,9 +40,13 @@ const storeModule = {
         },
         setUsers(state, payload) {
             state.users = payload.users;
+            state.currentUser = state.users[2];
         },
         setMessenger(state, payload) {
             state.messenger = payload.conversations;
+            // for (let i=0; i<state.messenger.length; i++) {
+                // state.messenger[i].image = require(state.messenger[i].image);
+            // }
         },
         setCalendar(state, payload) {
             state.calendar = payload.calendar;

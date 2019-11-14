@@ -2,70 +2,70 @@
   "conversations": [
     {
       "name": "Everyone",
-      "image": "../assets/DefaultProfilePic.png",
-      "notifications": false,
-      "messenges": [
+      "image": "DefaultProfilePic.png",
+      "notification": false,
+      "messages": [
         {
           "message": "Hey everybody",
-          "sender": 1,
-          "timeSent": "2019-11-13T18:25:43.000F"
+          "senderId": 1,
+          "timeSent": "2019-11-11 18:25:43 GMT-0600"
         },
         {
           "message": "Hey! :)",
-          "sender": 2,
-          "timeSent": "2019-11-13T18:25:43.000F"
+          "senderId": 2,
+          "timeSent": "2019-11-11 18:25:43 GMT-0600"
         },
         {
           "message": "What's happening tomorrow?",
-          "sender": 1,
-          "timeSent": "2019-11-13T18:25:43.000F"
+          "senderId": 1,
+          "timeSent": "2019-11-12 18:25:43 GMT-0600"
         },
         {
           "message": "I don't think anything is tomorrow",
-          "sender": 3,
-          "timeSent": "2019-11-13T18:25:43.000F"
+          "senderId": 3,
+          "timeSent": "2019-11-12 18:25:43 GMT-0600"
         },
         {
           "message": "When is Bobby's big game??",
-          "sender": 1,
-          "timeSent": "2019-11-13T18:25:43.000F"
+          "senderId": 1,
+          "timeSent": "2019-11-13 18:25:43 GMT-0600"
         },
         {
           "message": "I think it's the 25th?",
-          "sender": 3,
-          "timeSent": "2019-11-13T18:25:43.000F"
+          "senderId": 3,
+          "timeSent": "2019-11-13 18:25:43 GMT-0600"
         },
         {
           "message": "Yeah, hope you do well!",
-          "sender": 2,
-          "timeSent": "2019-11-13T18:25:43.000F"
+          "senderId": 2,
+          "timeSent": "2019-11-13 18:25:43 GMT-0600"
         },
         {
           "message": "Thanks",
-          "sender": 3,
-          "timeSent": "2019-11-13T18:25:43.000F"
+          "senderId": 3,
+          "timeSent": "2019-11-13 18:25:43 GMT-0600"
         }
       ]
     },
     {
       "name": "Karen Tables",
-      "image": "../assets/DefaultProfilePic.png",
-      "notifications": true,
-      "messenges": [
+      "image": "DefaultProfilePic.png",
+      "notification": true,
+      "messages": [
         {
           "message": "When are you going to be home?",
-          "sender": 1,
-          "timeSent": "2019-11-13T18:25:43.000F"
+          "senderId": 1,
+          "timeSent": "2019-11-13 18:25:43 GMT-0600"
         },
         {
           "message": "Probably around 8",
-          "sender": 3,
-          "timeSent": "2019-11-13T18:25:43.000F"
+          "senderId": 3,
+          "timeSent": "2019-11-13 18:25:43 GMT-0600"
         },
         {
           "message": "Okay, be safe <3",
-          "sender": 1,
-          "timeSent": "2019-11-13T18:25:43.000F"
+          "senderId": 1,
+          "timeSent": "2019-11-13 18:25:43 GMT-0600"
         }
       ]
     }

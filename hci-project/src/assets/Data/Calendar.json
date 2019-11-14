@@ -10,8 +10,8 @@
                 { 
                   "name": "Test",
                   "allDay": false,
-                  "startTime": "2019-01-01T10:00:00.000F",
-                  "endTime": "2019-01-01T11:00:00.000F",
+                  "startTime": "2019-01-01 10:00:00 GMT-0600",
+                  "endTime": "2019-01-01 11:00:00 GMT-0600",
                   "description": "Test event",
                   "createdBy": 1
                 }
