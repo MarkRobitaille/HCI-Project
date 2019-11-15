@@ -19,9 +19,9 @@
         <th class="prevButtonHeader">
           <button class="prevNextMonthButton" @click="setPrevMonth()">Prev</button>
         </th>
-        <th colspan="5" class="monthHeader">{{calendar[calendarState.selectedMonth].name}}</th>
+        <th colspan="5" class="monthHeader">{{calendar[calendarState.selectedMonth].name}} 2019</th>
         <th class="nextButtonHeader">
-          <button class="prevNextMonthButton" @click="setPrevMonth()">Next</button>
+          <button class="prevNextMonthButton" @click="setNextMonth()">Next</button>
         </th>
       </tr>
       <!-- Days of the week -->
@@ -56,6 +56,7 @@
     <CalendarDayView
       v-if="calendarState.selectedDay>=0"
       :day="calendar[calendarState.selectedMonth].days[calendarState.selectedDay]"
+      :monthName="calendar[calendarState.selectedMonth].name"
     ></CalendarDayView>
 
     <AddEvent
@@ -98,9 +99,9 @@ export default {
     };
   },
   watch: {
-    "calendarState.selectedMonth": function() {
-      this.clearDay();
-    }
+    // "calendarState.selectedMonth": function() {
+    //   this.clearDay();
+    // }
     // selectedDayIndex: function () {
     //   this.selectedDayIndex = 0;
     // },
@@ -133,8 +134,12 @@ export default {
     addEvent() {
       this.$store.dispatch("setAddEvent", true);
     },
-    setPrevMonth() {},
-    setNextMonth() {}
+    setPrevMonth() {
+      this.$store.dispatch("setPrevMonth");
+    },
+    setNextMonth() {
+      this.$store.dispatch("setNextMonth");
+    }
   }
 };
 </script>
@@ -185,6 +190,10 @@ export default {
 th,
 td {
   border: 0.1vw solid black;
+}
+
+td {
+  overflow: hidden;
 }
 
 .prevNextMonthButton {

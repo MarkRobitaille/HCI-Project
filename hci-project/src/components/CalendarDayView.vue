@@ -13,7 +13,7 @@
           <button class="dayButton" @click="setPrevDay()">Prev</button>
         </div>
         <div class="largeDayCol">
-          <h2>January {{day.number}}, 2019</h2>
+          <h2>{{monthName}} {{day.number}}, 2019</h2>
         </div>
         <div class="smallDayCol">
           <button class="dayButton" @click="setNextDay()">Next</button>
@@ -62,6 +62,10 @@ export default {
       Type: Object,
       required: true
     },
+    monthName: {
+        Type: String,
+        required: true
+    }
   },
   data() {
     // List of local data in this component
@@ -82,10 +86,10 @@ export default {
       this.$store.dispatch("setSelectedDay", -1);
     },
     setPrevDay() {
-
+      this.$store.dispatch("setPrevDay");
     },
     setNextDay() {
-
+      this.$store.dispatch("setNextDay");
     },
     addEvent() {
       this.$store.dispatch("setAddEvent", true);

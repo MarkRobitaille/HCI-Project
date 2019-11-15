@@ -114,6 +114,37 @@ const storeModule = {
         },
         removeEvent(state, payload) {
             state.calendar[payload.month].days[payload.day].events.splice(payload.event, 1);
+        },
+        setPrevMonth(state) {
+            if (state.selectedMonth - 1 < 0) {
+                state.selectedMonth = 11;
+            } else {
+                state.selectedMonth--;
+            }
+        },
+        setNextMonth(state) {
+            state.selectedMonth = (state.selectedMonth + 1) % 12;
+        },
+        setPrevDay(state) {
+            if (state.selectedDay - 1 < 0) {
+                if (state.selectedMonth - 1 < 0) {
+                    state.selectedMonth = 11;
+                } else {
+                    state.selectedMonth--;
+                }
+                state.selectedDay = state.calendar[state.selectedMonth].days.length - 1;
+            } else {
+                state.selectedDay--;
+            }
+        },
+        setNextDay(state) {
+            if (state.selectedDay + 1 >= state.calendar[state.selectedMonth].days.length) {
+                state.selectedMonth = (state.selectedMonth + 1) % 12;
+                state.selectedDay = 0;
+            }
+            else {
+                state.selectedDay++;
+            }
         }
     },
 
@@ -150,7 +181,19 @@ const storeModule = {
         },
         removeEvent({ commit }, payload) {
             commit('removeEvent', payload)
-        }
+        },
+        setPrevMonth({ commit }) {
+            commit('setPrevMonth');
+        },
+        setNextMonth({ commit }) {
+            commit('setNextMonth');
+        },
+        setPrevDay({ commit }) {
+            commit('setPrevDay');
+        },
+        setNextDay({ commit }) {
+            commit('setNextDay');
+        },
     }
 
 }

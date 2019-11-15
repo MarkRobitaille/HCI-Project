@@ -4,7 +4,7 @@
       <div></div>
     </div>
     <div v-else-if="size==2" class="mediumEvent">
-      <div>{{event.name}} {{timeRange}}</div>
+      <div>{{event.name}}</div>
     </div>
     <div v-else class="largeEvent">
       <div>{{event.name}} {{timeRange}}</div>
@@ -89,11 +89,20 @@ export default {
   width: 100%;
   height: 100%;
   vertical-align: middle;
-}
-.largeEvent {
-  height: 100%;
   background-color: aquamarine;
   text-align: center;
   vertical-align: middle;
+}
+
+.smallEvent{
+
+}
+
+.mediumEvent {
+
+}
+.largeEvent {
+  height: 100%;
+  
 }
 </style>
