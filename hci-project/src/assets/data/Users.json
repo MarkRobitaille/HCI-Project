@@ -3,28 +3,28 @@
     {
       "id": 1,
       "email": "karentables@gmail.com",
-      "username": "Karen Tables",
+      "name": "Karen Tables",
       "password": "karen123",
       "image": "../assets/DefaultProfilePic.png"
     },
     {
       "id": 2,
       "email": "bobtables@gmail.com",
-      "username": "Bob Tables",
+      "name": "Bob Tables",
       "password": "bob123",
       "image": "../assets/DefaultProfilePic.png"
     },
     {
       "id": 3,
       "email": "baseballbobby@gmail.com",
-      "username": "Bobby Tables",
+      "name": "Bobby Tables",
       "password": "baseball123",
       "image": "../assets/DefaultProfilePic.png"
     },
     {
       "id": 4,
       "email": "timmylovescrayons@gmail.com",
-      "username": "Timmy Tables",
+      "ame": "Timmy Tables",
       "password": "crayola5",
       "image": "../assets/DefaultProfilePic.png"
     }

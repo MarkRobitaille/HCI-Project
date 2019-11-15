@@ -12,7 +12,7 @@
       <img src="../assets/DefaultProfilePic.png" alt="Default profile picture" class="profileImg">
       <h3>
       <a href="#/settings" class="settingsLink">Change profile picture</a>
-      <a href="#/settings" class="settingsLink">Change username</a>
+      <a href="#/settings" class="settingsLink">Change name</a>
       <a href="#/settings" class="settingsLink">Change password</a>
       <a href="#/settings" class="settingsLink">Change email</a>
       </h3>

@@ -47,6 +47,9 @@ export default {
       newMessage: ""
     };
   },
+  created() {
+    this.scrollToBottom();
+  },
   computed: {
     // Computed variables
     ...mapGetters({

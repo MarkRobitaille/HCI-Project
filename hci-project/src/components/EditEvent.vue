@@ -120,7 +120,7 @@ export default {
         let name = null;
         for (let i=0; i<this.users.length && name==null; i++) {
             if (this.users[i].id == this.event.createdBy) {
-                name = this.users[i].username;
+                name = this.users[i].name;
             }
         }
         return name;
