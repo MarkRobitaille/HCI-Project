@@ -78,6 +78,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <!-- We'll put global css in App.vue -->
 <style scoped>
+
 .header {
   background: white;
   border-bottom: solid 1px #ededed;
@@ -93,13 +94,13 @@ export default {
 .message_list {
   background: #def5fc;
   width: 25%;
-  height: 87.5vh;
+  height: 70vh;
   float: left;
 }
 
 .message_list_items {
   width: 100%;
-  height: 80vh;
+  height: 70vh;
   overflow-y: scroll;
 }
 
@@ -121,6 +122,8 @@ export default {
   width: 8vh;
   float: left;
   margin-left: 1vw;
+  margin-top: 1vw;
+  
 }
 
 .notification {

@@ -1,5 +1,5 @@
 <template>
-  <div> <!-- Can only have 1 parent element in a component -->
+  <div class="messageSpace"> <!-- Can only have 1 parent element in a component -->
     <!-- All template inside of here -->
     <div class="date" v-if="newDay">{{formattedDate}}</div>
     <div class="bubble" v-if="sameUser" @>{{messageData.message}}</div>
@@ -85,12 +85,14 @@ export default {
 /* Use classes to create css */
 /* If you want dynamic application of css, create a computed variable in computed section */
 /* Then apply by binding it to html tag by using :class="computedClass" */
+
 .date {
   font: italic;
   margin-top: 20px;
   margin-bottom: 20px;
   font-size: 12px;
   color: gray;
+  clear:both;
 }
 
 .bubble {
@@ -123,6 +125,7 @@ export default {
   clear: both;
 
   background: #d6d6d6;
+  /* background: #e6ccff; */
 
   border: solid 1px rgba(0, 0, 0, 0);
   border-radius: 20px 20px 20px 0px;
@@ -134,4 +137,5 @@ export default {
   word-wrap: break-word;
   text-align: left;
 }
+
 </style>
