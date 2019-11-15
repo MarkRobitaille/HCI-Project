@@ -82,10 +82,10 @@ export default {
       this.$store.dispatch("setSelectedDay", -1);
     },
     setPrevDay() {
-
+      this.$store.dispatch("setPrevDay");
     },
     setNextDay() {
-
+      this.$store.dispatch("setNextDay");
     },
     addEvent() {
       this.$store.dispatch("setAddEvent", true);
