@@ -125,7 +125,7 @@ export default {
 /* Include the padding and border in an element's total width and height */
 .sideWindow {
   position: fixed;
-  width: 25%;
+  width: 35%;
   height: 100vh;
   right: 0;
   top: 0;

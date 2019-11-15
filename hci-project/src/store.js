@@ -61,7 +61,7 @@ const storeModule = {
         setMessenger(state, payload) {
             state.messenger = payload.conversations;
             // for (let i=0; i<state.messenger.length; i++) {
-                // state.messenger[i].image = require(state.messenger[i].image);
+            // state.messenger[i].image = require(state.messenger[i].image);
             // }
         },
         setCalendar(state, payload) {
@@ -88,13 +88,40 @@ const storeModule = {
         setAddEvent(state, payload) {
             state.addEvent = payload;
         },
+        addEvent(state, payload) {
+            let newEvent = {
+                "name": payload.name,
+                "allDay": payload.allDay,
+                "startTime": "",
+                "endTime": "",
+                "description": payload.description,
+                "createdBy": state.currentUser.id
+            };
+
+            if (newEvent.allDay) {
+                state.calendar[payload.month].days[payload.day].events.unshift(newEvent);
+            } else {
+                newEvent.startTime = payload.startTime;
+                newEvent.endTime = payload.endTime;
+
+                let index = 0;
+                while (state.calendar[payload.month].days[payload.day].events[index].startTime < newEvent.startTime) {
+                    index++;
+                }
+
+                state.calendar[payload.month].days[payload.day].events.slice(index, 0, newEvent);
+            }
+        },
+        removeEvent(state, payload) {
+            state.calendar[payload.month].days[payload.day].events.splice(payload.event, 1);
+        }
     },
 
     actions: {
         incrementCounter({ commit }) {
             commit('incrementCounter')
         },
-        initializeJSONData({commit}) {
+        initializeJSONData({ commit }) {
             commit('setUsers', Users);
             commit('setMessenger', Messenger);
             commit('setCalendar', Calendar);
@@ -106,18 +133,24 @@ const storeModule = {
         // clearSelectedDate({commit}) {
         //     commit('clearSelectedDate');
         // },
-        setSelectedMonth({commit}, payload) {
+        setSelectedMonth({ commit }, payload) {
             commit('setSelectedMonth', payload);
         },
-        setSelectedDay({commit}, payload) {
+        setSelectedDay({ commit }, payload) {
             commit('setSelectedDay', payload);
         },
-        setSelectedEvent({commit}, payload) {
+        setSelectedEvent({ commit }, payload) {
             commit('setSelectedEvent', payload);
         },
-        setAddEvent({commit}, payload) {
+        setAddEvent({ commit }, payload) {
             commit('setAddEvent', payload);
         },
+        addEvent({ commit }, payload) {
+            commit('addEvent', payload);
+        },
+        removeEvent({ commit }, payload) {
+            commit('removeEvent', payload)
+        }
     }
 
 }

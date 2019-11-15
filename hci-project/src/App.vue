@@ -35,17 +35,17 @@ export default {
   },
   created() {
     this.$store.dispatch("initializeJSONData");
-    this.tempDate = this.calendar[0].days[0].events[0].startTime
-    this.currDate = new Date(this.calendar[0].days[0].events[0].startTime);
-    this.convertedDate = this.currDate.toString();
-    this.today = new Date();
+    // this.tempDate = this.calendar[0].days[0].events[0].startTime
+    // this.currDate = new Date(this.calendar[0].days[0].events[0].startTime);
+    // this.convertedDate = this.currDate.toString();
+    // this.today = new Date();
   },
   computed: {
     ...mapGetters({
       users: 'getUsers',
-      messenger: 'getMessenger',
-      calendar: 'getCalendar',
-      lists: 'getLists'
+      // messenger: 'getMessenger',
+      // calendar: 'getCalendar',
+      // lists: 'getLists'
     })
   }
 }

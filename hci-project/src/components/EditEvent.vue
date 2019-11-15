@@ -63,7 +63,13 @@
           <textarea v-model="description" id="eventDescription" class="eventInputField" />
         </div>
       </div>
-      <div>Event created by {{createdBy}}.</div>
+      <div class="eventCreatedBy">Event created by {{createdBy}}.</div>
+      <!-- <div class="outerEventDeleteDiv">
+        <div class="eventDeleteOffsetDiv"></div> -->
+        <div class="eventDeleteDiv">
+          <button class="eventDeleteButton" @click="closeWindow()">Delete</button>
+        </div>
+      <!-- </div> -->
     </div>
   </div>
 </template>
@@ -130,6 +136,9 @@ export default {
     // Methods in this component
     closeWindow() {
         this.$store.dispatch("setSelectedEvent",-1)
+    },
+    deleteEvent() {
+
     }
   }
 };
@@ -191,5 +200,27 @@ export default {
 }
 .checkbox {
   float: left;
+}
+.eventCreatedBy {
+  margin-top: 5vh;
+}
+/* .outerEventDeleteDiv {
+  height: 10vh;
+  width: 100%;
+} */
+/* .eventDeleteDiv {
+  float: left;
+  height: 10vh;
+  width: 80%;
+} */
+.eventDeleteDiv {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 10vh;
+  width: 20%;
+}
+.eventDeleteButton {
+  margin-bottom: 3.5vh;
 }
 </style>
