@@ -1,6 +1,8 @@
 <template>
   <div class="main">
-    <div class="splash" v-if="currentUser.id == 0"></div>
+    <div class="splash" v-if="currentUser.id == 0">
+      <SplashPage></SplashPage>
+    </div>
     <div v-else>
       <div class="navbar">
         <a href="#/" class="active">Home</a>
@@ -20,13 +22,13 @@
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
+import SplashPage from './components/SplashPage.vue'
 import { mapGetters } from "vuex";
 
 export default {
   name: "app",
   components: {
-    // HelloWorld
+    SplashPage
   },
   data() {
     return {
@@ -87,6 +89,12 @@ h1 {
 
 /* Custom classes */
 .main {
+  padding: 0;
+  margin: 0;
+}
+.splash {
+  width: 100%;
+  height: 100vh;
   padding: 0;
   margin: 0;
 }
