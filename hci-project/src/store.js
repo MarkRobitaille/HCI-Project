@@ -11,7 +11,11 @@ const storeModule = {
         messenger: [],
         calendar: [],
         lists: [],
-        selectedDate: {}
+        selectedDate: {},
+        selectedMonth: 0,
+        selectedDay: -1,
+        selectedEvent: -1,
+        addEvent: false
     },
 
     getters: {
@@ -33,9 +37,17 @@ const storeModule = {
         getCurrentUser: function (state) {
             return state.currentUser;
         },
-        getSelectedDate: function (state) {
-            return state.selectedDate;
-        }
+        // getSelectedDate: function (state) {
+        //     return state.selectedDate;
+        // },
+        getCalendarState: function (state) {
+            return {
+                selectedMonth: state.selectedMonth,
+                selectedDay: state.selectedDay,
+                selectedEvent: state.selectedEvent,
+                addEvent: state.addEvent
+            };
+        },
     },
 
     mutations: {
@@ -58,12 +70,24 @@ const storeModule = {
         setLists(state, payload) {
             state.lists = payload.lists;
         },
-        setSelectedDate(state, payload) {
-            state.selectedDate = payload;
+        // setSelectedDate(state, payload) {
+        //     state.selectedDate = payload;
+        // },
+        // clearSelectedDate(state) {
+        //     state.selectedDate = {};
+        // },
+        setSelectedMonth(state, payload) {
+            state.selectedMonth = payload;
         },
-        clearSelectedDate(state) {
-            state.selectedDate = {};
-        }
+        setSelectedDay(state, payload) {
+            state.selectedDay = payload;
+        },
+        setSelectedEvent(state, payload) {
+            state.selectedEvent = payload;
+        },
+        setAddEvent(state, payload) {
+            state.addEvent = payload;
+        },
     },
 
     actions: {
@@ -76,12 +100,24 @@ const storeModule = {
             commit('setCalendar', Calendar);
             commit('setLists', Lists);
         },
-        setSelectedDate({commit}, payload) {
-            commit('setSelectedDate', payload);
+        // setSelectedDate({commit}, payload) {
+        //     commit('setSelectedDate', payload);
+        // },
+        // clearSelectedDate({commit}) {
+        //     commit('clearSelectedDate');
+        // },
+        setSelectedMonth({commit}, payload) {
+            commit('setSelectedMonth', payload);
         },
-        clearSelectedDate({commit}) {
-            commit('clearSelectedDate');
-        }
+        setSelectedDay({commit}, payload) {
+            commit('setSelectedDay', payload);
+        },
+        setSelectedEvent({commit}, payload) {
+            commit('setSelectedEvent', payload);
+        },
+        setAddEvent({commit}, payload) {
+            commit('setAddEvent', payload);
+        },
     }
 
 }

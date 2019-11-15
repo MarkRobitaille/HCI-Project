@@ -1,23 +1,27 @@
 <template>
   <div :class="calendar">
-
-    <div class="fadeOut" v-if="selectedDayIndex>=0" @click="clearDay()"></div>
+    <!-- Add fade transition here -->
+    <div
+      class="fadeOut"
+      v-if="calendarState.selectedDay>=0 || calendarState.addEvent"
+      @click="clearDay()"
+    ></div>
     <!-- Can only have 1 parent element in a component -->
     <!-- All template inside of here -->
     <div class="header">
       <h1>Calendar</h1>
-      <button class="addEventButton">Add Event</button>
+      <button class="addEventButton" @click="addEvent()">Add Event</button>
     </div>
 
     <table class="table">
       <!-- Month Name and prev, next buttons -->
       <tr>
         <th class="prevButtonHeader">
-          <button class="prevNextMonthButton">Prev</button>
+          <button class="prevNextMonthButton" @click="setPrevMonth()">Prev</button>
         </th>
-        <th colspan="5" class="monthHeader">November</th>
+        <th colspan="5" class="monthHeader">{{calendar[calendarState.selectedMonth].name}}</th>
         <th class="nextButtonHeader">
-          <button class="prevNextMonthButton">Next</button>
+          <button class="prevNextMonthButton" @click="setPrevMonth()">Next</button>
         </th>
       </tr>
       <!-- Days of the week -->
@@ -35,57 +39,68 @@
         <td
           v-for="j in 7"
           :key="i+ '' +j"
-          :class="(i-1)*7+j>calendar[selectedMonthIndex].offset && 
-            (i-1)*7+(j-1)<calendar[selectedMonthIndex].offset + calendar[selectedMonthIndex].days.length ? '' : 'inactiveDay'"
-          @click="selectDay((i-1)*7+(j-1)-calendar[selectedMonthIndex].offset)"
+          :class="(i-1)*7+j>calendar[calendarState.selectedMonth].offset && 
+            (i-1)*7+(j-1)<calendar[calendarState.selectedMonth].offset + calendar[calendarState.selectedMonth].days.length ? '' : 'inactiveDay'"
+          @click="selectDay((i-1)*7+(j-1)-calendar[calendarState.selectedMonth].offset)"
         >
+          <!-- selectedMonth == currDate.getMonth() && (i-1)*7+(j-1) == currDate.getDay()? 'today' : ''"" -->
           <CalendarDate
-            v-if="(i-1)*7+j>calendar[selectedMonthIndex].offset && 
-            (i-1)*7+(j-1)<calendar[selectedMonthIndex].offset + calendar[selectedMonthIndex].days.length"
-            :day="calendar[selectedMonthIndex].days[(i-1)*7+(j-1)-calendar[selectedMonthIndex].offset]"
+            v-if="(i-1)*7+j>calendar[calendarState.selectedMonth].offset && 
+            (i-1)*7+(j-1)<calendar[calendarState.selectedMonth].offset + calendar[calendarState.selectedMonth].days.length"
+            :day="calendar[calendarState.selectedMonth].days[(i-1)*7+(j-1)-calendar[calendarState.selectedMonth].offset]"
           ></CalendarDate>
         </td>
       </tr>
     </table>
 
     <CalendarDayView
-      v-if="selectedDayIndex>=0"
-      :day="calendar[selectedMonthIndex].days[selectedDayIndex]"
+      v-if="calendarState.selectedDay>=0"
+      :day="calendar[calendarState.selectedMonth].days[calendarState.selectedDay]"
     ></CalendarDayView>
+
+    <AddEvent
+      v-if="calendarState.addEvent"
+      :month="calendarState.selectedMonth"
+      :day="calendarState.selectedDay"
+    ></AddEvent>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex' // Used to get data from Vuex store
-import CalendarDate from './CalendarDate';
-import CalendarDayView from './CalendarDayView';
+import { mapGetters } from "vuex"; // Used to get data from Vuex store
+import CalendarDate from "./CalendarDate";
+import CalendarDayView from "./CalendarDayView";
+import AddEvent from "./AddEvent";
 
 export default {
   name: "Calendar",
   components: {
     // List of all components used in this component
     CalendarDate,
-    CalendarDayView
+    CalendarDayView,
+    AddEvent
   },
   created() {
-    console.log(this.calendar[this.selectedMonthIndex].offset + this.calendar[this.selectedMonthIndex].days.length);
+    // console.log(this.calendar[this.selectedMonthIndex].offset + this.calendar[this.selectedMonthIndex].days.length);
+    this.currDate = new Date();
+    // this.$store.dispatch("setSelectedMonth", this.currDate.getMonth());
   },
   props: {
     // List of data passed in from parent component
-
   },
   data() {
     // List of local data in this component
     return {
       // Variables go in here
-      selectedMonthIndex: 0,
-      selectedDayIndex: -1
+      // selectedMonthIndex: 0,
+      // selectedDayIndex: -1,
+      currDate: null
     };
   },
   watch: {
-    selectedMonthIndex: function () {
-      this.selectedDayIndex = -1;
-    },
+    "calendarState.selectedMonth": function() {
+      this.clearDay();
+    }
     // selectedDayIndex: function () {
     //   this.selectedDayIndex = 0;
     // },
@@ -93,27 +108,33 @@ export default {
   computed: {
     // Computed variables
     ...mapGetters({
-      calendar: 'getCalendar',
+      calendar: "getCalendar",
+      calendarState: "getCalendarState"
     })
   },
   methods: {
     // Methods in this component
     selectDay(day) {
-
-      if (day >= 0 && day < this.calendar[this.selectedMonthIndex].days.length) {
-        this.selectedDayIndex = day;
-        this.$store.dispatch("setSelectedDate",
-          {
-            monthIndex: this.selectedMonthIndex,
-            dayIndex: this.selectedDayIndex
-          });
+      if (
+        day >= 0 &&
+        day < this.calendar[this.calendarState.selectedMonth].days.length
+      ) {
+        // this.selectedDayIndex = day;
+        this.$store.dispatch("setSelectedDay", day);
       }
     },
     clearDay() {
       console.log("Clearing day");
-      this.selectedDayIndex = -1;
-      this.selectedDayIndex
-    }
+      // this.selectedDayIndex = -1;
+      this.$store.dispatch("setSelectedDay", -1);
+      this.$store.dispatch("setSelectedEvent", -1);
+      this.$store.dispatch("setAddEvent", false);
+    },
+    addEvent() {
+      this.$store.dispatch("setAddEvent", true);
+    },
+    setPrevMonth() {},
+    setNextMonth() {}
   }
 };
 </script>
@@ -132,7 +153,7 @@ export default {
   left: 0;
   right: 0;
   background-color: black;
-  opacity: 0.8;
+  opacity: 0.5;
   z-index: 1;
 }
 
