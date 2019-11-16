@@ -17,7 +17,7 @@
           :class="{'convo': true, 'activeConvo': i === selected}"
           @click="changeSelected(i)"
         >
-          <div v-if="item.notification" class="notification"></div>
+          <div v-if="item.notification" class="notification messageNotificationOffset"></div>
           <img :src="require('../assets/' + item.image)" />
           <!-- {{item.image}} -->
           <p class="convoHeader">{{item.name}}</p>
@@ -126,12 +126,16 @@ export default {
   margin-top: 0.5vh;
 }
 
-.notification {
+/* Added to App.vue's global CSS */
+/* .notification {
   background: red;
   position: absolute;
   border-radius: 50%;
   width: 1.25vw;
   height: 1.25vw;
+} */
+
+.messageNotificationOffset {
   margin-left: 0.5vw;
   margin-top: 0.5vh;
 }

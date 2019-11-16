@@ -40,6 +40,13 @@ const storeModule = {
         // getSelectedDate: function (state) {
         //     return state.selectedDate;
         // },
+        getIsUnreadMessage: function (state) {
+            let unread = false;
+            for (let i = 0; i < state.messenger.length && !unread; i++) {
+                unread = state.messenger[i].notification
+            }
+            return unread;
+        },
         getCalendarState: function (state) {
             return {
                 selectedMonth: state.selectedMonth,
