@@ -1,20 +1,39 @@
 <template>
   <div class="main">
     <div class="navbar">
-      <a href="#/" :class="activeSection==0? 'activeNavbarSection' : 'navbarSection'">Home</a>
-      <a href="#/messenger" :class="activeSection==1? 'activeNavbarSection' : 'navbarSection'">
-        <div v-if="unreadMessageCount>0" class="notification"></div>Messenger
-      </a>
-      <a
-        href="#/calendar"
-        :class="activeSection==2? 'activeNavbarSection' : 'navbarSection'"
-      >Calendar</a>
-      <a href="#/lists" :class="activeSection==3? 'activeNavbarSection' : 'navbarSection'">Lists</a>
-      <a
-        href="#/settings"
-        :class="activeSection==4? 'activeNavbarSection' : 'navbarSection'"
-      >Settings</a>
-      <button>Log out</button>
+
+      <div class="navTabs" id="homeTab">
+        <a href="#/" :class="activeSection==0? 'activeNavbarSection' : 'navbarSection'">Home</a>
+      </div>
+
+      <div class="navTabs">
+        <a href="#/messenger" :class="activeSection==1? 'activeNavbarSection' : 'navbarSection'">
+          <div v-if="unreadMessageCount>0" class="notification"></div>Messenger
+        </a>
+      </div>
+
+      <div class="navTabs">
+        <a
+          href="#/calendar"
+          :class="activeSection==2? 'activeNavbarSection' : 'navbarSection'"
+        >Calendar</a>
+      </div>
+
+      <div class="navTabs">
+        <a href="#/lists" :class="activeSection==3? 'activeNavbarSection' : 'navbarSection'">Lists</a>
+      </div>
+      
+      <div class="navTabs">
+        <a
+          href="#/settings"
+          :class="activeSection==4? 'activeNavbarSection' : 'navbarSection'"
+        >Settings</a>
+      </div>
+
+      <div class="logoutButton">
+        <button>Log out</button>
+      </div>
+
     </div>
     <div class="content">
       <div id="app">
@@ -148,6 +167,8 @@ h1 {
   position: relative;
 }
 .navbarSection {
+  /* FADE OUT COLORS OF NOT ACTIVE TABS */
+  /* background: white; */
 }
 .activeNavbarSection {
   font-weight: bold;
@@ -159,4 +180,18 @@ h1 {
   width: 1.25vw;
   height: 1.25vw;
 }
+
+.navTabs{
+
+  background-color: black;
+  margin-left: 2vh;
+
+}
+
+#homeTab{
+  margin-left: 2vh;
+
+}
+
+
 </style>
