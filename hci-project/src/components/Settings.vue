@@ -20,8 +20,8 @@
       <!-- Calendar Settings -->
       <h2>Calendar</h2>
       <h3>
-      <a href="#/settings" class="settingsLink">Change calendar color</a>
-      <a href="#/settings" class="settingsLink">Change calendar icon</a>
+      <div class="settingsLink"><a href="#/settings">Change calendar color</a></div>
+      <div class="settingsLink"><a href="#/settings">Change calendar icon</a></div>
       </h3>
 
       <!-- Family code -->
@@ -68,18 +68,17 @@ export default {
 
 .settingsLink{
   display: block;
-  padding-top: 1%;
-  padding-bottom: 1%;
+  padding-top: 0.5%;
+  padding-bottom: 0.5%;
 }
 .familyCode{
   margin-left: 0%;
   text-align: center;
 }
 .code{
-  width: 10%;
-  height: 10%;
-  text-size-adjust: 10%;
-  margin-left: 45%;
+  width: 20%;
+  font-size: 3.5vw;
+  margin-left: 40%;
   border: 1px solid black;
 }
 .settingsHead{

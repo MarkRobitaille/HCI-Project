@@ -7,6 +7,7 @@
       :messageNum="i"
       :currentUser="currentUser"
       :prevDate="messenger[selected].messages[i-1]? messenger[selected].messages[i-1].timeSent : ''"
+      :groupConvo="selected==0"
     ></Message>
 
     <div class="input">
@@ -91,14 +92,14 @@ export default {
 .messageArea {
   background-color: white;
   width: 75%;
-  height: 77.5vh;
+  height: calc(100vh - 10vh - 14vh);
   overflow-y: scroll;
 }
 
 .input {
   display: flex;
   position: absolute;
-  min-height: 10vh;
+  height: 11.25vh;
   min-width: 75%;
   /* margin-left: 25%; */
   background: #bce7f7;
@@ -106,11 +107,10 @@ export default {
 }
 
 .typingBox {
+
   box-sizing: border-box;
-  float: left;
   min-width: 80%;
-  min-height: 5vh;
-  position: relative;
+  height: 5vh;
   font-size: 16px;
 
   background: white;
@@ -118,10 +118,14 @@ export default {
   border: solid 1px rgba(0, 0, 0, 0);
   border-radius: 20px;
 
-  padding: 6px 20px;
-  margin: 22px;
-  color: #000;
+  padding: 2vh 2vh; 
+  margin: 3vh;
   word-wrap: break-word;
+
+}
+
+.typingBox:hover{
+  background:#f5fffe
 }
 
 input[type="text"]:focus {
@@ -130,18 +134,25 @@ input[type="text"]:focus {
 }
 
 .send {
+
   box-sizing: border-box;
+  height: 5vh;
+  width: 5vh;
   background: white;
-  height: 5.5vh;
-  font-size: 16px;
-  display: inline-flex;
-  margin-top: 3.5vh;
-  border-radius: 10px;
-  float: right;
+  
+  border:solid 1px grey;
+  border-radius: 10vh;
+  margin: 3vh;
+  text-align: center; 
+
 }
 
 .send:focus {
   outline: none;
+}
+
+.send:hover{
+  background:#f5fffe;
 }
 
 </style>

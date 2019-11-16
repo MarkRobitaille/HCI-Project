@@ -21,7 +21,9 @@
           <img :src="require('../assets/' + item.image)" />
           <!-- {{item.image}} -->
           <p class="convoHeader">{{item.name}}</p>
-          <p v-if="item.messages.length>0">"{{shortenString(item.messages[item.messages.length-1].message)}}"</p>
+          <p
+            v-if="item.messages.length>0"
+          >"{{shortenString(item.messages[item.messages.length-1].message)}}"</p>
         </div>
       </div>
     </div>
@@ -43,7 +45,7 @@ export default {
     // List of local data in this component
     return {
       // Variables go in here
-      selected: 0,
+      selected: 0
     };
   },
   computed: {
@@ -62,7 +64,7 @@ export default {
     },
     shortenString(fullSize) {
       let shortened = fullSize;
-      if (shortened.length>25) {
+      if (shortened.length > 25) {
         shortened = shortened.substr(0, 25); // Prune to length
         shortened = shortened.substr(0, shortened.lastIndexOf(" "));
         shortened += "...";
@@ -93,13 +95,13 @@ export default {
 .message_list {
   background: #def5fc;
   width: 25%;
-  height: 87.5vh;
+  height: 70vh;
   float: left;
 }
 
 .message_list_items {
   width: 100%;
-  height: 80vh;
+  height: 70vh;
   overflow-y: scroll;
 }
 
@@ -118,18 +120,20 @@ export default {
 }
 
 .convo img {
-  width: 8vh;
+  width: 4vw;
   float: left;
-  margin-left: 1vw;
+  margin-left: 0.5vw;
+  margin-top: 0.5vh;
 }
 
 .notification {
-   background:red;
-   position:absolute;
-   border-radius:50%;
-   width: 2.5vh;
-   height: 2.5vh;
-   margin-left: 1vw;
+  background: red;
+  position: absolute;
+  border-radius: 50%;
+  width: 1.25vw;
+  height: 1.25vw;
+  margin-left: 0.5vw;
+  margin-top: 0.5vh;
 }
 
 /* Use classes to create css */
