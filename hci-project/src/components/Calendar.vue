@@ -10,18 +10,19 @@
     <!-- All template inside of here -->
     <div class="header">
       <h1>Calendar</h1>
-      <button class="addEventButton" @click="addEvent()">Add Event</button>
+      <!-- To change size of icons add size="whatever", you can reference the sizes here: https://fontawesome.com/how-to-use/on-the-web/styling/sizing-icons -->
+      <button class="addEventButton" @click="addEvent()">Add Event <font-awesome-icon icon="plus"/></button>
     </div>
 
     <table class="table">
       <!-- Month Name and prev, next buttons -->
       <tr>
         <th class="prevButtonHeader">
-          <button class="prevNextMonthButton" @click="setPrevMonth()">Prev</button>
+          <button class="prevNextMonthButton" @click="setPrevMonth()"><font-awesome-icon icon="angle-left"/> Prev</button>
         </th>
         <th colspan="5" class="monthHeader">{{calendar[calendarState.selectedMonth].name}} 2019</th>
         <th class="nextButtonHeader">
-          <button class="prevNextMonthButton" @click="setNextMonth()">Next</button>
+          <button class="prevNextMonthButton" @click="setNextMonth()">Next <font-awesome-icon icon="angle-right"/></button>
         </th>
       </tr>
       <!-- Days of the week -->
