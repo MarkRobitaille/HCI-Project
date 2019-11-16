@@ -3,7 +3,7 @@
     <div class="navbar">
       <a href="#/" :class="activeSection==0? 'activeNavbarSection' : 'navbarSection'">Home</a>
       <a href="#/messenger" :class="activeSection==1? 'activeNavbarSection' : 'navbarSection'">
-        <div v-if="isUnreadMessage" class="notification"></div>Messenger
+        <div v-if="unreadMessageCount>0" class="notification"></div>Messenger
       </a>
       <a
         href="#/calendar"
@@ -61,7 +61,7 @@ export default {
   computed: {
     ...mapGetters({
       users: "getUsers",
-      isUnreadMessage: "getIsUnreadMessage"
+      unreadMessageCount: "getUnreadMessageCount"
       // messenger: 'getMessenger',
       // calendar: 'getCalendar',
       // lists: 'getLists'

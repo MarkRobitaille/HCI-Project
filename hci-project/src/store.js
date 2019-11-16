@@ -40,10 +40,12 @@ const storeModule = {
         // getSelectedDate: function (state) {
         //     return state.selectedDate;
         // },
-        getIsUnreadMessage: function (state) {
-            let unread = false;
-            for (let i = 0; i < state.messenger.length && !unread; i++) {
-                unread = state.messenger[i].notification
+        getUnreadMessageCount: function (state) {
+            let unread = 0;
+            for (let i = 0; i < state.messenger.length; i++) {
+                if (state.messenger[i].notification) {
+                    unread++;
+                }
             }
             return unread;
         },
