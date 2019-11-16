@@ -4,7 +4,7 @@
     <!-- All template inside of here -->
     <div class="dayHeader">
       <div class="smallDayCol">
-        <button class="dayButton">Create</button>
+        <button class="dayButton" @click="createEvent()">Create</button>
       </div>
       <div class="largeDayCol">
         <h2>Add Event</h2>
@@ -15,12 +15,15 @@
     </div>
 
     <div class="eventDetails">
+      <div v-if="errorType>0" class="eventInput">
+        <ErrorMessage :type="errorType"></ErrorMessage>
+      </div>
       <div class="eventInput">
         <div class="mediumDayCol">
           <div class="eventInputLabel">Name:</div>
         </div>
         <div class="largeDayCol">
-          <input v-model="name" class="eventInputField" type="text">
+          <input v-model="name" class="eventInputField" type="text" />
         </div>
       </div>
       <div class="eventInput">
@@ -69,11 +72,13 @@
 
 <script>
 // import { mapGetters } from 'vuex' // Used to get data from Vuex store
+import ErrorMessage from "./ErrorMessage.vue";
 
 export default {
   name: "AddEvent",
   components: {
     // List of all components used in this component
+    ErrorMessage
   },
   props: {
     // List of data passed in from parent component
@@ -95,14 +100,23 @@ export default {
       allDay: false,
       startTime: "",
       endTime: "",
-      description: ""
+      description: "",
+      errorType: -1 // Error types 3-6 possible in Calendar
     };
   },
   created() {
-      // Determine passed in date and month
-      if (this.day!=undefined && this.day!=null && this.day>=0) {
-          this.date = "2019-" + this.month+1 + "-" + this.day+1;
+    // Determine passed in date and month
+    if (this.day != undefined && this.day != null && this.day >= 0) {
+      let monthStr = "" + (this.month + 1);
+      if (monthStr.length==1) {
+        monthStr = "0" + monthStr;
       }
+      let dayStr = "" + (this.day + 1);
+      if (dayStr.length==1) {
+        dayStr = "0" + dayStr;
+      }
+      this.date = "2019-" + monthStr + "-" + dayStr;
+    }
   },
   computed: {
     // Computed variables
@@ -111,6 +125,69 @@ export default {
     // Methods in this component
     closeWindow() {
       this.$store.dispatch("setAddEvent", false);
+    },
+    createEvent() {
+      this.errorType = -1;
+      // Check for errors in input
+      this.inputCheck();
+ 
+      if (this.errorType < 0) {
+        // If no time information entered, assume all day event
+        if (!this.allDay && this.startTime == "" && this.endTime == "") {
+          this.allDay = true;
+        }
+
+        // Calculate date from string, get month and day indexes
+        let eventDate = new Date(this.date + "T00:00:00");
+
+        if (eventDate.getFullYear() == "2019") { // Calendar only has 2019, so ignore if not that year
+          let monthIndex = eventDate.getMonth();
+          let dayIndex = eventDate.getDate() - 1;
+
+          // Call vuex store function to add event
+          this.$store.dispatch("addEvent", {
+            month: monthIndex,
+            day: dayIndex,
+            name: this.name,
+            allDay: this.allDay,
+            startTime: this.startTime,
+            endTime: this.endTime,
+            description: this.description
+          });
+        }
+        this.$store.dispatch("setAddEvent", false); // Close Add Event window
+      }
+    },
+    inputCheck() {
+      // If you find a more general error, ignore more specific ones
+
+      // Error 3 - No event name
+      if (this.name == "") {
+        console.log("Error 3 found");
+        this.errorType = 3;
+      }
+
+      // Error 4 - No date selected
+      if (this.errorType < 0 && this.date == "") {
+        console.log("Error 4 found");
+        this.errorType = 4;
+      }
+
+      // Error 5 - Only one of start and end time
+      if (
+        this.errorType < 0 && !this.allDay &&
+        ((this.startTime != "" && this.endTime == "") ||
+          (this.startTime == "" && this.endTime != ""))
+      ) {
+        console.log("Error 5 found");
+        this.errorType = 5;
+      }
+
+      // Error 6 - Start time after end time
+      if (this.errorType < 0 && this.startTime > this.endTime) {
+        console.log("Error 6 found");
+        this.errorType = 6;
+      }
     }
   }
 };

@@ -21,7 +21,7 @@
               "startTime": "10:00",
               "endTime": "11:00",
               "description": "Test event",
-              "createdBy": 1
+              "createdBy": 2
             },
             {
               "name": "Test Test Test",
@@ -29,13 +29,20 @@
               "startTime": "10:00",
               "endTime": "11:00",
               "description": "Test event",
-              "createdBy": 1
+              "createdBy": 3
             }
           ]
         },
         {
           "number": 2,
-          "events": []
+          "events": [{
+            "name": "Test Test Test",
+            "allDay": false,
+            "startTime": "10:00",
+            "endTime": "11:00",
+            "description": "Test event",
+            "createdBy": 4
+          }]
         },
         {
           "number": 3,
