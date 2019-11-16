@@ -121,9 +121,8 @@ export default {
 .convo img {
   width: 8vh;
   float: left;
-  margin-left: 1vw;
-  margin-top: 1vw;
-  
+  margin-left: 0.5vw;
+  margin-top: 0.25vw;
 }
 
 .notification {
@@ -132,7 +131,7 @@ export default {
    border-radius:50%;
    width: 2.5vh;
    height: 2.5vh;
-   margin-left: 1vw;
+   margin-left:0.51vw;
 }
 
 /* Use classes to create css */
