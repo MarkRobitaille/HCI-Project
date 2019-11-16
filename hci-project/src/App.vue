@@ -60,20 +60,16 @@ export default {
       tempDate: null,
       currDate: null,
       convertedDate: null,
-      today: null
     };
   },
   created() {
     this.$store.dispatch("initializeJSONData");
+    let today = new Date();
+    this.$store.dispatch("setToday", { month: today.getMonth(), day: today.getDate() - 1})
     this.setActiveSection(this.$route.name);
-    // this.tempDate = this.calendar[0].days[0].events[0].startTime
-    // this.currDate = new Date(this.calendar[0].days[0].events[0].startTime);
-    // this.convertedDate = this.currDate.toString();
-    // this.today = new Date();
   },
   watch: {
     $route(to) {
-      // (to, from) {
       // Track changes to route to update css
       this.setActiveSection(to.name);
     }
@@ -82,9 +78,6 @@ export default {
     ...mapGetters({
       users: "getUsers",
       unreadMessageCount: "getUnreadMessageCount"
-      // messenger: 'getMessenger',
-      // calendar: 'getCalendar',
-      // lists: 'getLists'
     })
   },
   methods: {
@@ -242,4 +235,10 @@ background: linear-gradient(to right, #EF629F, #EECDA3); /* W3C, IE 10+/ Edge, F
 
 }
 
+.leftIconOffset {
+  margin-right: 0.5vw;
+}
+.rightIconOffset {
+  margin-left: 0.5vw;
+}
 </style>

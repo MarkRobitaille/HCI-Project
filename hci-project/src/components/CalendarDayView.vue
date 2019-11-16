@@ -39,7 +39,7 @@
       </div>
     </div>
     <div v-else>
-      <EditEvent :event="day.events[calendarState.selectedEvent]" :month="calendarState.selectedMonth" :day="calendarState.selectedDay"></EditEvent>
+      <EditEvent :events="day.events" :eventIndex="calendarState.selectedEvent" :month="calendarState.selectedMonth" :day="calendarState.selectedDay"></EditEvent>
     </div>
   </div>
 </template>
@@ -71,7 +71,6 @@ export default {
     // List of local data in this component
     return {
       // Variables go in here
-      // selectedEventIndex: -1
     };
   },
   computed: {

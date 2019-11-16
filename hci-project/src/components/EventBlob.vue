@@ -1,20 +1,24 @@
 <template>
-  <div class="eventBlob">
-    <div v-if="size==1" class="smallEvent">
-      <div></div>
+  <div class="eventBlob" :style="'background-color: ' + (users[event.createdBy-1].color)">
+    <div v-if="size==1">
+      <div>
+        <font-awesome-icon :icon="users[event.createdBy-1].icon" class="eventIcon"/>
+      </div>
     </div>
     <div v-else-if="size==2" class="mediumEvent">
-      <div>{{event.name}}</div>
+      <div><font-awesome-icon :icon="users[event.createdBy-1].icon" class="eventIcon mediumEventLeftAlign"/>{{event.name}}</div>
     </div>
     <div v-else class="largeEvent">
-      <div>{{event.name}} {{timeRange}}</div>
-      <div>{{event.description}}</div>
+      <div class="largeEventWrapperDiv">
+        <div>{{event.name}} {{timeRange}}</div>
+        <div>{{event.description}}</div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-// import { mapGetters } from 'vuex' // Used to get data from Vuex store
+import { mapGetters } from 'vuex' // Used to get data from Vuex store
 
 export default {
   name: "EventBlob",
@@ -48,6 +52,9 @@ export default {
   },
   computed: {
     // Computed variables
+    ...mapGetters({
+      users: "getUsers",
+    }),
     timeRange: function() {
       let range;
       if (this.event.allDay) {
@@ -57,13 +64,29 @@ export default {
         // let end = new Date(this.event.endTime);
         // range = "(" + start.toLocaleTimeString() + " - " + end.toLocaleTimeString() + ")";
         if (this.month != undefined && this.day != undefined) {
-          let date = "2019-" + this.month + 1 + "-" + this.day + 1;
+          let monthStr = "" + (this.month + 1);
+          if (monthStr.length == 1) {
+            monthStr = "0" + monthStr;
+          }
+          let dayStr = "" + (this.day + 1);
+          if (monthStr.length == 1) {
+            dayStr = "0" + dayStr;
+          }
+          let date = "2019-" + monthStr + "-" + dayStr;
           let start = new Date(
-            date + "T" + this.event.startTime
-          ).toLocaleTimeString();
+            date + " " + this.event.startTime + ":00 GMT-0600"
+          ).toLocaleTimeString("en-US", {
+            hour: "numeric",
+            hour12: true,
+            minute: "numeric"
+          });
           let end = new Date(
-            date + "T" + this.event.endTime
-          ).toLocaleTimeString();
+            date + " " + this.event.endTime + ":00 GMT-0600"
+          ).toLocaleTimeString("en-US", {
+            hour: "numeric",
+            hour12: true,
+            minute: "numeric"
+          });
           range = "(" + start + " - " + end + ")";
         } else {
           range = "(" + this.event.startTime + " - " + this.event.endTime + ")";
@@ -88,21 +111,36 @@ export default {
 .eventBlob {
   width: 100%;
   height: 100%;
-  vertical-align: middle;
-  background-color: aquamarine;
-  text-align: center;
-  vertical-align: middle;
+  min-height: 18px;
+  text-align: center; 
+  border-radius: 10px;
 }
 
-.smallEvent{
 
+.eventIcon {
+  margin-top: 1px;
 }
 
 .mediumEvent {
+   width: 90%;
+   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.mediumEventLeftAlign {
+  float: left;
+  margin-left: 7.5%;
+  margin-right: 2%;
 
 }
 .largeEvent {
   height: 100%;
-  
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.largeEventWrapperDiv {
+  /* display: inline-block; */
 }
 </style>

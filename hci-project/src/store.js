@@ -9,6 +9,7 @@ const storeModule = {
         currentUser: { id: 0 },
         users: [],
         messenger: [],
+        today: { month: 0, day: 0 },
         calendar: [],
         lists: [],
         selectedDate: {},
@@ -37,9 +38,9 @@ const storeModule = {
         getCurrentUser: function (state) {
             return state.currentUser;
         },
-        // getSelectedDate: function (state) {
-        //     return state.selectedDate;
-        // },
+        getToday: function(state) {
+            return state.today;
+        },
         getUnreadMessageCount: function (state) {
             let unread = 0;
             for (let i = 0; i < state.messenger.length; i++) {
@@ -69,9 +70,9 @@ const storeModule = {
         },
         setMessenger(state, payload) {
             state.messenger = payload.conversations;
-            // for (let i=0; i<state.messenger.length; i++) {
-            // state.messenger[i].image = require(state.messenger[i].image);
-            // }
+        },
+        setToday(state, payload) {
+            state.today = payload;
         },
         setCalendar(state, payload) {
             state.calendar = payload.calendar;
@@ -79,12 +80,7 @@ const storeModule = {
         setLists(state, payload) {
             state.lists = payload.lists;
         },
-        // setSelectedDate(state, payload) {
-        //     state.selectedDate = payload;
-        // },
-        // clearSelectedDate(state) {
-        //     state.selectedDate = {};
-        // },
+
         setSelectedMonth(state, payload) {
             state.selectedMonth = payload;
         },
@@ -98,6 +94,7 @@ const storeModule = {
             state.addEvent = payload;
         },
         addEvent(state, payload) {
+            console.log(payload);
             let newEvent = {
                 "name": payload.name,
                 "allDay": payload.allDay,
@@ -114,11 +111,11 @@ const storeModule = {
                 newEvent.endTime = payload.endTime;
 
                 let index = 0;
-                while (state.calendar[payload.month].days[payload.day].events[index].startTime < newEvent.startTime) {
+                while (index < state.calendar[payload.month].days[payload.day].events.length && state.calendar[payload.month].days[payload.day].events[index].startTime < newEvent.startTime) {
                     index++;
                 }
 
-                state.calendar[payload.month].days[payload.day].events.slice(index, 0, newEvent);
+                state.calendar[payload.month].days[payload.day].events.splice(index, 0, newEvent);
             }
         },
         removeEvent(state, payload) {
@@ -167,12 +164,9 @@ const storeModule = {
             commit('setCalendar', Calendar);
             commit('setLists', Lists);
         },
-        // setSelectedDate({commit}, payload) {
-        //     commit('setSelectedDate', payload);
-        // },
-        // clearSelectedDate({commit}) {
-        //     commit('clearSelectedDate');
-        // },
+        setToday({commit}, payload) {
+            commit('setToday', payload);
+        },
         setSelectedMonth({ commit }, payload) {
             commit('setSelectedMonth', payload);
         },
