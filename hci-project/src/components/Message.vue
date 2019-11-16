@@ -1,82 +1,94 @@
 <template>
-  <div class="messageSpace"> <!-- Can only have 1 parent element in a component -->
+  <div class="messageSpace">
+    <!-- Can only have 1 parent element in a component -->
     <!-- All template inside of here -->
     <div class="date" v-if="newDay">{{formattedDate}}</div>
-    <div class="bubble" v-if="sameUser" @>{{messageData.message}}</div>
-    <div class="receiveBubble" v-else>{{messageData.message}}</div>
+    <div class="bubble" v-if="sameUser">{{messageData.message}}</div>
+    <div class="receiveBubble" v-else><div v-if="groupConvo" class="sentByHeader">{{users[messageData.senderId].username}}:</div>{{messageData.message}}</div>
   </div>
 </template>
 
 <script>
-// import { mapGetters } from 'vuex' // Used to get data from Vuex store
+import { mapGetters } from "vuex"; // Used to get data from Vuex store
 
 export default {
-  name: 'Message',
-  components: { // List of all components used in this component
-
+  name: "Message",
+  components: {
+    // List of all components used in this component
   },
-  props: { // List of data passed in from parent component
+  props: {
+    // List of data passed in from parent component
     messageData: {
-        type: Object,
-        required: true
+      type: Object,
+      required: true
     },
     messageNum: {
-        type: Number,
-        required: true
+      type: Number,
+      required: true
     },
     currentUser: {
-        type: Object,
-        required: true
+      type: Object,
+      required: true
     },
     prevDate: {
-        type: [String, Date],
-        required: false
+      type: [String, Date],
+      required: false
+    },
+    groupConvo: {
+      type: Boolean,
+      required: true
     }
   },
-  data() { // List of local data in this component
+  data() {
+    // List of local data in this component
     return {
-        // Variables go in here
-        newDay: false,
-        test1: false,
-        test2: false,
-        selected: false
-    }
+      // Variables go in here
+      newDay: false,
+      test1: false,
+      test2: false,
+      selected: false
+    };
   },
   created() {
-      this.newDay = this.checkIfNewDay();
+    this.newDay = this.checkIfNewDay();
   },
   watch: {
-      prevDate: function () {
-          this.newDay = this.checkIfNewDay();
-      }
+    prevDate: function() {
+      this.newDay = this.checkIfNewDay();
+    }
   },
-  computed: { // Computed variables 
+  computed: {
+    // Computed variables
+    ...mapGetters({
+      users: "getUsers"
+    }),
     sameUser: function() {
-        return this.currentUser.id == this.messageData.senderId;
+      return this.currentUser.id == this.messageData.senderId;
     },
     formattedDate: function() {
-        let curr = new Date(this.messageData.timeSent);
-        return curr.toDateString() + " " + curr.toLocaleTimeString();
-    },
+      let curr = new Date(this.messageData.timeSent);
+      return curr.toDateString() + " " + curr.toLocaleTimeString();
+    }
   },
-  methods: { // Methods in this component
-    checkIfNewDay: function () {
-        let newDay = false;
-        if (this.prevDate != '') {
-          let prev= new Date (this.prevDate);
-          let curr = new Date (this.messageData.timeSent);
-          if (prev.toDateString() !== curr.toDateString()) {
-              this.test1 = true;
-              newDay = true;
-          }
-        } else {
-            this.test2 = true;
-            newDay = true;
+  methods: {
+    // Methods in this component
+    checkIfNewDay: function() {
+      let newDay = false;
+      if (this.prevDate != "") {
+        let prev = new Date(this.prevDate);
+        let curr = new Date(this.messageData.timeSent);
+        if (prev.toDateString() !== curr.toDateString()) {
+          this.test1 = true;
+          newDay = true;
         }
-        return newDay;
+      } else {
+        this.test2 = true;
+        newDay = true;
+      }
+      return newDay;
     }
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -92,7 +104,7 @@ export default {
   margin-bottom: 20px;
   font-size: 12px;
   color: gray;
-  clear:both;
+  clear: both;
 }
 
 .bubble {
@@ -137,5 +149,8 @@ export default {
   word-wrap: break-word;
   text-align: left;
 }
-
+.sentByHeader {
+  font-weight: bold;
+  margin-bottom: 1vh;
+}
 </style>

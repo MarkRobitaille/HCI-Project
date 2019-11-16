@@ -7,6 +7,7 @@
       :messageNum="i"
       :currentUser="currentUser"
       :prevDate="messenger[selected].messages[i-1]? messenger[selected].messages[i-1].timeSent : ''"
+      :groupConvo="selected==0"
     ></Message>
 
     <div class="input">
