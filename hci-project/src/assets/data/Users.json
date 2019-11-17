@@ -5,7 +5,7 @@
       "email": "karentables@gmail.com",
       "name": "Karen Tables",
       "password": "karen123",
-      "image": "../assets/DefaultProfilePic.png",
+      "image": "Karen.png",
       "color": "#ffbfd0",
       "icon": "star"
     },
@@ -14,7 +14,7 @@
       "email": "bobtables@gmail.com",
       "name": "Bob Tables",
       "password": "bob123",
-      "image": "../assets/DefaultProfilePic.png",
+      "image": "Bob.png",
       "color": "#ffdb99",
       "icon": "mug-hot"
     },
@@ -23,7 +23,7 @@
       "email": "baseballbobby@gmail.com",
       "name": "Bobby Tables",
       "password": "baseball123",
-      "image": "../assets/DefaultProfilePic.png"
+      "image": "Bobby.png"
       ,"color": "#bdbcff",
       "icon": "baseball-ball"
     },
@@ -32,7 +32,7 @@
       "email": "timmylovescrayons@gmail.com",
       "name": "Timmy Tables",
       "password": "crayola5",
-      "image": "../assets/DefaultProfilePic.png",
+      "image": "Timmy.png",
       "color": "#ccffac",
       "icon": "ghost"
     }

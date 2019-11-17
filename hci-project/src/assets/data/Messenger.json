@@ -2,7 +2,7 @@
   "conversations": [
     {
       "name": "Everyone",
-      "image": "DefaultProfilePic.png",
+      "image": "FamilyPic.png",
       "notification": false,
       "messages": [
         {
@@ -49,7 +49,7 @@
     },
     {
       "name": "Karen Tables",
-      "image": "DefaultProfilePic.png",
+      "image": "Karen.png",
       "notification": true,
       "messages": [
         {

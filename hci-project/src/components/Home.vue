@@ -1,43 +1,72 @@
 <template>
   <div class="home"> <!-- Can only have 1 parent element in a component -->
     <div class="homeBG"></div>
-    <!-- All template inside of here -->
-    <div class="header">
-      <!-- <h1>Home</h1> -->
-    </div>
+
     <img src="../assets/FamilyPic.png" alt="Family image" class="homePageImage">
-    <p class="welcomeMessage">Welcome, Bobby!</p>
-    <p class="dateMessage">Today is Saturday, November 16th 2019</p>
+    <p class="welcomeMessage">Welcome, {{currentUser.name}}!</p>
+    <p class="dateMessage">Today is {{formattedToday}}.</p>
 
     <div class="notifs">
-      <a href="#/Calendar" class="calendarNotifs"><strong>3 events today</strong></a>
+      <a href="#/Calendar" class="calendarNotifs"><strong>{{eventsTodayStr}}</strong></a>
       <br/>
-      <a href="#/Messenger" class="messageNotifs"><strong>1 unread conversation</strong></a>
+      <a href="#/Messenger" class="messageNotifs"><strong>{{conversationsStr}}</strong></a>
     </div>
   </div>
 </template>
 
 <script>
-// import { mapGetters } from 'vuex' // Used to get data from Vuex store
+import { mapGetters } from 'vuex' // Used to get data from Vuex store
 
 export default {
   name: 'Home',
-  components: { // List of all components used in this component
-
-  },
-  props: { // List of data passed in from parent component
-
-  },
   data() { // List of local data in this component
     return {
         // Variables go in here
+        todayDate: null,
+        formattedDate: "",
+        eventsToday: 0
     }
   },
-  computed: { // Computed variables 
-
+  created() {
+    this.todayDate = new Date();
   },
-  methods: { // Methods in this component
+  computed: { // Computed variables 
+    ...mapGetters({
+      currentUser: "getCurrentUser",
+      calendar: 'getCalendar',
+      today: 'getToday',
+      unreadMessageCount: "getUnreadMessageCount"
+    }),
+    formattedToday: function () {
+      return this.todayDate.toDateString();
+    },
+    eventsTodayStr: function () {
+      let eventsToday = this.calendar[this.today.month].days[this.today.day].events.length;
+      let str;
 
+      if (eventsToday<=0) {
+        str = "No events today";
+      } else if (eventsToday==0) {
+        str = "1 event today";
+      } else {
+        str = eventsToday + " events today";
+      }
+
+      return str;
+    },
+    conversationsStr: function () {
+      let str;
+
+      if (this.unreadMessageCount<=0) {
+        str = "No new messages";
+      } else if (this.unreadMessageCount==0) {
+        str = "1 unread conversation";
+      } else {
+        str = this.unreadMessageCount + " unread conversation";
+      }
+
+      return str;
+    }
   }
 }
 </script>
@@ -76,7 +105,7 @@ export default {
 
 .homePageImage{
   margin-top: 10vh;
-  width: 25%;
+  width: 20%;
   height: auto;
   border-radius: 50%;
   /* border: 1px solid white; */

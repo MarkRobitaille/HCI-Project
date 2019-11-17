@@ -1,6 +1,13 @@
 <template>
   <div class="main">
-    <div class="navbar">
+    <div class="splash" v-if="currentUser.id <= 0">
+      <SplashPage></SplashPage>
+    </div>
+    <!-- <<div class="navbar">
+      <a href="#/" :class="activeSection==0? 'activeNavbarSection' : 'navbarSection'">Home</a>
+      <a href="#/messenger" :class="activeSection==1? 'activeNavbarSection' : 'navbarSection'"> -->
+    <div v-else>
+          <div class="navbar">
       <div
         class="navTabs"
         id="homeTab"
@@ -41,26 +48,27 @@
       >Settings</div>
 
       <div class="logoutButton">
-        <button>Log out</button>
+        <button @click="logOut()">Log out</button>
       </div>
     </div>
-    <div class="content">
-      <div id="app">
-        <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
-        <router-view></router-view>
+      <div class="content">
+        <div id="app">
+          <router-view></router-view>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import SplashPage from './components/SplashPage.vue'
 // import HelloWorld from './components/HelloWorld.vue'
 import { mapGetters } from "vuex";
 
 export default {
   name: "app",
   components: {
-    // HelloWorld
+    SplashPage
   },
   data() {
     return {
@@ -87,7 +95,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      users: "getUsers",
+      currentUser: "getCurrentUser",
       unreadMessageCount: "getUnreadMessageCount"
     })
   },
@@ -115,6 +123,9 @@ export default {
           this.activeSection = 4;
           break;
       }
+    },
+    logOut() {
+      this.$store.dispatch("setCurrentUser", { id: 0 });
     }
   }
 };
@@ -153,6 +164,12 @@ h1 {
 
 /* Custom classes */
 .main {
+  padding: 0;
+  margin: 0;
+}
+.splash {
+  width: 100%;
+  height: 100vh;
   padding: 0;
   margin: 0;
 }
@@ -284,5 +301,17 @@ h1 {
 }
 .rightIconOffset {
   margin-left: 0.5vw;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s;
+  position: absolute;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  /* position: absolute */
+}
+.whiteIcon {
+  color: white;
 }
 </style>
