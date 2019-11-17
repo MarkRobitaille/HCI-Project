@@ -14,7 +14,8 @@
         :class="activeSection==0? 'activeNavbarSection' : 'navbarSection'"
         @click="changeSection('/')"
       >
-        <!-- <font-awesome-icon icon="home" size="4x"/> -->HOME
+        <font-awesome-icon icon="home" class = "homeIcon" size="2x"/>
+        HOME
       </div>
 
       <div
@@ -23,29 +24,40 @@
         :class="activeSection==1? 'activeNavbarSection' : 'navbarSection'"
         @click="changeSection('/messenger')"
       >
-        <div v-if="unreadMessageCount>0" class="notification"></div>Messenger
+        <div v-if="unreadMessageCount>0" class="notification"></div>
+        <font-awesome-icon icon="comment" class = "commentIcon" size="2x"/>
+        MESSENGER
       </div>
 
       <div
         class="navTabs"
         id="calendarTab"
         :class="activeSection==2? 'activeNavbarSection' : 'navbarSection'"
-        @click="changeSection('/calendar')"
-      >Calendar</div>
+        @click="changeSection('/calendar')">
+
+      <font-awesome-icon icon="calendar-alt" class = "calendarIcon" size="2x"/>
+      CALENDAR
+      </div>
 
       <div
         class="navTabs"
         id="listTab"
         :class="activeSection==3? 'activeNavbarSection' : 'navbarSection'"
-        @click="changeSection('/lists')"
-      >Lists</div>
+        @click="changeSection('/lists')">
+        <font-awesome-icon icon="list-ul" class = "listIcon" size="2x"/>
+        LISTS
+        </div>
 
       <div
         class="navTabs"
         id="settingsTab"
         :class="activeSection==4? 'activeNavbarSection' : 'navbarSection'"
-        @click="changeSection('/settings')"
-      >Settings</div>
+        @click="changeSection('/settings')">
+        <font-awesome-icon icon="cog" class = "settingsIcon" size="2x"/>
+        
+        SETTINGS
+        
+        </div>
 
       <div class="logoutButton">
         <button @click="logOut()">Log out</button>
@@ -202,22 +214,33 @@ h1 {
 .navbarSection {
   /* FADE OUT COLORS OF NOT ACTIVE TABS */
   /* background: white; */
+  margin-left: 4.5vh;
+  /* opacity: 0.8; */
+  
 }
 .activeNavbarSection {
   font-weight: bold;
+  margin-left: 1vh;
 }
 .notification {
   background: red;
   position: absolute;
   border-radius: 50%;
-  width: 1.25vw;
-  height: 1.25vw;
+  width: 1.5vw;
+  height: 1.5vw;
+  margin-top: -2.5vh;
 }
 
 .navTabs {
-  background-color: black;
-  margin-left: 4vh;
+  color: white;
+  font-size: 1.6vw;
+  line-height: 15vh;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  padding-top: 2vh;
+  /* margin-left: 4vh; */
   height: 15vh;
+  
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
   /* border-bottom: solid 1.5px white; */
@@ -241,18 +264,19 @@ h1 {
 }
 
 #messengerTab {
-  background: #43c6ac; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #f8ffae,
-    #43c6ac
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #f8ffae,
-    #43c6ac
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: #11998e;  /* fallback for old browsers */
+background: -webkit-linear-gradient(
+  to right, 
+  #38ef7d, 
+  #11998e
+);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(
+  to right, 
+  #38ef7d, 
+  #11998e
+); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
+
 
 #calendarTab {
   background: #f12711; /* fallback for old browsers */
@@ -314,4 +338,5 @@ h1 {
 .whiteIcon {
   color: white;
 }
+
 </style>

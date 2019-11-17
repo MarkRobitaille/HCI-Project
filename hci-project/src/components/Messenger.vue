@@ -1,13 +1,13 @@
 <template>
   <div>
+    <div class="gradientBG">
     <!-- Can only have 1 parent element in a component -->
     <div class="header">
-      <h1>Messenger</h1>
     </div>
     <div class="message_list">
       <div class="message_list_header">
         <p>
-          <b>Conversations</b>
+          <b class="convoHeader">CONVERSATIONS</b>
         </p>
       </div>
       <div class="message_list_items">
@@ -28,6 +28,7 @@
       </div>
     </div>
     <Conversation :selected="selected"></Conversation>
+    </div>
   </div>
 </template>
 
@@ -80,22 +81,41 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <!-- We'll put global css in App.vue -->
 <style scoped>
-.header {
+@import url("https://fonts.googleapis.com/css?family=Alata|Roboto&display=swap");
+
+/* .header {
   background: white;
   border-bottom: solid 1px #ededed;
   height: 10vh;
   color: black;
   padding-bottom: 2.5vh;
+} */
+div{
+  font-family: 'Roboto',
+}
+
+.gradientBG{
+  background: #11998e;  
+  background: -webkit-linear-gradient(
+    to left, #38ef7d, #11998e
+    ); 
+  background: linear-gradient(
+    to left, #38ef7d, #11998e
+    ); 
+
+    height: 100vh;
 }
 
 .convoHeader {
   font-weight: bold;
+  font-family: "Alata", sans-serif;
+  color: white;
 }
 
 .message_list {
-  background: #def5fc;
+
   width: 25%;
-  height: 70vh;
+  height: 100vh;
   float: left;
 }
 
@@ -106,17 +126,20 @@ export default {
 }
 
 .message_list_header {
-  border-bottom: solid 1px #c3dde6;
+  border-bottom: solid 1px #b9e4e0c2;
   font-size: 20px;
 }
 
 .convo {
-  border-bottom: solid 1px #c3dde6;
+  /* background-color: #29d4a1ab; */
+  border-bottom: solid 1px #b9e4e0c2;
   padding: 10px;
+  /* font-family: 'Roboto', sans-serif; */
+  color: white;
 }
 
 .activeConvo {
-  background-color: #bce7f7;
+  background-color: #47635d8e;
 }
 
 .convoImage {
