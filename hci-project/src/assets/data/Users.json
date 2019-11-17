@@ -3,30 +3,38 @@
     {
       "id": 1,
       "email": "karentables@gmail.com",
-      "username": "Karen Tables",
+      "name": "Karen Tables",
       "password": "karen123",
-      "image": "../assets/DefaultProfilePic.png"
+      "image": "../assets/DefaultProfilePic.png",
+      "color": "#ffbfd0",
+      "icon": "star"
     },
     {
       "id": 2,
       "email": "bobtables@gmail.com",
-      "username": "Bob Tables",
+      "name": "Bob Tables",
       "password": "bob123",
-      "image": "../assets/DefaultProfilePic.png"
+      "image": "../assets/DefaultProfilePic.png",
+      "color": "#ffdb99",
+      "icon": "mug-hot"
     },
     {
       "id": 3,
       "email": "baseballbobby@gmail.com",
-      "username": "Bobby Tables",
+      "name": "Bobby Tables",
       "password": "baseball123",
       "image": "../assets/DefaultProfilePic.png"
+      ,"color": "#bdbcff",
+      "icon": "baseball-ball"
     },
     {
       "id": 4,
       "email": "timmylovescrayons@gmail.com",
-      "username": "Timmy Tables",
+      "name": "Timmy Tables",
       "password": "crayola5",
-      "image": "../assets/DefaultProfilePic.png"
+      "image": "../assets/DefaultProfilePic.png",
+      "color": "#ccffac",
+      "icon": "ghost"
     }
   ]
 }

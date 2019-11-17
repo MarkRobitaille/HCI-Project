@@ -1,5 +1,5 @@
-import HelloWorld from './components/HelloWorld.vue'
-// import Home from './components/Home.vue'
+//import HelloWorld from './components/HelloWorld.vue'
+import Home from './components/Home.vue'
 import Messenger from './components/Messenger.vue'
 import Calendar from './components/Calendar.vue'
 import Lists from './components/Lists.vue'
@@ -8,7 +8,7 @@ import Settings from './components/Settings.vue'
 const routes = [
     {
         path: '/',
-        component: HelloWorld, // Change to Home once implemented
+        component: Home,
         name: "Home",
         meta: {
             title: "Home"

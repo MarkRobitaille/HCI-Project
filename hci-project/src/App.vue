@@ -1,16 +1,41 @@
 <template>
   <div class="main">
-    <div class="splash" v-if="currentUser.id == 0">
+    <div class="splash" v-if="currentUser.id <= 0">
       <SplashPage></SplashPage>
+    <!-- <div class="navbar">
+      <a href="#/" :class="activeSection==0? 'activeNavbarSection' : 'navbarSection'">Home</a>
+      <a href="#/messenger" :class="activeSection==1? 'activeNavbarSection' : 'navbarSection'">
+        <div v-if="unreadMessageCount>0" class="notification"></div>Messenger
+      </a>
+      <a
+        href="#/calendar"
+        :class="activeSection==2? 'activeNavbarSection' : 'navbarSection'"
+      >Calendar</a>
+      <a href="#/lists" :class="activeSection==3? 'activeNavbarSection' : 'navbarSection'">Lists</a>
+      <a
+        href="#/settings"
+        :class="activeSection==4? 'activeNavbarSection' : 'navbarSection'"
+      >Settings</a>
+      <button>Log out</button>
+    </div> -->
     </div>
     <div v-else>
       <div class="navbar">
-        <a href="#/" class="active">Home</a>
-        <a href="#/messenger">Messenger</a>
-        <a href="#/calendar">Calendar</a>
-        <a href="#/lists">Lists</a>
-        <a href="#/settings">Settings</a>
-      </div>
+      <a href="#/" :class="activeSection==0? 'activeNavbarSection' : 'navbarSection'">Home</a>
+      <a href="#/messenger" :class="activeSection==1? 'activeNavbarSection' : 'navbarSection'">
+        <div v-if="unreadMessageCount>0" class="notification"></div>Messenger
+      </a>
+      <a
+        href="#/calendar"
+        :class="activeSection==2? 'activeNavbarSection' : 'navbarSection'"
+      >Calendar</a>
+      <a href="#/lists" :class="activeSection==3? 'activeNavbarSection' : 'navbarSection'">Lists</a>
+      <a
+        href="#/settings"
+        :class="activeSection==4? 'activeNavbarSection' : 'navbarSection'"
+      >Settings</a>
+      <button>Log out</button>
+    </div>
       <div class="content">
         <div id="app">
           <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
@@ -23,6 +48,7 @@
 
 <script>
 import SplashPage from './components/SplashPage.vue'
+// import HelloWorld from './components/HelloWorld.vue'
 import { mapGetters } from "vuex";
 
 export default {
@@ -32,27 +58,51 @@ export default {
   },
   data() {
     return {
-      // tempDate: null,
-      // currDate: null,
-      // convertedDate: null,
-      // today: null
+      activeSection: 0,
+      tempDate: null,
+      currDate: null,
+      convertedDate: null,
     };
   },
   created() {
     this.$store.dispatch("initializeJSONData");
-    // this.tempDate = this.calendar[0].days[0].events[0].startTime
-    // this.currDate = new Date(this.calendar[0].days[0].events[0].startTime);
-    // this.convertedDate = this.currDate.toString();
-    // this.today = new Date();
+    let today = new Date();
+    this.$store.dispatch("setToday", { month: today.getMonth(), day: today.getDate() - 1})
+    this.setActiveSection(this.$route.name);
+  },
+  watch: {
+    $route(to) {
+      // Track changes to route to update css
+      this.setActiveSection(to.name);
+    }
   },
   computed: {
     ...mapGetters({
-      currentUser: "getCurrentUser",
       users: "getUsers",
-      messenger: "getMessenger",
-      calendar: "getCalendar",
-      lists: "getLists"
+      currentUser: "getCurrentUser",
+      unreadMessageCount: "getUnreadMessageCount"
     })
+  },
+  methods: {
+    setActiveSection(routeName) {
+      switch (routeName) {
+        case "Home":
+          this.activeSection = 0;
+          break;
+        case "Messenger":
+          this.activeSection = 1;
+          break;
+        case "Calendar":
+          this.activeSection = 2;
+          break;
+        case "Lists":
+          this.activeSection = 3;
+          break;
+        case "Settings":
+          this.activeSection = 4;
+          break;
+      }
+    }
   }
 };
 </script>
@@ -118,5 +168,35 @@ h1 {
   margin-top: 0;
   height: 100vh;
   position: relative;
+}
+.navbarSection {
+}
+.activeNavbarSection {
+  font-weight: bold;
+}
+.notification {
+  background: red;
+  position: absolute;
+  border-radius: 50%;
+  width: 1.25vw;
+  height: 1.25vw;
+}
+.leftIconOffset {
+  margin-right: 0.5vw;
+}
+.rightIconOffset {
+  margin-left: 0.5vw;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s;
+  position: absolute;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  /* position: absolute */
+}
+.whiteIcon {
+  color: white;
 }
 </style>
