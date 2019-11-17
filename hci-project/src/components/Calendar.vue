@@ -1,31 +1,33 @@
 <template>
   <div :class="calendar">
-    <!-- Add fade transition here -->
-    <div
-      class="fadeOut"
-      v-if="calendarState.selectedDay>=0 || calendarState.addEvent"
-      @click="clearDay()"
-    ></div>
-    <!-- Can only have 1 parent element in a component -->
-    <!-- All template inside of here -->
+    <transition name="fade">
+      <div
+        class="fadeOut"
+        v-if="calendarState.selectedDay>=0 || calendarState.addEvent"
+        @click="clearDay()"
+      ></div>
+    </transition>
+
     <div class="header">
       <h1>2019</h1>
       <!-- To change size of icons add size="whatever", you can reference the sizes here: https://fontawesome.com/how-to-use/on-the-web/styling/sizing-icons -->
       <button class="addEventButton" @click="addEvent()">
-        Add Event<font-awesome-icon icon="plus" class="rightIconOffset"/>
+        Add Event
+        <font-awesome-icon icon="plus" class="rightIconOffset" />
       </button>
     </div>
     <div class="table">
       <div class="topCalendarHeader">
         <div class="prevButtonHeader topLeftCalendar">
           <button class="prevNextMonthButton" @click="setPrevMonth()">
-            <font-awesome-icon icon="angle-left" class="leftIconOffset"/>Prev
+            <font-awesome-icon icon="angle-left" class="leftIconOffset" />Prev
           </button>
         </div>
         <div colspan="5" class="monthHeader">{{calendar[calendarState.selectedMonth].name}}</div>
         <div class="nextButtonHeader topRightCalendar">
-          <button class="prevNextMonthButton" @click="setNextMonth()" >
-            Next<font-awesome-icon icon="angle-right" class="rightIconOffset"/>
+          <button class="prevNextMonthButton" @click="setNextMonth()">
+            Next
+            <font-awesome-icon icon="angle-right" class="rightIconOffset" />
           </button>
         </div>
       </div>
@@ -102,7 +104,7 @@ export default {
   },
   created() {
     this.currDate = new Date();
-    this.$store.dispatch('setSelectedMonth', this.today.month);
+    this.$store.dispatch("setSelectedMonth", this.today.month);
   },
   computed: {
     // Computed variables
@@ -115,8 +117,10 @@ export default {
   methods: {
     // Methods in this component
     selectDay(day) {
-      if (day >= 0 &&
-        day < this.calendar[this.calendarState.selectedMonth].days.length) {
+      if (
+        day >= 0 &&
+        day < this.calendar[this.calendarState.selectedMonth].days.length
+      ) {
         this.$store.dispatch("setSelectedDay", day);
       }
     },
@@ -175,7 +179,7 @@ export default {
   height: 85vh;
   width: 99%;
   margin-top: 2.5vh;
-  margin-bottom: 2.5vh;
+  margin-bottom: calc(2.5vh - 2px);
   margin-left: auto;
   margin-right: auto;
   background-color: bisque;
@@ -290,11 +294,20 @@ td {
 }
 
 .today {
-  background-color: turquoise
+  background-color: turquoise;
 }
 
 .inactiveDay {
   background-color: lightgrey;
   color: lightgray;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s;
 }
 </style>

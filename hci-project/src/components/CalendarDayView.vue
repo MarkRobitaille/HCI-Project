@@ -12,8 +12,8 @@
         <div class="smallDayCol">
           <button class="dayButton" @click="setPrevDay()">Prev</button>
         </div>
-        <div class="largeDayCol">
-          <h2>{{monthName}} {{day.number}}, 2019</h2>
+        <div class="largeDayCol eventHeader">
+          <h2 class="eventTitleHeader">{{monthName}} {{day.number}}, 2019</h2>
         </div>
         <div class="smallDayCol">
           <button class="dayButton" @click="setNextDay()">Next</button>
@@ -21,7 +21,7 @@
       </div>
       <div class="eventsHeader">
         <div class="largeDayCol">
-          <h3>Events:</h3>
+          <h3 class="eventsTitleHeader">Events:</h3>
         </div>
         <div class="mediumDayCol">
           <button class="windowAddEventButton" @click="addEvent()">Add Event</button>
@@ -34,18 +34,29 @@
           @click="editEvent(index)"
           class="largeEventBlobDiv"
         >
-          <EventBlob :event="item" :size="3" :month="calendarState.selectedMonth" :day="calendarState.selectedDay"></EventBlob>
+          <EventBlob
+            :event="item"
+            :size="3"
+            :month="calendarState.selectedMonth"
+            :day="calendarState.selectedDay"
+          ></EventBlob>
         </div>
       </div>
     </div>
+
     <div v-else>
-      <EditEvent :events="day.events" :eventIndex="calendarState.selectedEvent" :month="calendarState.selectedMonth" :day="calendarState.selectedDay"></EditEvent>
+      <EditEvent
+        :events="day.events"
+        :eventIndex="calendarState.selectedEvent"
+        :month="calendarState.selectedMonth"
+        :day="calendarState.selectedDay"
+      ></EditEvent>
     </div>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex' // Used to get data from Vuex store
+import { mapGetters } from "vuex"; // Used to get data from Vuex store
 import EventBlob from "./EventBlob.vue";
 import EditEvent from "./EditEvent.vue";
 
@@ -63,8 +74,8 @@ export default {
       required: true
     },
     monthName: {
-        Type: String,
-        required: true
+      Type: String,
+      required: true
     }
   },
   data() {
@@ -76,7 +87,7 @@ export default {
   computed: {
     // Computed variables
     ...mapGetters({
-      calendarState: 'getCalendarState'
+      calendarState: "getCalendarState"
     })
   },
   methods: {
@@ -172,5 +183,12 @@ export default {
 .largeEventBlobDiv {
   height: 15%;
   margin: 5%;
+}
+.eventTitleHeader {
+  padding-top: calc(6vh - 24px);
+}
+.eventsTitleHeader {
+  /* Just fiddled with it till it looked right, feel free to change */
+  padding-top: calc(3vh - 24px);
 }
 </style>
