@@ -102,7 +102,7 @@ export default {
   display: flex;
   position: absolute;
   height: 11.25vh;
-  margin-left:2vw;;
+  /* margin-left:2vw;; */
   min-width: 75%;
   /* margin-left: 25%; */
   /* background: #bce7f7; */
@@ -143,9 +143,9 @@ input[type="text"]:focus {
   border:none;
   /* background: #11998e;
   border:solid 1px #11998e; */
-  height:5vw;
+  height:5vh;
   width: 5vw;
-  margin-top: 1vh;
+  margin-top: 3vh;
   border-radius: 50%;
   font-size: 1vw;
   text-align: center;

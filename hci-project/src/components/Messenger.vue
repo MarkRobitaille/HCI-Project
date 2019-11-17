@@ -119,14 +119,16 @@ div{
 .message_list {
   /* margin-top: -9.25vh; */
   width: 25%;
-  height: 89vh;
+  height: 100vh;
   float: left;
 }
 
 .message_list_items {
   width: 100%;
-  height: 70vh;
-  overflow-y: scroll;
+  /* height: 70vh; */
+  height: calc(88.5vh - 1px);
+  /* overflow-y: scroll; */
+  overflow-y: auto;
 }
 
 .message_list_header {
