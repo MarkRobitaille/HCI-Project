@@ -5,63 +5,64 @@
     </div>
     <!-- <<div class="navbar">
       <a href="#/" :class="activeSection==0? 'activeNavbarSection' : 'navbarSection'">Home</a>
-      <a href="#/messenger" :class="activeSection==1? 'activeNavbarSection' : 'navbarSection'"> -->
+    <a href="#/messenger" :class="activeSection==1? 'activeNavbarSection' : 'navbarSection'">-->
     <div v-else>
-          <div class="navbar">
-      <div
-        class="navTabs"
-        id="homeTab"
-        :class="activeSection==0? 'activeNavbarSection' : 'navbarSection'"
-        @click="changeSection('/')"
-      >
-        <!-- <font-awesome-icon icon="home" size="4x"/> -->HOME
-      </div>
-
-      <div
-        class="navTabs"
-        id="messengerTab"
-        :class="activeSection==1? 'activeNavbarSection' : 'navbarSection'"
-        @click="changeSection('/messenger')"
-      >
-        <div v-if="unreadMessageCount>0" class="notification"></div>Messenger
-      </div>
-
-      <div
-        class="navTabs"
-        id="calendarTab"
-        :class="activeSection==2? 'activeNavbarSection' : 'navbarSection'"
-        @click="changeSection('/calendar')"
-      >Calendar</div>
-
-      <div
-        class="navTabs"
-        id="listTab"
-        :class="activeSection==3? 'activeNavbarSection' : 'navbarSection'"
-        @click="changeSection('/lists')"
-      >Lists</div>
-
-      <div
-        class="navTabs"
-        id="settingsTab"
-        :class="activeSection==4? 'activeNavbarSection' : 'navbarSection'"
-        @click="changeSection('/settings')"
-      >Settings</div>
-
-      <div class="logoutButton">
-        <button @click="logOut()">Log out</button>
-      </div>
-    </div>
-      <div class="content">
-        <div id="app">
-          <router-view></router-view>
+      <div class="navbar">
+        <div
+          class="navTabs"
+          id="homeTab"
+          :class="activeSection==0? 'activeNavbarSection' : 'navbarSection'"
+          @click="changeSection('/')"
+        >
+          <!-- <font-awesome-icon icon="home" size="4x"/> -->
+          HOME
         </div>
+
+        <div
+          class="navTabs"
+          id="messengerTab"
+          :class="activeSection==1? 'activeNavbarSection' : 'navbarSection'"
+          @click="changeSection('/messenger')"
+        >
+          <div v-if="unreadMessageCount>0" class="notification"></div>Messenger
+        </div>
+
+        <div
+          class="navTabs"
+          id="calendarTab"
+          :class="activeSection==2? 'activeNavbarSection' : 'navbarSection'"
+          @click="changeSection('/calendar')"
+        >Calendar</div>
+
+        <div
+          class="navTabs"
+          id="listTab"
+          :class="activeSection==3? 'activeNavbarSection' : 'navbarSection'"
+          @click="changeSection('/lists')"
+        >Lists</div>
+
+        <div
+          class="navTabs"
+          id="settingsTab"
+          :class="activeSection==4? 'activeNavbarSection' : 'navbarSection'"
+          @click="changeSection('/settings')"
+        >Settings</div>
+
+        <div class="logoutButton">
+          <button @click="logOut()">Log out</button>
+        </div>
+      </div>
+      <div class="content">
+          <div id="app">
+            <router-view></router-view>
+          </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import SplashPage from './components/SplashPage.vue'
+import SplashPage from "./components/SplashPage.vue";
 // import HelloWorld from './components/HelloWorld.vue'
 import { mapGetters } from "vuex";
 
@@ -109,12 +110,12 @@ export default {
       }
     },
     setActiveSection(routeName) {
-      if (this.currentUser.id>0) {
+      if (this.currentUser.id > 0) {
         document.title = routeName;
       } else {
         document.title = "Log in or Register";
       }
-      
+
       switch (routeName) {
         case "Home":
           this.activeSection = 0;
@@ -311,16 +312,29 @@ h1 {
 .rightIconOffset {
   margin-left: 0.5vw;
 }
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.75s;
-  position: absolute;
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
-  /* position: absolute */
-}
 .whiteIcon {
   color: white;
+}
+
+/* Vue Transition CSS */
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.25s;
+}
+.slide-fade-enter-active {
+  transition: all .1s ease;
+}
+.slide-fade-leave-active {
+  transition: all .2s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateX(10px);
+  opacity: 0;
 }
 </style>

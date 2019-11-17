@@ -6,7 +6,7 @@
       <div class="smallDayCol">
         <button class="dayButton" @click="createEvent()">Create</button>
       </div>
-      <div class="largeDayCol">
+      <div class="largeDayCol eventTitleHeader">
         <h2>Add Event</h2>
       </div>
       <div class="smallDayCol">
@@ -16,7 +16,7 @@
 
     <div class="eventDetails">
       <div v-if="errorType>0" class="eventInput">
-        <ErrorMessage :type="errorType"></ErrorMessage>
+        <ErrorMessage :type="errorType" class="eventError"></ErrorMessage>
       </div>
       <div class="eventInput">
         <div class="mediumDayCol">
@@ -238,6 +238,13 @@ export default {
 }
 .eventDetails {
   width: 100%;
+}
+.eventTitleHeader {
+  padding-top: calc(5vh - 24px);
+}
+.eventError {
+  border-radius: 20px;
+  padding: 0.5%;
 }
 .eventInput {
   height: 10vh;
