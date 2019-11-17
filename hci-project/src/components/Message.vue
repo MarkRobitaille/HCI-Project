@@ -115,7 +115,7 @@ export default {
   position: relative;
   clear: both;
 
-  background: #bce7f7;
+  background: #85ecad;
 
   border: solid 1px rgba(0, 0, 0, 0);
   border-radius: 20px 20px 0px 20px;

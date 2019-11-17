@@ -2,8 +2,7 @@
   <div>
     <div class="gradientBG">
     <!-- Can only have 1 parent element in a component -->
-    <div class="header">
-    </div>
+    <div class="header"> Everyone </div>
     <div class="message_list">
       <div class="message_list_header">
         <p>
@@ -83,13 +82,16 @@ export default {
 <style scoped>
 @import url("https://fonts.googleapis.com/css?family=Alata|Roboto&display=swap");
 
-/* .header {
-  background: white;
+.header {
   border-bottom: solid 1px #ededed;
-  height: 10vh;
-  color: black;
+  margin-left: 25%;
+  height: 8vh;
+  color: white;
   padding-bottom: 2.5vh;
-} */
+  font-family: "Alata", sans-serif;
+  font-size: 6vh;
+}
+
 div{
   font-family: 'Roboto',
 }
@@ -107,15 +109,14 @@ div{
 }
 
 .convoHeader {
-  font-weight: bold;
   font-family: "Alata", sans-serif;
   color: white;
 }
 
 .message_list {
-
+  margin-top: -9.25vh;
   width: 25%;
-  height: 100vh;
+  height: 89vh;
   float: left;
 }
 

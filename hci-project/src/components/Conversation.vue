@@ -92,7 +92,7 @@ export default {
 .messageArea {
   background-color: white;
   width: 75%;
-  height: calc(100vh - 11.25vh);
+  height: calc(100vh - 22vh);
   overflow-y: scroll;
 }
 
