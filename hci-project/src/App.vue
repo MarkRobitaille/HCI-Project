@@ -48,28 +48,11 @@
       >Settings</div>
 
       <div class="logoutButton">
-        <button>Log out</button>
+        <button @click="logOut()">Log out</button>
       </div>
     </div>
-      <!-- <div class="navbar">
-      <a href="#/" :class="activeSection==0? 'activeNavbarSection' : 'navbarSection'">Home</a>
-      <a href="#/messenger" :class="activeSection==1? 'activeNavbarSection' : 'navbarSection'">
-        <div v-if="unreadMessageCount>0" class="notification"></div>Messenger
-      </a>
-      <a
-        href="#/calendar"
-        :class="activeSection==2? 'activeNavbarSection' : 'navbarSection'"
-      >Calendar</a>
-      <a href="#/lists" :class="activeSection==3? 'activeNavbarSection' : 'navbarSection'">Lists</a>
-      <a
-        href="#/settings"
-        :class="activeSection==4? 'activeNavbarSection' : 'navbarSection'"
-      >Settings</a>
-      <button>Log out</button>
-    </div> -->
       <div class="content">
         <div id="app">
-          <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
           <router-view></router-view>
         </div>
       </div>
@@ -140,6 +123,9 @@ export default {
           this.activeSection = 4;
           break;
       }
+    },
+    logOut() {
+      this.$store.dispatch("setCurrentUser", { id: 0 });
     }
   }
 };
