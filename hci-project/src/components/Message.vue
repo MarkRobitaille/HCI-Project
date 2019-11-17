@@ -4,7 +4,7 @@
     <!-- All template inside of here -->
     <div class="date" v-if="newDay">{{formattedDate}}</div>
     <div class="bubble" v-if="sameUser">{{messageData.message}}</div>
-    <div class="receiveBubble" v-else><div v-if="groupConvo" class="sentByHeader">{{users[messageData.senderId].name}}:</div>{{messageData.message}}</div>
+    <div class="receiveBubble" v-else><div v-if="groupConvo" class="sentByHeader">{{users[messageData.senderId-1].name}}:</div>{{messageData.message}}</div>
   </div>
 </template>
 

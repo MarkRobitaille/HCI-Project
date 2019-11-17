@@ -18,7 +18,7 @@
           @click="changeSelected(i)"
         >
           <div v-if="item.notification" class="notification messageNotificationOffset"></div>
-          <img :src="require('../assets/' + item.image)" />
+          <img class="convoImage" :src="require('../assets/' + item.image)" />
           <!-- {{item.image}} -->
           <p class="convoHeader">{{item.name}}</p>
           <p
@@ -119,11 +119,12 @@ export default {
   background-color: #bce7f7;
 }
 
-.convo img {
+.convoImage {
   width: 4vw;
   float: left;
   margin-left: 0.5vw;
   margin-top: 0.5vh;
+  border-radius: 50%;
 }
 
 /* Added to App.vue's global CSS */
