@@ -2,7 +2,7 @@
   <div>
     <div class="gradientBG">
     <!-- Can only have 1 parent element in a component -->
-    <div class="header"> Everyone </div>
+    <!-- <div class="conversationNameHeader"> Everyone </div> -->
     <div class="message_list">
       <div class="message_list_header">
         <p>
@@ -82,14 +82,15 @@ export default {
 <style scoped>
 @import url("https://fonts.googleapis.com/css?family=Alata|Roboto&display=swap");
 
-.header {
-  border-bottom: solid 1px #ededed;
+.conversationNameHeader {
+  /* border-bottom: solid 1px #ededed; */
   margin-left: 25%;
-  height: 8vh;
+  height: 9.5vh;
   color: white;
-  padding-bottom: 2.5vh;
+  /* padding-bottom: 2.5vh; */
   font-family: "Alata", sans-serif;
-  font-size: 6vh;
+  padding-top:1vh;
+  font-size: 5.5vh;
 }
 
 div{
@@ -110,11 +111,13 @@ div{
 
 .convoHeader {
   font-family: "Alata", sans-serif;
+  font-size: 1.75vw;
+  height: 3vh;
   color: white;
 }
 
 .message_list {
-  margin-top: -9.25vh;
+  /* margin-top: -9.25vh; */
   width: 25%;
   height: 89vh;
   float: left;
@@ -127,8 +130,11 @@ div{
 }
 
 .message_list_header {
+  height:6.5vh;
   border-bottom: solid 1px #b9e4e0c2;
   font-size: 20px;
+  padding-top:1vh;
+  padding-bottom:4vh;
 }
 
 .convo {
@@ -146,23 +152,23 @@ div{
 .convoImage {
   width: 4vw;
   float: left;
-  margin-left: 0.5vw;
-  margin-top: 0.5vh;
+  margin-left: 1.5vw;
+  margin-top: 3.5vh;
   border-radius: 50%;
 }
 
-/* Added to App.vue's global CSS */
-/* .notification {
+/* Added to App.vue's global CSS */ 
+ /* .notification {
   background: red;
   position: absolute;
   border-radius: 50%;
   width: 1.25vw;
   height: 1.25vw;
-} */
+}  */
 
 .messageNotificationOffset {
-  margin-left: 0.5vw;
-  margin-top: 0.5vh;
+  margin-left: 1vw;
+  margin-top: 2.5vh;
 }
 
 /* Use classes to create css */

@@ -60,7 +60,7 @@
         </div>
 
       <div class="logoutButton">
-        <button @click="logOut()">Log out</button>
+        <button @click="logOut()"><font-awesome-icon icon="power-off" class = "homeIcon" size="3x"/><h1>LOG OUT</h1></button>
       </div>
     </div>
       <div class="content">
@@ -337,6 +337,26 @@ background: linear-gradient(
 }
 .whiteIcon {
   color: white;
+}
+
+.logoutButton button{
+  background: white;
+  border: none;
+  color: #404040;
+  text-decoration: none;
+  line-height: 1vh;
+  text-align: center;
+  margin-left: 40%;
+  margin-top: 10%;
+}
+
+.logoutButton h1 {
+    font-size: 1vw;
+    color: #404040;
+    margin-top: 1vh;
+    /* clear:both; */
+    display: inline-block;
+    white-space: nowrap;
 }
 
 </style>

@@ -19,7 +19,8 @@
         name="Type Here"
         placeholder="Type Message Here"
       />
-      <input @click="sendMessage()" class="send" type="button" value="Send" />
+      <!-- <input @click="sendMessage()" class="send" type="button" value="Send" /><font-awesome-icon icon="paper-plane" class = "homeIcon" size="2x" color="white"/> -->
+      <button @click="sendMessage()" class ="sendIcon" value="Send"><font-awesome-icon icon="paper-plane" size="2x"/></button>
     </div>
   </div>
 </template>
@@ -91,8 +92,9 @@ export default {
 <style scoped>
 .messageArea {
   background-color: white;
-  width: 75%;
-  height: calc(100vh - 22vh);
+  margin-left:25%;
+  /* width: 75%; */
+  height: calc(100vh - 11.25vh);
   overflow-y: scroll;
 }
 
@@ -100,6 +102,7 @@ export default {
   display: flex;
   position: absolute;
   height: 11.25vh;
+  margin-left:2vw;;
   min-width: 75%;
   /* margin-left: 25%; */
   /* background: #bce7f7; */
@@ -133,17 +136,19 @@ input[type="text"]:focus {
   outline: none;
 }
 
-.send {
+.sendIcon {
 
-  box-sizing: border-box;
-  height: 5vh;
-  width: 5vh;
-  background: white;
-  
-  border:solid 1px grey;
-  border-radius: 10vh;
-  margin: 3vh;
-  text-align: center; 
+  color:white;
+  background:none;
+  border:none;
+  /* background: #11998e;
+  border:solid 1px #11998e; */
+  height:5vw;
+  width: 5vw;
+  margin-top: 1vh;
+  border-radius: 50%;
+  font-size: 1vw;
+  text-align: center;
 
 }
 
