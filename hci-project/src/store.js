@@ -66,7 +66,9 @@ const storeModule = {
         },
         setUsers(state, payload) {
             state.users = payload.users;
-            // state.currentUser = state.users[2];
+        },
+        setCurrentUser(state, payload) {
+            state.currentUser = payload;
         },
         setMessenger(state, payload) {
             state.messenger = payload.conversations;
@@ -94,7 +96,6 @@ const storeModule = {
             state.addEvent = payload;
         },
         addEvent(state, payload) {
-            console.log(payload);
             let newEvent = {
                 "name": payload.name,
                 "allDay": payload.allDay,
@@ -166,6 +167,9 @@ const storeModule = {
         },
         setToday({commit}, payload) {
             commit('setToday', payload);
+        },
+        setCurrentUser({commit}, payload) {
+            commit('setCurrentUser', payload);
         },
         setSelectedMonth({ commit }, payload) {
             commit('setSelectedMonth', payload);

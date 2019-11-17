@@ -11,22 +11,28 @@
             <label class="fieldLabel">
               <strong>Email:</strong>
             </label>
-            <input class="textInputField" type="text" />
+            <input class="textInputField" type="text" v-model="loginEmail" />
           </div>
           <!-- password -->
           <div class="loginPassword">
             <label class="fieldLabel">
               <strong>Password:</strong>
             </label>
-            <input class="passwordInputField" type="password" />
+            <input class="passwordInputField" type="password" v-model="loginPassword" />
           </div>
           <!-- forgot password link -->
           <a class="forgotPasswordText" href>Forgot Password?</a>
           <!-- login button -->
+          <ErrorMessage v-if="errorType>0" :type="errorType" class="loginError"></ErrorMessage>
           <div>
-            <button class="loginButton" type="submit">
-              <strong>Log in</strong>
-            </button>
+            <transition name="fade">
+              <button v-if="loginDisabled" class="loginButton disabledButton" disabled key="1">
+                <strong>Log in</strong>
+              </button>
+              <button v-else class="loginButton enabledButton" key="2" @click="login()">
+                <strong>Log in</strong>
+              </button>
+            </transition>
           </div>
         </div>
       </div>
@@ -39,41 +45,52 @@
             <label class="fieldLabel">
               <strong>Email:</strong>
             </label>
-            <input class="textInputField" type="text" />
+            <input class="textInputField" type="text" v-model="registerEmail" />
           </div>
           <!-- username -->
           <div class="registerUsername">
             <label class="fieldLabel">
-              <strong>Username:</strong>
+              <strong>Name:</strong>
             </label>
-            <input class="textInputField" type="text" />
+            <input class="textInputField" type="text" v-model="registerName" />
           </div>
           <!-- password -->
           <div class="registerPassword">
             <label class="fieldLabel">
               <strong>Password:</strong>
             </label>
-            <input class="passwordInputField" type="password" />
+            <input class="passwordInputField" type="password" v-model="registerPassword" />
           </div>
           <!-- checkbox for family code -->
           <div>
-            <input class="familyCodeCheckbox" type="checkbox" />
+            <input class="familyCodeCheckbox" type="checkbox" v-model="isFamilyCode" />
             <label class="checkboxText">
               <strong>I have a family code</strong>
             </label>
+            <font-awesome-icon icon="question-circle" class="whiteIcon" />
           </div>
           <!-- family code input field -->
-          <div class="registerFamilyCode">
+          <div class="registerFamilyCode" v-if="isFamilyCode">
             <label class="fieldLabel">
               <strong>Family Code:</strong>
             </label>
-            <input class="familyCodeInput" type="text" />
+            <input class="familyCodeInput" type="text" v-model="registerFamilyCode" />
           </div>
           <!-- register button -->
           <div>
-            <button class="registerButton" type="submit">
-              <strong>Register</strong>
-            </button>
+            <transition name="fade">
+              <button
+                v-if="registerDisabled"
+                class="disabledButton registerButton"
+                disabled
+                key="3"
+              >
+                <strong>Register</strong>
+              </button>
+              <button v-else class="registerButton enabledButton" key="4">
+                <strong>Register</strong>
+              </button>
+            </transition>
           </div>
         </div>
       </div>
@@ -82,12 +99,14 @@
 </template>
 
 <script>
-// import { mapGetters } from 'vuex' // Used to get data from Vuex store
+import { mapGetters } from "vuex"; // Used to get data from Vuex store
+import ErrorMessage from "./ErrorMessage.vue";
 
 export default {
   name: "SplashPage",
   components: {
     // List of all components used in this component
+    ErrorMessage
   },
   props: {
     // List of data passed in from parent component
@@ -96,13 +115,79 @@ export default {
     // List of local data in this component
     return {
       // Variables go in here
+      loginEmail: "",
+      loginPassword: "",
+      registerEmail: "",
+      registerName: "",
+      registerPassword: "",
+      isFamilyCode: false,
+      registerFamilyCode: "",
+      userIndex: -1,
+      errorType: -1
     };
   },
   computed: {
     // Computed variables
+    ...mapGetters({
+      users: "getUsers"
+    }),
+    loginDisabled: function() {
+      return this.loginEmail == "" || this.loginPassword == "";
+    },
+    registerDisabled: function() {
+      return (
+        this.registerEmail == "" ||
+        this.registerName == "" ||
+        this.registerPassword == "" ||
+        (this.isFamilyCode && this.registerFamilyCode == "")
+      );
+    }
   },
   methods: {
     // Methods in this component
+    login() {
+      this.errorType = -1;
+      this.userIndex = -1;
+      this.inputCheck();
+
+      if (this.errorType < 0 && this.userIndex >= 0) {
+        this.$store.dispatch("setCurrentUser", this.users[this.userIndex]);
+      }
+    },
+    inputCheck() {
+      // Error 1 - Email isn't formatted right (lacks an @ symbol)
+      if (this.loginEmail.indexOf("@") < 0) {
+        console.log("Error 1 found");
+        this.errorType = 1;
+      }
+
+      // Error 2 - User not found
+      if (this.errorType < 0) {
+        let found = -1;
+        for (let i = 0; i < this.users.length && found < 0; i++) {
+          if (this.users[i].email == this.loginEmail) {
+            found = i;
+          }
+        }
+
+        if (found < 0) {
+          // Not found
+          console.log("Error 2 found");
+          this.errorType = 2;
+        } else {
+          // Save the index of the user we want to add
+          this.userIndex = found;
+        }
+      }
+
+      // Error 3 - Incorrect password
+      if (this.errorType < 0 && this.userIndex > 0) {
+        if (this.users[this.userIndex].password != this.loginPassword) {
+          console.log("Error 3 found");
+          this.errorType = 3;
+        }
+      }
+    }
   }
 };
 </script>
@@ -206,18 +291,36 @@ export default {
 }
 
 .loginButton {
-  min-width: 30px;
-  margin-top: 22.5vh;
-  padding-top: 3%;
-  padding-bottom: 3%;
-  padding-left: 4.5%;
-  padding-right: 4.5%;
-  background-color: rgba(73, 173, 206, 0.4);
+  width: 10vw;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  padding-left: 2vw;
+  padding-right: 2vw;
   border: none;
-  border-radius: 25%;
+  border-radius: 25px;
   color: white;
   font-size: 16px;
   text-align: center;
+  position: fixed;
+  bottom: 15%;
+  left: 0;
+  margin-left: 22vw;
+}
+
+.loginError {
+  width: 20vw;
+  margin-left: 10vw;
+  margin-top: 2%;
+  border-radius: 20px;
+  padding: 0.5%;
+}
+
+.enabledButton {
+  background-color: rgba(73, 173, 206, 0.75);
+}
+
+.disabledButton {
+  background-color: rgba(55, 125, 155, 0.25);
 }
 
 /* time for the register form */
@@ -235,6 +338,7 @@ export default {
 .registerUsername {
   color: white;
   margin-top: 5vh;
+  margin-left: 2vw;
   border: 0;
 }
 
@@ -257,10 +361,12 @@ export default {
   margin-top: 3vh;
   margin-left: -5vw;
   border: 0;
+  color: white;
 }
 
 .checkboxText {
   margin-left: 0vw;
+  margin-right: 0.5vw;
   color: white;
   font-size: 14px;
 }
@@ -284,14 +390,24 @@ export default {
 }
 
 .registerButton {
-  min-width: 30px;
-  margin-top: 12.5vh;
-  padding: 3%;
-  background-color: rgba(73, 173, 206, 0.4);
+  width: 10vw;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  padding-left: 2vw;
+  padding-right: 2vw;
   border: none;
-  border-radius: 25%;
+  border-radius: 25px;
   color: white;
   font-size: 16px;
   text-align: center;
+  position: fixed;
+  bottom: 15%;
+  right: 0;
+  margin-right: 22vw;
+}
+/* Keep here to overwrite animation speed of normal fade */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
 }
 </style>

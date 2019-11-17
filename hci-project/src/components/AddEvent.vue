@@ -101,7 +101,7 @@ export default {
       startTime: "",
       endTime: "",
       description: "",
-      errorType: -1 // Error types 3-6 possible in Calendar
+      errorType: -1 // Error types 4-7 possible in Calendar
     };
   },
   created() {
@@ -163,14 +163,14 @@ export default {
 
       // Error 3 - No event name
       if (this.name == "") {
-        console.log("Error 3 found");
-        this.errorType = 3;
+        console.log("Error 4 found");
+        this.errorType = 4;
       }
 
       // Error 4 - No date selected
       if (this.errorType < 0 && this.date == "") {
-        console.log("Error 4 found");
-        this.errorType = 4;
+        console.log("Error 5 found");
+        this.errorType = 5;
       }
 
       // Error 5 - Only one of start and end time
@@ -179,14 +179,14 @@ export default {
         ((this.startTime != "" && this.endTime == "") ||
           (this.startTime == "" && this.endTime != ""))
       ) {
-        console.log("Error 5 found");
-        this.errorType = 5;
+        console.log("Error 6 found");
+        this.errorType = 6;
       }
 
       // Error 6 - Start time after end time
       if (this.errorType < 0 && this.startTime > this.endTime) {
-        console.log("Error 6 found");
-        this.errorType = 6;
+        console.log("Error 7 found");
+        this.errorType = 7;
       }
     }
   }
