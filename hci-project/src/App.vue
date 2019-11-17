@@ -112,7 +112,6 @@ export default {
   },
   computed: {
     ...mapGetters({
-      users: "getUsers",
       currentUser: "getCurrentUser",
       unreadMessageCount: "getUnreadMessageCount"
     })
