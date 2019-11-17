@@ -175,7 +175,7 @@ export default {
   height: 85vh;
   width: 99%;
   margin-top: 2.5vh;
-  margin-bottom: 2.5vh;
+  margin-bottom: calc(2.5vh - 2px);
   margin-left: auto;
   margin-right: auto;
   background-color: bisque;
