@@ -1,5 +1,5 @@
 <template>
-  <div> <!-- Can only have 1 parent element in a component -->
+  <div class="home"> <!-- Can only have 1 parent element in a component -->
     <div class="homeBG"></div>
     <!-- All template inside of here -->
     <div class="header">
@@ -58,6 +58,11 @@ export default {
   padding-bottom: 2.5vh;
 } */
 
+.home{
+  text-align:center;
+  margin-bottom: 10vh;
+}
+
 .homeBG{
   z-index: -1;
   height: 100vh;
@@ -81,14 +86,17 @@ export default {
   color:white;
   font-size: 5vw;
   margin-top: 1vh;
+  text-align: center;
   margin-bottom: 1vh;
 }
 .dateMessage{
   font-family: 'Roboto', sans-serif;
   color:white;
   font-size: 2vw;
+  text-align: center;
   margin-top: 1vh;
   margin-bottom: 3vh;
+  /* margin-left: calc(50% - 23%); */
 }
 .calendarNotifs, .messageNotifs{
   font-family: 'Roboto', sans-serif;
@@ -105,10 +113,11 @@ a {
 .notifs{
   background: rgb(255, 255, 255, 0.6);
   margin-top: 1vh;
-  margin-bottom: 1vh;
-  margin-left: 20.5vw;
+  /* margin-bottom: 1vh; */
+  margin-left: calc(50% - 22.5%);
   width: 45%;
-  padding: 3vh;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
   border-radius: 25px;
 }
 
