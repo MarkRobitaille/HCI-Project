@@ -88,9 +88,12 @@ export default {
     this.setActiveSection(this.$route.name);
   },
   watch: {
-    $route(to) {
+    $route: function(to) {
       // Track changes to route to update css
       this.setActiveSection(to.name);
+    },
+    "currentUser.id": function() {
+      this.setActiveSection(this.$route.name);
     }
   },
   computed: {
@@ -106,6 +109,12 @@ export default {
       }
     },
     setActiveSection(routeName) {
+      if (this.currentUser.id>0) {
+        document.title = routeName;
+      } else {
+        document.title = "Log in or Register";
+      }
+      
       switch (routeName) {
         case "Home":
           this.activeSection = 0;
@@ -304,7 +313,7 @@ h1 {
 }
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.2s;
+  transition: opacity 0.75s;
   position: absolute;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
