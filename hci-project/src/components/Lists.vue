@@ -262,7 +262,7 @@ export default {
 
 .listNameInput {
   z-index: 1;
-  margin-top: 2vh;
+  margin-top: calc(6vh - 18px);
   font-size: 28px;
   font-weight: bold;
   padding-top: 1%;
