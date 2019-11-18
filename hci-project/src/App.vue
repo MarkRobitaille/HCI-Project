@@ -237,7 +237,7 @@ h1 {
   font-size: 1.6vw;
   line-height: 15vh;
   text-align: center;
-  font-family: "Roboto", sans-serif;
+  font-family: "Alata", sans-serif;
   padding-top: 2vh;
   /* margin-left: 4vh; */
   height: 15vh;
@@ -400,6 +400,7 @@ background: linear-gradient(
   color: #404040;
   margin-top: 1vh;
   /* clear:both; */
+  font-family: 'Alata';
   display: inline-block;
   white-space: nowrap;
 }
