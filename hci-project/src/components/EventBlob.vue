@@ -2,11 +2,11 @@
   <div class="eventBlob" :style="'background-color: ' + (users[event.createdBy-1].color)">
     <div v-if="size==1">
       <div>
-        <font-awesome-icon :icon="users[event.createdBy-1].icon" class="eventIcon"/>
+        <font-awesome-icon :icon="users[event.createdBy-1].icon" class="smallEventIcon"/>
       </div>
     </div>
     <div v-else-if="size==2" class="mediumEvent">
-      <div><font-awesome-icon :icon="users[event.createdBy-1].icon" class="eventIcon mediumEventLeftAlign"/>{{event.name}}</div>
+      <div><font-awesome-icon :icon="users[event.createdBy-1].icon" class="mediumEventIcon mediumEventLeftAlign"/>{{event.name}}</div>
     </div>
     <div v-else class="largeEvent">
       <div class="largeEventWrapperDiv">
@@ -114,11 +114,16 @@ export default {
   min-height: 18px;
   text-align: center; 
   border-radius: 10px;
+  min-width: 18px;
 }
 
 
-.eventIcon {
-  margin-top: 1px;
+.smallEventIcon {
+  padding: 1px;
+  /* padding-bottom: 1px; */
+}
+.mediumEventIcon {
+  margin-top: 3px;
 }
 
 .mediumEvent {

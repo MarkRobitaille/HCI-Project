@@ -1,7 +1,6 @@
 <template>
-<div class="BG">
-  <div class="calendar">
-    <div class="BG"> </div>
+  <div class="BG">
+    <!-- <div class="BG"> </div> -->
     <transition name="fade">
       <div
         class="fadeOut"
@@ -18,60 +17,62 @@
         <font-awesome-icon icon="plus" class="rightIconOffset" />
       </button>
     </div>
-    <div class="table">
-      <div class="topCalendarHeader">
-        <div class="prevButtonHeader topLeftCalendar">
-          <button class="prevNextMonthButton" @click="setPrevMonth()">
-            <font-awesome-icon icon="angle-left" class="leftIconOffset" />Prev
-          </button>
+    <div class="calendar">
+      <div class="table">
+        <div class="topCalendarHeader">
+          <div class="prevButtonHeader topLeftCalendar">
+            <button class="prevNextMonthButton" @click="setPrevMonth()">
+              <font-awesome-icon icon="angle-left" class="leftIconOffset" />Prev
+            </button>
+          </div>
+          <div colspan="5" class="monthHeader">{{calendar[calendarState.selectedMonth].name}} 2019</div>
+          <div class="nextButtonHeader topRightCalendar">
+            <button class="prevNextMonthButton" @click="setNextMonth()">
+              Next
+              <font-awesome-icon icon="angle-right" class="rightIconOffset" />
+            </button>
+          </div>
         </div>
-        <div colspan="5" class="monthHeader">{{calendar[calendarState.selectedMonth].name}}</div>
-        <div class="nextButtonHeader topRightCalendar">
-          <button class="prevNextMonthButton" @click="setNextMonth()">
-            Next
-            <font-awesome-icon icon="angle-right" class="rightIconOffset" />
-          </button>
+        <div class="weekdayHeader">
+          <div class="weekdayDiv">
+            <div class="weekdayInnerDiv">Sunday</div>
+          </div>
+          <div class="weekdayDiv">
+            <div class="weekdayInnerDiv">Monday</div>
+          </div>
+          <div class="weekdayDiv">
+            <div class="weekdayInnerDiv">Tuesday</div>
+          </div>
+          <div class="weekdayDiv">
+            <div class="weekdayInnerDiv">Wednesday</div>
+          </div>
+          <div class="weekdayDiv">
+            <div class="weekdayInnerDiv">Thursday</div>
+          </div>
+          <div class="weekdayDiv">
+            <div class="weekdayInnerDiv">Friday</div>
+          </div>
+          <div class="weekdayDiv">
+            <div class="weekdayInnerDiv">Saturday</div>
+          </div>
         </div>
-      </div>
-      <div class="weekdayHeader">
-        <div class="weekdayDiv">
-          <div class="weekdayInnerDiv">Sunday</div>
-        </div>
-        <div class="weekdayDiv">
-          <div class="weekdayInnerDiv">Monday</div>
-        </div>
-        <div class="weekdayDiv">
-          <div class="weekdayInnerDiv">Tuesday</div>
-        </div>
-        <div class="weekdayDiv">
-          <div class="weekdayInnerDiv">Wednesday</div>
-        </div>
-        <div class="weekdayDiv">
-          <div class="weekdayInnerDiv">Thursday</div>
-        </div>
-        <div class="weekdayDiv">
-          <div class="weekdayInnerDiv">Friday</div>
-        </div>
-        <div class="weekdayDiv">
-          <div class="weekdayInnerDiv">Saturday</div>
-        </div>
-      </div>
-      <div v-for="i in 6" :key="i" :class="i==6? 'weekDiv bottomCalendar' : 'weekDiv'">
-        <div
-          v-for="j in 7"
-          :key="i+ '' +j"
-          :class="{'dayDiv': true, 'inactiveDay': (i-1)*7+j<=calendar[calendarState.selectedMonth].offset || 
+        <div v-for="i in 6" :key="i" :class="i==6? 'weekDiv bottomCalendar' : 'weekDiv'">
+          <div
+            v-for="j in 7"
+            :key="i+ '' +j"
+            :class="{'dayDiv': true, 'inactiveDay': (i-1)*7+j<=calendar[calendarState.selectedMonth].offset || 
             (i-1)*7+(j-1)>=calendar[calendarState.selectedMonth].offset + calendar[calendarState.selectedMonth].days.length, 
             'today': calendarState.selectedMonth == today.month && (i-1)*7+j-1-calendar[calendarState.selectedMonth].offset == today.day,
             'bottomLeftCalendar': i==6 && j==1, 'bottomRightCalendar': i==6 && j==7}"
-          @click="selectDay((i-1)*7+(j-1)-calendar[calendarState.selectedMonth].offset);"
-        >
-          <CalendarDate
-            v-if="(i-1)*7+j>calendar[calendarState.selectedMonth].offset && 
+            @click="selectDay((i-1)*7+(j-1)-calendar[calendarState.selectedMonth].offset);"
+          >
+            <CalendarDate
+              v-if="(i-1)*7+j>calendar[calendarState.selectedMonth].offset && 
             (i-1)*7+(j-1)<calendar[calendarState.selectedMonth].offset + calendar[calendarState.selectedMonth].days.length"
-            :day="calendar[calendarState.selectedMonth].days[(i-1)*7+(j-1)-calendar[calendarState.selectedMonth].offset]"
-            class="dateInfo"
-          ></CalendarDate>
+              :day="calendar[calendarState.selectedMonth].days[(i-1)*7+(j-1)-calendar[calendarState.selectedMonth].offset]"
+              class="dateInfo"
+            ></CalendarDate>
+          </div>
         </div>
       </div>
     </div>
@@ -81,7 +82,7 @@
       :day="calendar[calendarState.selectedMonth].days[calendarState.selectedDay]"
       :monthName="calendar[calendarState.selectedMonth].name"
     ></CalendarDayView>
-  </div>
+
     <AddEvent
       v-if="calendarState.addEvent"
       :month="calendarState.selectedMonth"
@@ -150,13 +151,13 @@ export default {
 <!-- We'll put global css in App.vue -->
 <style scoped>
 @import url("https://fonts.googleapis.com/css?family=Alata|Roboto&display=swap");
-.BG{
+.BG {
   width: 100%;
-/* background: #FDC830; 
+  /* background: #FDC830; 
 background: -webkit-linear-gradient(to right, #F37335, #FDC830); 
 background: linear-gradient(to right, #F37335, #FDC830);  */
-background: rgb(0, 167, 69)  /* fallback for old browsers */
-/* background: -webkit-linear-gradient(
+  background: rgb(0, 167, 69); /* fallback for old browsers */
+  /* background: -webkit-linear-gradient(
   to left, 
   rgb(110, 255, 125), 
   rgb(0, 167, 69)
@@ -167,7 +168,7 @@ background: linear-gradient(
   rgb(0, 172, 72)
   );  */
 
- /* background: #f08b17;  
+  /* background: #f08b17;  
   background: -webkit-linear-gradient(
     to left, 
     #ffbf77, 
@@ -178,18 +179,14 @@ background: linear-gradient(
     #ffbf77, 
     rgb(255, 101, 12)
   );  */
-
-
-
 }
 .calendar {
   z-index: 0;
   margin-left: 2%;
   width: 96%;
-  background:  none;
-  height: 100vh;
-  font-family:Alata;
-  
+  background: none;
+  height: 90vh;
+  font-family: Alata;
 }
 
 .fadeOut {
@@ -203,35 +200,36 @@ background: linear-gradient(
   z-index: 2;
 }
 
-button{
+button {
   background: none;
   border: none;
-  color:white;
+  color: white;
   color: f12711;
   font-size: 1.5vw;
-
 }
 
 .header {
   height: 10vh;
+  width: 100%;
   color: black;
 }
 
 .addEventButton {
+  margin-top: 4vh;
+  min-height: 20px;
+  height: 5vh;
   position: absolute;
   right: 5vh;
-  top: 4vh;
-  min-height: 20px;
-  margin-top: 59%;
-  margin-right: 40%;
+  /* top: 4vh; */
+  /* margin-top: 59%; */
+  /* margin-right: 40%; */
   /* color:black; */
-  height: 5vh;
 }
 
 .table {
-  height:50%;
-  width: 99%;
-  margin-top: -5vh;
+  /* height: 50%; */
+  width: 100%;
+  /* margin-top: 0vh; */
   /* margin-bottom: calc(2.5vh - 2px); */
   margin-left: auto;
   margin-right: auto;
@@ -240,7 +238,7 @@ button{
   background: linear-gradient(to left, #F37335, #FDC830); */
   /* border: solid 2px black; */
   /* padding-top:2vh; */
-  border-radius:20px;
+  border-radius: 20px;
 }
 
 th,
@@ -255,7 +253,7 @@ td {
 .topCalendarHeader {
   height: 10vh;
   width: 100%;
-  color:white;
+  color: white;
 }
 
 .prevNextMonthButton {
@@ -269,10 +267,10 @@ td {
   text-align: center;
   text-transform: uppercase;
   /* padding-top: 2.5vh; */
-  color:white;
+  color: white;
   padding-bottom: 2.5vh;
   margin-top: -3vh;
-  font-size: 5vw;
+  font-size: 4vw;
   height: 5vh;
   /* vertical-align: middle; */
   /* background-color: #bce7f7; */
@@ -299,7 +297,7 @@ td {
   /* border-top: solid 1px black; */
   border: solid 0.5px black;
   background-color: #303030;
-  background-color:none;
+  background-color: none;
   font-size: 1vw;
   width: 100%;
   height: calc(5vh - 2px);
@@ -311,16 +309,16 @@ td {
 
 .weekdayDiv {
   float: left;
-  color:white;
+  color: white;
   margin-top: 0.2vh;
   height: calc(5vh - 2px);
   width: calc(100% / 7);
   /* background-color: teal; */
   /* background-color: white; */
-  background-color:none;
+  background-color: none;
   /* color:white; */
   font-weight: bold;
-  font-family: 'Roboto'
+  font-family: "Roboto";
 }
 
 .weekdayInnerDiv {
@@ -329,12 +327,12 @@ td {
 
 .weekDiv {
   background-color: white;
-  height: calc(70vh / 6);
+  height: calc(73vh / 6);
   width: 100%;
 }
 .dayDiv {
-  height: calc(70vh / 6);
-  
+  height: calc(73vh / 6);
+
   width: calc(100% / 7);
   float: left;
   overflow: hidden;
@@ -365,7 +363,6 @@ td {
 .today {
   background-color: rgb(139, 247, 150);
   /* background: rgb(206, 165, 245);   */
-
 }
 
 .inactiveDay {
@@ -382,7 +379,7 @@ td {
   transition: opacity 0.2s;
 }
 
-h1{
-  color:white;
+h1 {
+  color: white;
 }
 </style>

@@ -64,13 +64,15 @@ export default {
 .dateNumber {
   margin-left: 5%;
   margin-top: 5%;
-  margin-right: auto;
+  float: left;
+  /* margin-right: auto; */
 }
 
 .eventsWrapper{
-  margin-left: 10%;
+  margin-left: 20%;
   margin-right: 10%;
-  width: 80%;
+  margin-top: 15%;
+  width: 70%;
 }
 
 .smallEventBlobDiv {
