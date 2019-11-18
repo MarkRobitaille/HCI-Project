@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="settingsBacksplash">
     <!-- Can only have 1 parent element in a component -->
     <!-- All template inside of here -->
-    <div class="settingsBG"></div>
+    <div class="settingsBG">
 
     <div class="settingsHead">
       <h1>Change Settings</h1>
@@ -34,7 +34,7 @@
           <a href="#/settings">Change calendar icon</a>
         </div>
       </h3>
-
+</div>
       <!-- Family code -->
       <div class="familyCode">
         <h2>
@@ -82,6 +82,22 @@ export default {
 /* Use classes to create css */
 /* If you want dynamic application of css, create a computed variable in computed section */
 /* Then apply by binding it to html tag by using :class="computedClass" */
+.settingsBacksplash{
+  background: #fc2222;
+  height: 97vh;
+  padding-top:2%;
+}
+
+
+.settingsBG{
+  background:white;
+  margin-left: 2%;
+  margin-right: 2%;
+  /* margin-top:2%; */
+  margin-bottom:2%;
+  width: 96%;
+  height: 96%;
+}
 
 .settingsLink {
   display: block;
