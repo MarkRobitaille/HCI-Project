@@ -196,6 +196,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <!-- We'll put global css in App.vue -->
 <style scoped>
+@import url("https://fonts.googleapis.com/css?family=Alata|Roboto&display=swap");
 /* Use classes to create css */
 /* If you want dynamic application of css, create a computed variable in computed section */
 /* Then apply by binding it to html tag by using :class="computedClass" */
@@ -207,8 +208,32 @@ export default {
   right: 0;
   top: 0;
   z-index: 10;
-  background-color: lightcoral;
+  background:  rgb(0, 172, 72);  /* fallback for old browsers */
+background: -webkit-linear-gradient(
+  to right, 
+  rgb(5, 184, 79), 
+  rgb(0, 167, 69)
+  );  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(
+  to right, 
+   rgb(5, 184, 79), 
+  rgb(0, 172, 72)
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color:white;
+    font-family: 'Roboto';
+    font-style: bold;
+    font-size: 1.25vw;
 }
+
+button{
+  background: rgba(255, 255, 255);
+  border: none;
+  color:rgb(0, 167, 69);
+  color: f12711;
+  font-size: 1.5vw;
+
+}
+
 .dayHeader {
   height: 15vh;
   width: 100%;
@@ -252,7 +277,7 @@ export default {
   /* vertical-align: middle; */
   /* padding: 5%; */
   padding-left: 5%;
-  padding-right: 5%;
+  padding-right: 20%;
   /* margin-left:auto; 
   margin-right:0; */
 }
@@ -266,4 +291,21 @@ export default {
 .checkbox {
   float: left;
 }
+
+input[type=text]{
+  background: white;
+  height: 3vh;
+}
+
+input:focus{
+outline: none;
+}
+
+textarea {
+  background: white;
+  height: 3vh;
+  box-shadow: none;
+  outline:none;
+}
+
 </style>

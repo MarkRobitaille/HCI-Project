@@ -249,75 +249,107 @@ h1 {
 
 #homeTab {
   /* margin-top: 0.5vh; */
-  background: #7f7fd5; /* fallback for old browsers */
+  background: rgb(78, 119, 233);  /* fallback for old browsers */
   background: -webkit-linear-gradient(
-    to right,
-    #91eae4,
-    #86a8e7,
-    #7f7fd5
-  ); /* Chrome 10-25, Safari 5.1-6 */
+    to right, 
+    rgb(182, 233, 248), 
+    rgb(124, 148, 228)
+  );  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
-    to right,
-    #91eae4,
-    #86a8e7,
-    #7f7fd5
+    to right, 
+    rgb(153, 223, 245), 
+    rgb(78, 119, 233)
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
-
 #messengerTab {
-  background: #11998e; /* fallback for old browsers */
+  /* background: #11998e;
   background: -webkit-linear-gradient(
     to right,
     #38ef7d,
     #11998e
-  ); /* Chrome 10-25, Safari 5.1-6 */
+  ); 
   background: linear-gradient(
     to right,
     #38ef7d,
     #11998e
+  );  */
+
+ background: #9796f0; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #bbb9fc,
+    #693dbb
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #bbb9fc,
+    #693dbb
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  /* background: #ee9ca7; 
+background: -webkit-linear-gradient(to right, #fcc9cf, #fc6b7e);  
+background: linear-gradient(to right, #fcc9cf, #fc6b7e);  */
 }
 
 #calendarTab {
-  background: #f12711; /* fallback for old browsers */
+  /* background: #f12711; 
   background: -webkit-linear-gradient(
     to right,
     #f5af19,
     #f12711
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
+  ); /
+  /* background: linear-gradient(
     to right,
     #f5af19,
     #f12711
+  ); 
+  /* background: #FDC830; 
+background: -webkit-linear-gradient(to left, #F37335, #FDC830);  
+background: linear-gradient(to left, #F37335, #FDC830);  */
+ background: rgb(0, 167, 69);  /* fallback for old browsers */
+background: -webkit-linear-gradient(
+  to right, 
+  rgb(139, 247, 150), 
+  rgb(0, 167, 69)
+  );  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(
+  to right, 
+  rgb(139, 247, 150), 
+  rgb(0, 167, 69)
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 
 #listTab {
-  background: #9796f0; /* fallback for old browsers */
+
+    background: rgb(0, 155, 182);  /* fallback for old browsers */
   background: -webkit-linear-gradient(
-    to right,
-    #fbc7d4,
-    #9796f0
-  ); /* Chrome 10-25, Safari 5.1-6 */
+    to right, 
+    rgb(190, 239, 248),
+    rgb(23, 185, 214)
+  );  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
-    to right,
-    #fbc7d4,
-    #9796f0
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    to right, 
+    rgb(159, 236, 252),
+    rgb(0, 155, 182)
+  ); 
+
 }
 
 #settingsTab {
-  background: #eecda3; /* fallback for old browsers */
+
+  background: #fc2222;  /* fallback for old browsers */
   background: -webkit-linear-gradient(
-    to right,
-    #ef629f,
-    #eecda3
-  ); /* Chrome 10-25, Safari 5.1-6 */
+    to right, 
+    #ffa3a3, 
+    #fc2222
+  );  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
-    to right,
-    #ef629f,
-    #eecda3
+    to right, 
+    #ffa3a3, 
+    #fc2222
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 
 .leftIconOffset {

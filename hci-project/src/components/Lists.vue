@@ -74,7 +74,7 @@
                 <input type="checkbox" v-else v-model="item.completed" />
               </div>
               <div class="listInputDiv">
-                <input
+                <input class="typeText"
                   type="text"
                   v-model="item.itemName"
                   :class="{'listInput': true, 'listItemChecked': item.completed && lists[selected].checkboxes}"
@@ -163,19 +163,47 @@ export default {
 /* Then apply by binding it to html tag by using :class="computedClass" */
 /* Include the padding and border in an element's total width and height */
 
+button{
+  background: none;
+  border: none;
+  color:black;
+  color: f12711;
+  /* font-size: 1.5vw; */
+}
+
+@import url("https://fonts.googleapis.com/css?family=Alata|Roboto&display=swap");
 /* ***** List of Lists ***** */
 
+.listNameInput::placeholder{
+  color:white;
+  font-family:"Alata";
+}
+
+.typeText::placeholder{
+  color:grey;
+  font-family:"Roboto";
+}
+
+textarea, select, input, button{
+  outline: none;
+}
+
 .list_list {
-  background: #def5fc;
+      background:  rgb(0, 155, 182);  /* fallback for old browsers */
+  font-family:'Roboto';
   width: 25%;
   height: 100vh;
   float: left;
+  color:white;
+  
 }
 
 .addListButton {
   margin-top: 4vh;
   min-height: 20px;
   height: 5vh;
+  color:white;
+  font-size: 1vw;
 }
 
 .list_list_items {
@@ -189,29 +217,35 @@ export default {
 .list {
   border-bottom: solid 1px #c3dde6;
   padding: 10px;
+  
+  
 }
 
 .activeList {
-  background-color: #bce7f7;
+  background-color: rgb(0, 106, 124);
+  
 }
 
 .listListHeader {
   font-weight: bold;
+  font-size: 2vw;
+  font-family:"Alata";
+  color:white;
 }
 
 /* ***** List Editor ***** */
 
 .listContent {
-  background-color: lightpink;
+  background-color: white;
   margin-left: 25%;
   width: 75%;
   height: 100vh;
 }
 
 .listHeader {
-  background-color:royalblue;
+  background-color:rgb(0, 155, 182);
   height: 12vh;
-  color: black;
+  color: white;
   padding-bottom: 1vh;
   overflow: visible;
 }
@@ -223,6 +257,7 @@ export default {
   height: 12vh;
   float: left;
   text-align: center;
+  
 }
 
 .bulletButton {
@@ -246,8 +281,8 @@ export default {
 }
 
 .selectedListType {
-  background-color: #acacac;
-  border-color: rgb(131, 131, 131);
+  background-color: rgb(159, 236, 252);
+  /* border-color: rgb(131, 131, 131); */
   transform: translateY(1px);
 }
 
@@ -258,6 +293,8 @@ export default {
   height: 12vh;
   float: left;
   text-align: center;
+  color:white;
+  
 }
 
 .listNameInput {
@@ -271,6 +308,9 @@ export default {
   border: none;
   text-align: center;
   width: 100%;
+  color:black;
+  font-family:"Alata";
+  color:white;
 }
 
 /* Add Item */
@@ -280,6 +320,7 @@ export default {
   height: 12vh;
   float: left;
   text-align: center;
+  
 }
 
 .addItemButton {
@@ -309,6 +350,7 @@ export default {
 .listItems {
   height: 87vh;
   overflow-y: auto;
+  
 }
 
 .listEntries {
@@ -316,6 +358,7 @@ export default {
   padding: 0;
   width: 100%;
   padding-bottom: 10vh;
+  
 }
 
 .listItem {
@@ -325,10 +368,11 @@ export default {
   margin: 0;
   min-height: 20px;
   height: 4vh;
+  
 }
 
 .altListItemColor {
-  background-color: rgba(255, 0, 0, 0.15);
+  background-color: rgb(233, 232, 232);
 }
 
 .bulletCheckboxDiv {
@@ -352,6 +396,7 @@ export default {
   margin-right: 2%;
   background: none;
   border: none;
+      font-size: 1.2vw;
 }
 
 .listItemChecked {

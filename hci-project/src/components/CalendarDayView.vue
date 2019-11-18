@@ -126,8 +126,19 @@ export default {
   right: 0;
   top: 0;
   z-index: 5;
-  background-color: lightcoral;
+  background-color:   rgb(0, 167, 69);
+  color:white;
 }
+
+button{
+  background: none;
+  border: none;
+  color:white;
+  color: f12711;
+  font-size: 1.5vw;
+
+}
+
 .outerDayViewCloseDiv {
   height: 10vh;
   width: 100%;

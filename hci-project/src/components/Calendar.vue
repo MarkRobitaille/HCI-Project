@@ -1,5 +1,7 @@
 <template>
-  <div :class="calendar">
+<div class="BG">
+  <div class="calendar">
+    <div class="BG"> </div>
     <transition name="fade">
       <div
         class="fadeOut"
@@ -9,7 +11,7 @@
     </transition>
 
     <div class="header">
-      <h1>2019</h1>
+      <!-- <h1>2019</h1> -->
       <!-- To change size of icons add size="whatever", you can reference the sizes here: https://fontawesome.com/how-to-use/on-the-web/styling/sizing-icons -->
       <button class="addEventButton" @click="addEvent()">
         Add Event
@@ -79,7 +81,7 @@
       :day="calendar[calendarState.selectedMonth].days[calendarState.selectedDay]"
       :monthName="calendar[calendarState.selectedMonth].name"
     ></CalendarDayView>
-
+  </div>
     <AddEvent
       v-if="calendarState.addEvent"
       :month="calendarState.selectedMonth"
@@ -147,8 +149,47 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <!-- We'll put global css in App.vue -->
 <style scoped>
+@import url("https://fonts.googleapis.com/css?family=Alata|Roboto&display=swap");
+.BG{
+  width: 100%;
+/* background: #FDC830; 
+background: -webkit-linear-gradient(to right, #F37335, #FDC830); 
+background: linear-gradient(to right, #F37335, #FDC830);  */
+background: rgb(0, 167, 69)  /* fallback for old browsers */
+/* background: -webkit-linear-gradient(
+  to left, 
+  rgb(110, 255, 125), 
+  rgb(0, 167, 69)
+  );  
+background: linear-gradient(
+  to left, 
+  rgb(131, 248, 143), 
+  rgb(0, 172, 72)
+  );  */
+
+ /* background: #f08b17;  
+  background: -webkit-linear-gradient(
+    to left, 
+    #ffbf77, 
+    #f08b17
+  );  
+  background: linear-gradient(
+    to left, 
+    #ffbf77, 
+    rgb(255, 101, 12)
+  );  */
+
+
+
+}
 .calendar {
   z-index: 0;
+  margin-left: 2%;
+  width: 96%;
+  background:  none;
+  height: 100vh;
+  font-family:Alata;
+  
 }
 
 .fadeOut {
@@ -162,6 +203,15 @@ export default {
   z-index: 2;
 }
 
+button{
+  background: none;
+  border: none;
+  color:white;
+  color: f12711;
+  font-size: 1.5vw;
+
+}
+
 .header {
   height: 10vh;
   color: black;
@@ -172,19 +222,25 @@ export default {
   right: 5vh;
   top: 4vh;
   min-height: 20px;
+  margin-top: 59%;
+  margin-right: 40%;
+  /* color:black; */
   height: 5vh;
 }
 
 .table {
-  height: 85vh;
+  height:50%;
   width: 99%;
-  margin-top: 2.5vh;
-  margin-bottom: calc(2.5vh - 2px);
+  margin-top: -5vh;
+  /* margin-bottom: calc(2.5vh - 2px); */
   margin-left: auto;
   margin-right: auto;
-  background-color: bisque;
-  border: solid 1px black;
-  border-radius: 20px;
+  /* background: #FDC830; 
+  background: -webkit-line  ar-gradient(to left, #F37335, #FDC830); 
+  background: linear-gradient(to left, #F37335, #FDC830); */
+  /* border: solid 2px black; */
+  /* padding-top:2vh; */
+  border-radius:20px;
 }
 
 th,
@@ -199,6 +255,7 @@ td {
 .topCalendarHeader {
   height: 10vh;
   width: 100%;
+  color:white;
 }
 
 .prevNextMonthButton {
@@ -209,21 +266,22 @@ td {
 }
 
 .monthHeader {
-  font-size: 5vh;
   text-align: center;
   text-transform: uppercase;
-  padding-top: 2.5vh;
+  /* padding-top: 2.5vh; */
+  color:white;
   padding-bottom: 2.5vh;
-
+  margin-top: -3vh;
+  font-size: 5vw;
   height: 5vh;
-  vertical-align: middle;
-  background-color: #bce7f7;
+  /* vertical-align: middle; */
+  /* background-color: #bce7f7; */
   width: calc(100% / 7 * 5);
   float: left;
 }
 
 .prevButtonHeader {
-  background-color: #bce7f7;
+  /* background-color: #bce7f7; */
   height: 10vh;
   width: calc(100% / 7);
   float: left;
@@ -232,27 +290,37 @@ td {
 .nextButtonHeader {
   height: 10vh;
   border-left: 0;
-  background-color: #bce7f7;
+  /* background-color: #bce7f7; */
   width: calc(100% / 7);
   float: left;
 }
 
 .weekdayHeader {
-  border-top: solid 1px black;
-  border-bottom: solid 1px black;
-  background-color: lightgreen;
+  /* border-top: solid 1px black; */
+  border: solid 0.5px black;
+  background-color: #303030;
+  background-color:none;
+  font-size: 1vw;
   width: 100%;
   height: calc(5vh - 2px);
   text-align: center;
   text-transform: uppercase;
+  /* color:white; */
   padding: 0;
 }
 
 .weekdayDiv {
   float: left;
+  color:white;
+  margin-top: 0.2vh;
   height: calc(5vh - 2px);
   width: calc(100% / 7);
-  background-color: teal;
+  /* background-color: teal; */
+  /* background-color: white; */
+  background-color:none;
+  /* color:white; */
+  font-weight: bold;
+  font-family: 'Roboto'
 }
 
 .weekdayInnerDiv {
@@ -260,12 +328,13 @@ td {
 }
 
 .weekDiv {
-  background-color: #def5fc;
+  background-color: white;
   height: calc(70vh / 6);
   width: 100%;
 }
 .dayDiv {
   height: calc(70vh / 6);
+  
   width: calc(100% / 7);
   float: left;
   overflow: hidden;
@@ -294,12 +363,14 @@ td {
 }
 
 .today {
-  background-color: turquoise;
+  background-color: rgb(139, 247, 150);
+  /* background: rgb(206, 165, 245);   */
+
 }
 
 .inactiveDay {
-  background-color: lightgrey;
-  color: lightgray;
+  background-color: rgb(233, 232, 232);
+  /* color: rgb(248, 248, 248);; */
 }
 
 .fade-enter,
@@ -309,5 +380,9 @@ td {
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.2s;
+}
+
+h1{
+  color:white;
 }
 </style>

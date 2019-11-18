@@ -97,9 +97,17 @@ export default {
   height: 100vh;
   width: 100%;
   position: fixed;
-  background: #7F7FD5;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #91EAE4, #86A8E7, #7F7FD5);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #91EAE4, #86A8E7, #7F7FD5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+   background: rgb(78, 119, 233);  /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to left, 
+    rgb(182, 233, 248), 
+    rgb(124, 148, 228)
+  );  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to left, 
+    rgb(153, 223, 245), 
+    rgb(78, 119, 233)
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
 

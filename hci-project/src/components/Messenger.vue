@@ -98,14 +98,18 @@ div{
 }
 
 .gradientBG{
-  background: #11998e;  
-  background: -webkit-linear-gradient(
-    to left, #38ef7d, #11998e
-    ); 
+ background:  #693dbb; /* fallback for old browsers */
+  /* background: -webkit-linear-gradient(
+    to left,
+    #bbb9fc,
+    #693dbb
+  ); 
   background: linear-gradient(
-    to left, #38ef7d, #11998e
-    ); 
-
+    to left,
+    #bbb9fc,
+    #693dbb
+  ); */
+  
     height: 100vh;
 }
 
@@ -141,14 +145,14 @@ div{
 
 .convo {
   /* background-color: #29d4a1ab; */
-  border-bottom: solid 1px #b9e4e0c2;
+  border-bottom: solid 1px #bbb9fc;
   padding: 10px;
   /* font-family: 'Roboto', sans-serif; */
   color: white;
 }
 
 .activeConvo {
-  background-color: #47635d8e;
+  background-color: #4b26a1;
 }
 
 .convoImage {
