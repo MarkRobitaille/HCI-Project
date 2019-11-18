@@ -20,24 +20,30 @@
           <p class="listListHeader" v-else>Untitled List</p>
         </div>
       </div>
+      <div class="deleteListDiv">
+        <button class="deleteListButton" @click="removeList()">
+          Delete List
+          <font-awesome-icon icon="trash" class="rightIconOffset" />
+        </button>
+      </div>
     </div>
 
     <div class="listContent">
       <div v-if="this.lists.length>0">
         <div class="listHeader">
           <div class="listStyleButtons">
-            <button
-              :class="{'bulletButton': true, 'selectedListType': !lists[selected].checkboxes}"
-              @click="changeToBullets()"
-            >
-              <font-awesome-icon icon="circle" />
-            </button>
-            <button
-              :class="{'checkboxButton': true, 'selectedListType': lists[selected].checkboxes}"
-              @click="changeToCheckboxes()"
-            >
-              <font-awesome-icon icon="check-square" />
-            </button>
+            <div class="toggleWrapper" @click="changeListStyle()">
+              <button
+                :class="{'bulletButton': true, 'selectedListType': !lists[selected].checkboxes}"
+              >
+                <font-awesome-icon icon="circle" />
+              </button>
+              <button
+                :class="{'checkboxButton': true, 'selectedListType': lists[selected].checkboxes}"
+              >
+                <font-awesome-icon icon="check-square" />
+              </button>
+            </div>
           </div>
           <div class="listNameDiv">
             <input
@@ -55,13 +61,6 @@
           </div>
         </div>
 
-        <div class="deleteListDiv">
-          <button class="deleteListButton" @click="removeList()">
-            Delete List
-            <font-awesome-icon icon="trash" class="rightIconOffset" />
-          </button>
-        </div>
-
         <div class="listItems">
           <ul class="listEntries">
             <li
@@ -74,7 +73,8 @@
                 <input type="checkbox" v-else v-model="item.completed" />
               </div>
               <div class="listInputDiv">
-                <input class="typeText"
+                <input
+                  class="typeText"
                   type="text"
                   v-model="item.itemName"
                   :class="{'listInput': true, 'listItemChecked': item.completed && lists[selected].checkboxes}"
@@ -145,11 +145,8 @@ export default {
       this.lists.splice(this.selected, 1);
       this.selected--;
     },
-    changeToBullets() {
-      this.lists[this.selected].checkboxes = false;
-    },
-    changeToCheckboxes() {
-      this.lists[this.selected].checkboxes = true;
+    changeListStyle() {
+      this.lists[this.selected].checkboxes = !this.lists[this.selected].checkboxes;
     }
   }
 };
@@ -163,10 +160,10 @@ export default {
 /* Then apply by binding it to html tag by using :class="computedClass" */
 /* Include the padding and border in an element's total width and height */
 
-button{
+button {
   background: none;
   border: none;
-  color:black;
+  color: black;
   color: f12711;
   /* font-size: 1.5vw; */
 }
@@ -174,35 +171,37 @@ button{
 @import url("https://fonts.googleapis.com/css?family=Alata|Roboto&display=swap");
 /* ***** List of Lists ***** */
 
-.listNameInput::placeholder{
-  color:white;
-  font-family:"Alata";
+.listNameInput::placeholder {
+  color: white;
+  font-family: "Alata";
 }
 
-.typeText::placeholder{
-  color:grey;
-  font-family:"Roboto";
+.typeText::placeholder {
+  color: grey;
+  font-family: "Roboto";
 }
 
-textarea, select, input, button{
+textarea,
+select,
+input,
+button {
   outline: none;
 }
 
 .list_list {
-      background:  rgb(0, 155, 182);  /* fallback for old browsers */
-  font-family:'Roboto';
+  background: rgb(0, 155, 182); /* fallback for old browsers */
+  font-family: "Roboto";
   width: 25%;
   height: 100vh;
   float: left;
-  color:white;
-  
+  color: white;
 }
 
 .addListButton {
   margin-top: 4vh;
   min-height: 20px;
   height: 5vh;
-  color:white;
+  color: white;
   font-size: 1vw;
 }
 
@@ -210,27 +209,24 @@ textarea, select, input, button{
   border-top: solid 1px #c3dde6;
   margin-top: 4vh;
   width: 100%;
-  height: calc(87vh - 1px);
+  height: calc(74vh - 2px);
   overflow-y: auto;
 }
 
 .list {
   border-bottom: solid 1px #c3dde6;
   padding: 10px;
-  
-  
 }
 
 .activeList {
   background-color: rgb(0, 106, 124);
-  
 }
 
 .listListHeader {
   font-weight: bold;
   font-size: 2vw;
-  font-family:"Alata";
-  color:white;
+  font-family: "Alata";
+  color: white;
 }
 
 /* ***** List Editor ***** */
@@ -243,7 +239,7 @@ textarea, select, input, button{
 }
 
 .listHeader {
-  background-color:rgb(0, 155, 182);
+  background-color: rgb(0, 155, 182);
   height: 12vh;
   color: white;
   padding-bottom: 1vh;
@@ -257,33 +253,47 @@ textarea, select, input, button{
   height: 12vh;
   float: left;
   text-align: center;
-  
+  /* background-color: */
+  color: white;
 }
 
-.bulletButton {
+.toggleWrapper {
   margin-top: 4vh;
+  height: 5vh;
+  min-height: 20px;
+  width: 40%;
+  min-width: 60px;
+  background-color: rgb(105, 215, 236);
+  border-radius: 15px;
+}
+.bulletButton {
+  /* margin-top: 4vh; */
   min-height: 20px;
   min-width: 30px;
   height: 5vh;
-  width: 20%;
+  width: 50%;
   border-bottom-left-radius: 15px;
   border-top-left-radius: 15px;
+  color: white;
 }
 
 .checkboxButton {
-  margin-top: 4vh;
+  /* margin-top: 4vh; */
   min-height: 0px;
   min-width: 30px;
   height: 5vh;
-  width: 20%;
+  width: 50%;
   border-bottom-right-radius: 15px;
   border-top-right-radius: 15px;
+  color: white;
 }
 
 .selectedListType {
-  background-color: rgb(159, 236, 252);
+  /* background-color: rgb(159, 236, 252); */
+  background-color: rgb(0, 106, 124);
+  border-radius: 15px;
   /* border-color: rgb(131, 131, 131); */
-  transform: translateY(1px);
+  /* transform: translateY(1px); */
 }
 
 /* List Name Input */
@@ -293,8 +303,7 @@ textarea, select, input, button{
   height: 12vh;
   float: left;
   text-align: center;
-  color:white;
-  
+  color: white;
 }
 
 .listNameInput {
@@ -308,9 +317,9 @@ textarea, select, input, button{
   border: none;
   text-align: center;
   width: 100%;
-  color:black;
-  font-family:"Alata";
-  color:white;
+  color: black;
+  font-family: "Alata";
+  color: white;
 }
 
 /* Add Item */
@@ -320,29 +329,32 @@ textarea, select, input, button{
   height: 12vh;
   float: left;
   text-align: center;
-  
 }
 
 .addItemButton {
   margin-top: 4vh;
   min-height: 20px;
   height: 5vh;
+  color: white;
 }
 
 /* Delete List */
 
 .deleteListDiv {
-  position: fixed;
+  border-top: solid 1px #c3dde6;
+  background-color: rgb(114, 114, 114);
   bottom: 0;
-  right: 0;
-  height: 10vh;
-  width: calc(70% * 0.15);
+  left: 0;
+  height: 13vh;
+  width: 100%;
   text-align: center;
 }
 .deleteListButton {
-  margin-bottom: 4vh;
+  margin-top: 4vh;
   min-height: 20px;
   height: 5vh;
+  color: white;
+  font-size: 1vw;
 }
 
 /* List Items */
@@ -350,7 +362,6 @@ textarea, select, input, button{
 .listItems {
   height: 87vh;
   overflow-y: auto;
-  
 }
 
 .listEntries {
@@ -358,7 +369,6 @@ textarea, select, input, button{
   padding: 0;
   width: 100%;
   padding-bottom: 10vh;
-  
 }
 
 .listItem {
@@ -368,7 +378,6 @@ textarea, select, input, button{
   margin: 0;
   min-height: 20px;
   height: 4vh;
-  
 }
 
 .altListItemColor {
@@ -396,7 +405,7 @@ textarea, select, input, button{
   margin-right: 2%;
   background: none;
   border: none;
-      font-size: 1.2vw;
+  font-size: 1.2vw;
 }
 
 .listItemChecked {
@@ -415,6 +424,15 @@ textarea, select, input, button{
   /* min-height: 10px; */
   height: 3.5vh;
   min-height: 20px;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s;
 }
 </style>
 
