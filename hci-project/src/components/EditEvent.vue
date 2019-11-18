@@ -15,7 +15,7 @@
     </div>
 
     <div class="eventDetails">
-      <div v-if="errorType>0" class="eventInput">
+      <div v-if="errorType>0" class="errorField">
         <ErrorMessage :type="errorType" class="eventError"></ErrorMessage>
       </div>
       <div class="eventInput">
@@ -70,7 +70,7 @@
       <!-- <div class="outerEventDeleteDiv">
       <div class="eventDeleteOffsetDiv"></div>-->
       <div class="eventDeleteDiv">
-        <button class="eventDeleteButton" @click="deleteEvent()">Delete</button>
+        <button class="eventDeleteButton" @click="deleteEvent()">Delete<font-awesome-icon icon="trash" class="rightIconOffset"/></button>
       </div>
       <!-- </div> -->
     </div>
@@ -279,6 +279,11 @@ export default {
 }
 .eventTitleHeader {
   padding-top: calc(5vh - 24px);
+}
+.errorField {
+  height: 10vh;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 .eventError {
   border-radius: 20px;

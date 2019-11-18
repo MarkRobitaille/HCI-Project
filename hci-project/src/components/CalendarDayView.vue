@@ -4,19 +4,19 @@
       <div class="outerDayViewCloseDiv">
         <div class="dayViewOffsetDiv"></div>
         <div class="dayViewCloseDiv">
-          <button class="dayViewCloseButton" @click="closeWindow()">Close</button>
+          <button class="dayViewCloseButton" @click="closeWindow()">Close<font-awesome-icon icon="times" class="rightIconOffset"/></button>
         </div>
       </div>
 
       <div class="dayHeader">
         <div class="smallDayCol">
-          <button class="dayButton" @click="setPrevDay()">Prev</button>
+          <button class="dayButton" @click="setPrevDay()"><font-awesome-icon icon="angle-left" class="leftIconOffset"/>Prev</button>
         </div>
         <div class="largeDayCol eventHeader">
           <h2 class="eventTitleHeader">{{monthName}} {{day.number}}, 2019</h2>
         </div>
         <div class="smallDayCol">
-          <button class="dayButton" @click="setNextDay()">Next</button>
+          <button class="dayButton" @click="setNextDay()">Next<font-awesome-icon icon="angle-right" class="rightIconOffset"/></button>
         </div>
       </div>
       <div class="eventsHeader">
@@ -24,7 +24,7 @@
           <h3 class="eventsTitleHeader">Events:</h3>
         </div>
         <div class="mediumDayCol">
-          <button class="windowAddEventButton" @click="addEvent()">Add Event</button>
+          <button class="windowAddEventButton" @click="addEvent()">Add Event <font-awesome-icon icon="plus" class="rightIconOffset"/></button>
         </div>
       </div>
       <div class="eventList">
@@ -134,7 +134,6 @@ button{
   background: none;
   border: none;
   color:white;
-  color: f12711;
   font-size: 1.5vw;
 
 }
@@ -188,11 +187,11 @@ button{
 .eventList {
   width: 100%;
   height: 65vh;
-  background: palegoldenrod;
+  background: whitesmoke;
   overflow-y: auto;
 }
 .largeEventBlobDiv {
-  height: 15%;
+  height: 20%;
   margin: 5%;
 }
 .eventTitleHeader {

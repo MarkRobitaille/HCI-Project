@@ -204,7 +204,7 @@ button {
   background: none;
   border: none;
   color: white;
-  color: f12711;
+  /* color: f12711; */
   font-size: 1.5vw;
 }
 

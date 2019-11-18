@@ -60,6 +60,7 @@ export default {
   text-align: left;
   /* height: calc(70 / 6) vh; */
   overflow: hidden;
+  color: black;
 }
 .dateNumber {
   margin-left: 5%;

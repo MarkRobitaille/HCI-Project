@@ -15,7 +15,7 @@
     </div>
 
     <div class="eventDetails">
-      <div v-if="errorType>0" class="eventInput">
+      <div v-if="errorType>0" class="errorField">
         <ErrorMessage :type="errorType" class="eventError"></ErrorMessage>
       </div>
       <div class="eventInput">
@@ -266,6 +266,11 @@ button{
 }
 .eventTitleHeader {
   padding-top: calc(5vh - 24px);
+}
+.errorField {
+  height: 10vh;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 .eventError {
   border-radius: 20px;

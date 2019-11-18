@@ -10,6 +10,7 @@
     </div>
     <div v-else class="largeEvent">
       <div class="largeEventWrapperDiv">
+        <font-awesome-icon :icon="users[event.createdBy-1].icon" class="largeEventIcon"/>
         <div>{{event.name}} {{timeRange}}</div>
         <div>{{event.description}}</div>
       </div>
@@ -115,6 +116,7 @@ export default {
   text-align: center; 
   border-radius: 10px;
   min-width: 18px;
+  color: black;
 }
 
 
@@ -124,6 +126,10 @@ export default {
 }
 .mediumEventIcon {
   margin-top: 3px;
+}
+.largeEventIcon {
+  padding-top: 4px;
+  padding-bottom: 3px;
 }
 
 .mediumEvent {
@@ -144,8 +150,13 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  /* padding-top:5%;
+  padding-bottom: 5%; */
 }
-.largeEventWrapperDiv {
+.largeEventLeftAlign {
   /* display: inline-block; */
+  /* left: 0;
+  position: relative;
+  top: 0; */
 }
 </style>
