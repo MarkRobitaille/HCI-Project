@@ -51,7 +51,7 @@
         </div>
         <div class="logoutButton">
           <button @click="logOut()">
-            <font-awesome-icon icon="power-off" class="homeIcon" size="3x" />
+            <font-awesome-icon icon="power-off" class="logoutIcon" size="3x" /><br/>
             <h1>LOG OUT</h1>
           </button>
         </div>
@@ -383,6 +383,18 @@ background: linear-gradient(
   transform: translateX(10px);
   opacity: 0;
 }
+.logoutIcon {
+  height: 3vw;
+}
+
+.logoutButton {
+  position: fixed;
+  height: 15vh;
+  width: 20%;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+}
 
 .logoutButton button {
   background: white;
@@ -390,12 +402,14 @@ background: linear-gradient(
   color: #404040;
   text-decoration: none;
   line-height: 1vh;
+  height: 10vh;
   text-align: center;
-  margin-left: 40%;
-  margin-top: 10%;
+  margin-top: 2.5vh;
+  
 }
 
 .logoutButton h1 {
+  
   font-size: 1vw;
   color: #404040;
   margin-top: 1vh;
