@@ -102,8 +102,13 @@ const storeModule = {
                 "startTime": "",
                 "endTime": "",
                 "description": payload.description,
-                "createdBy": state.currentUser.id
             };
+
+            if (payload.createdBy != undefined) {
+                newEvent.createdBy = payload.createdBy;
+            } else {
+                newEvent.createdBy = state.currentUser.id;
+            }
 
             if (newEvent.allDay) {
                 state.calendar[payload.month].days[payload.day].events.unshift(newEvent);

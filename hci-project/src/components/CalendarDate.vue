@@ -8,6 +8,7 @@
       v-for="(item, index) in day.events"
       :key="index"
       :class="day.events.length>2? 'smallEventBlobDiv' : 'mediumEventBlobDiv'"
+      :title="item.name + ' - ' + item.description"
     >
       <EventBlob :event="item" :size="day.events.length>2? 1 : 2"></EventBlob>
     </div>

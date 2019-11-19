@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="editEventPanel">
     <!-- Can only have 1 parent element in a component -->
     <!-- All template inside of here -->
     <div class="dayHeader">
@@ -66,7 +66,7 @@
           <textarea v-model="description" id="eventDescription" class="eventInputField" />
         </div>
       </div>
-      <div class="eventCreatedBy">Event created by {{createdBy}}.</div>
+      <div class="eventCreatedBy">Event added by {{createdBy}}.</div>
       <!-- <div class="outerEventDeleteDiv">
       <div class="eventDeleteOffsetDiv"></div>-->
       <div class="eventDeleteDiv">
@@ -126,7 +126,7 @@ export default {
         monthStr = "0" + monthStr;
       }
       let dayStr = "" + (this.day + 1);
-      if (monthStr.length==1) {
+      if (dayStr.length==1) {
         dayStr = "0" + dayStr;
       }
       this.date = "2019-" + monthStr + "-" + dayStr;
@@ -178,6 +178,9 @@ export default {
         // Calculate date from string, get month and day indexes
         let eventDate = new Date(this.date + "T00:00:00");
 
+        // Save who created the event before removing
+        let createdBy = this.events[this.eventIndex].createdBy
+
         // Remove original event by calling vuex store function
         this.$store.dispatch("removeEvent", {
           month: this.month,
@@ -198,9 +201,11 @@ export default {
             allDay: this.allDay,
             startTime: this.startTime,
             endTime: this.endTime,
-            description: this.description
+            description: this.description,
+            createdBy: createdBy
           });
         }
+        console.log("4");
         this.$store.dispatch("setSelectedEvent",-1); // Close Edit Event window
       }
     },
@@ -247,7 +252,9 @@ export default {
 /* If you want dynamic application of css, create a computed variable in computed section */
 /* Then apply by binding it to html tag by using :class="computedClass" */
 /* Include the padding and border in an element's total width and height */
-
+.editEventPanel {
+  width: 100%;
+}
 button{
   background: rgba(255, 255, 255);
   border: none;
@@ -266,7 +273,7 @@ button{
 }
 
 .eventDetails{
-  margin-left: -4vw;
+  /* margin-left: -4vw; */
 }
 
 .dayHeader {
@@ -346,7 +353,7 @@ button{
 .eventCreatedBy {
   margin-top: 8vh;
   /* text-align: center; */
-  margin-left: 8vw;
+  margin-left: 0;
 }
 .eventDeleteDiv {
   position: absolute;

@@ -36,12 +36,12 @@
               <button
                 :class="{'bulletButton': true, 'selectedListType': !lists[selected].checkboxes}"
               >
-                <font-awesome-icon icon="circle" />
+                <font-awesome-icon icon="circle" class="toggleIcon" />
               </button>
               <button
                 :class="{'checkboxButton': true, 'selectedListType': lists[selected].checkboxes}"
               >
-                <font-awesome-icon icon="check-square" />
+                <font-awesome-icon icon="check-square" class="toggleIcon" />
               </button>
             </div>
           </div>
@@ -70,7 +70,13 @@
             >
               <div class="bulletCheckboxDiv">
                 <font-awesome-icon icon="circle" v-if="!lists[selected].checkboxes" />
-                <input type="checkbox" v-else v-model="item.completed" />
+                <input
+                  type="checkbox"
+                  v-else
+                  v-model="item.completed"
+                  :title="item.completed && item.completedBy != -1? 'Marked as completed by ' + users[item.completedBy-1].name : ''"
+                  @click="markCompleted(index)"
+                />
               </div>
               <div class="listInputDiv">
                 <input
@@ -79,6 +85,7 @@
                   v-model="item.itemName"
                   :class="{'listInput': true, 'listItemChecked': item.completed && lists[selected].checkboxes}"
                   placeholder="Enter list item here..."
+                  :title="'Item added by ' + users[item.createdBy-1].name"
                 />
               </div>
               <div class="deleteButtonDiv">
@@ -116,7 +123,9 @@ export default {
   computed: {
     // Computed variables
     ...mapGetters({
-      lists: "getLists"
+      lists: "getLists",
+      currentUser: "getCurrentUser",
+      users: "getUsers"
     })
   },
   methods: {
@@ -127,7 +136,9 @@ export default {
     addItem() {
       this.lists[this.selected].listItems.push({
         itemName: "",
-        completed: false
+        createdBy: this.currentUser.id,
+        completed: false,
+        completedBy: -1
       });
     },
     removeItem(itemIndex) {
@@ -142,11 +153,23 @@ export default {
       this.selected = this.lists.length - 1;
     },
     removeList() {
-      this.lists.splice(this.selected, 1);
-      this.selected--;
+      if (this.lists.length > 0) {
+        this.lists.splice(this.selected, 1);
+        this.selected--;
+      }
     },
     changeListStyle() {
-      this.lists[this.selected].checkboxes = !this.lists[this.selected].checkboxes;
+      this.lists[this.selected].checkboxes = !this.lists[this.selected]
+        .checkboxes;
+    },
+    markCompleted(itemIndex) {
+      if (this.lists[this.selected].listItems[itemIndex].completedBy == -1) {
+        this.lists[this.selected].listItems[
+          itemIndex
+        ].completedBy = this.currentUser.id;
+      } else {
+        this.lists[this.selected].listItems[itemIndex].completedBy = -1;
+      }
     }
   }
 };
@@ -198,7 +221,7 @@ button {
   color: white;
 }
 
-button{
+button {
   /* background: rgba(255, 255, 255); */
   border: none;
   color: black;
@@ -206,10 +229,9 @@ button{
   /* color: #f12711; */
   /* font-size: 1.5vw;*/
   border-radius: 5vw;
-  outline:none;
+  outline: none;
   padding-left: 1vw;
-  padding-right: 1vw; 
-
+  padding-right: 1vw;
 }
 
 .addListButton {
@@ -233,7 +255,6 @@ button{
 .list {
   border-bottom: solid 1px #c3dde6;
   padding: 10px;
-  
 }
 
 .activeList {
@@ -272,13 +293,13 @@ button{
   float: left;
   text-align: center;
   color: white;
-  
 }
 
 .toggleWrapper {
+  margin-left: 20%;
   margin-top: 4vh;
   height: 5vh;
-  min-height: 10px;
+  min-height: 20px;
   width: 40%;
   min-width: 70px;
   background-color: rgb(105, 215, 236);
@@ -287,21 +308,27 @@ button{
 }
 .bulletButton {
   /* margin-top: 4vh; */
+  padding: 0;
   min-height: 20px;
-  min-width: 30px;
+  min-width: 35px;
   height: 5vh;
   width: 50%;
   border-bottom-left-radius: 15px;
   border-top-left-radius: 15px;
-  background:none;
-  font-size: 0.75vw;
+  background: none;
+  /* font-size: 0.75vw; */
   color: white;
 }
 
+.toggleIcon {
+  font-size: 2vh;
+}
+
 .checkboxButton {
+  padding: 0;
   /* margin-top: 4vh; */
-  min-height: 0px;
-  min-width: 30px;
+  min-height: 20px;
+  min-width: 35px;
   height: 5vh;
   width: 50%;
   border-bottom-right-radius: 15px;
@@ -320,7 +347,7 @@ button{
 /* List Name Input */
 
 .listNameDiv {
-  width: 70%;
+  width: 69%;
   height: 12vh;
   float: left;
   text-align: center;
@@ -346,13 +373,15 @@ button{
 /* Add Item */
 
 .addItemDiv {
-  width: 15%;
+  width: 16%;
   height: 12vh;
   float: left;
   text-align: center;
 }
 
 .addItemButton {
+  float:left;
+  /* margin-left: */
   margin-top: 4vh;
   min-height: 20px;
   height: 5vh;
@@ -366,7 +395,7 @@ button{
 .deleteListDiv {
   border-top: solid 1px #c3dde6;
   /* background-color: rgb(114, 114, 114); */
-   /* background-color: rgb(0, 106, 124); */
+  /* background-color: rgb(0, 106, 124); */
   bottom: 0;
   left: 0;
   height: 13vh;
@@ -378,7 +407,7 @@ button{
   min-height: 20px;
   height: 5vh;
   background-color: white;
-  color:red;
+  color: red;
   font-size: 1.2vw;
 }
 
@@ -394,6 +423,7 @@ button{
   padding: 0;
   width: 100%;
   padding-bottom: 10vh;
+  list-style: none;
 }
 
 .listItem {
@@ -424,10 +454,8 @@ button{
 
 .listInput {
   width: 100%;
-  padding-top: 1%;
-  padding-bottom: 1%;
-  margin-left: 2%;
-  margin-right: 2%;
+  padding-top: 0.5%;
+  padding-bottom: 0.5%;
   background: none;
   border: none;
   font-size: 1.2vw;
@@ -451,7 +479,7 @@ button{
   min-height: 20px;
   font-size: 1vw;
   background: none;
-  color:red;
+  color: red;
 }
 
 .fade-enter,

@@ -8,6 +8,7 @@
       :currentUser="currentUser"
       :prevDate="messenger[selected].messages[i-1]? messenger[selected].messages[i-1].timeSent : ''"
       :groupConvo="selected==0"
+      :title="'Sent by ' + users[item.senderId-1].name + ' at ' + item.timeSent"
     ></Message>
 
     <div class="input">
@@ -52,9 +53,15 @@ export default {
   created() {
     this.scrollToBottom();
   },
+  watch: {
+    selected: function () {
+      this.scrollToBottom();
+    }
+  },
   computed: {
     // Computed variables
     ...mapGetters({
+      users: "getUsers",
       messenger: "getMessenger",
       currentUser: "getCurrentUser"
     })
