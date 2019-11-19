@@ -70,7 +70,7 @@
             >
               <div class="bulletCheckboxDiv">
                 <font-awesome-icon icon="circle" v-if="!lists[selected].checkboxes" />
-                <input type="checkbox" v-else v-model="item.completed" />
+                <input type="checkbox" v-else v-model="item.completed" :title="item.completed && item.completedBy != -1? 'Marked as completed by ' + users[item.completedBy-1].name : ''" @click="markCompleted(index)"/>
               </div>
               <div class="listInputDiv">
                 <input
@@ -79,6 +79,7 @@
                   v-model="item.itemName"
                   :class="{'listInput': true, 'listItemChecked': item.completed && lists[selected].checkboxes}"
                   placeholder="Enter list item here..."
+                  :title="'Item added by ' + users[item.createdBy-1].name"
                 />
               </div>
               <div class="deleteButtonDiv">
@@ -116,7 +117,9 @@ export default {
   computed: {
     // Computed variables
     ...mapGetters({
-      lists: "getLists"
+      lists: "getLists",
+      currentUser: "getCurrentUser",
+      users: "getUsers"
     })
   },
   methods: {
@@ -127,7 +130,9 @@ export default {
     addItem() {
       this.lists[this.selected].listItems.push({
         itemName: "",
-        completed: false
+        createdBy: this.currentUser.id,
+        completed: false,
+        completedBy: -1
       });
     },
     removeItem(itemIndex) {
@@ -147,6 +152,13 @@ export default {
     },
     changeListStyle() {
       this.lists[this.selected].checkboxes = !this.lists[this.selected].checkboxes;
+    },
+    markCompleted(itemIndex) {
+      if (this.lists[this.selected].listItems[itemIndex].completedBy == -1) {
+        this.lists[this.selected].listItems[itemIndex].completedBy = this.currentUser.id;
+      } else {
+        this.lists[this.selected].listItems[itemIndex].completedBy = -1;
+      }
     }
   }
 };

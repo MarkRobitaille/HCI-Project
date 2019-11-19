@@ -39,7 +39,9 @@
             :size="3"
             :month="calendarState.selectedMonth"
             :day="calendarState.selectedDay"
+            :title="'Event added by ' + users[item.createdBy-1].name"
           ></EventBlob>
+          <!-- :title="users[item.createdBy-1].name" -->
         </div>
       </div>
     </div>
@@ -87,6 +89,7 @@ export default {
   computed: {
     // Computed variables
     ...mapGetters({
+      users: "getUsers",
       calendarState: "getCalendarState"
     })
   },

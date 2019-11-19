@@ -41,7 +41,7 @@
         <!-- Family code -->
       <div class="familyCode">
         <h2 >
-          Family code:
+          Family Code:
           <br />
           </h2>
           <div class="code">HN21Z77</div>

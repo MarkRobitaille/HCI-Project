@@ -6,7 +6,9 @@
       "listItems": [
         {
           "itemName": "Do HCI Project",
-          "completed": false
+          "createdBy": 2,
+          "completed": false,
+          "completedBy": -1
         }
       ]
     },
@@ -16,11 +18,15 @@
       "listItems": [
         {
           "itemName": "Vacuum the house",
-          "completed": true
+          "createdBy": 1,
+          "completed": true,
+          "completedBy": 2
         },
         {
           "itemName": "Do dishes",
-          "completed": false
+          "createdBy": 4,
+          "completed": false,
+          "completedBy": -1
         }
       ]
     },
@@ -30,15 +36,22 @@
       "listItems": [
         {
           "itemName": "Pizza",
-          "completed": false
+          "createdBy": 2,
+          "completed": false,
+          "completedBy": -1
         },
         {
           "itemName": "Subs",
-          "completed": false
+          "createdBy": 1,
+          "completed": false,
+          "completedBy": -1
         },
         {
           "itemName": "Ketchup",
-          "completed": false
+          "createdBy": 3,
+          "completed": false,
+          "completedBy": -1
+          
         }
       ]
     }

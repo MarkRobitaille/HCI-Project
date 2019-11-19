@@ -66,7 +66,7 @@
           <textarea v-model="description" id="eventDescription" class="eventInputField" />
         </div>
       </div>
-      <div class="eventCreatedBy">Event created by {{createdBy}}.</div>
+      <div class="eventCreatedBy">Event added by {{createdBy}}.</div>
       <!-- <div class="outerEventDeleteDiv">
       <div class="eventDeleteOffsetDiv"></div>-->
       <div class="eventDeleteDiv">

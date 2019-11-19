@@ -67,7 +67,7 @@
             <label class="checkboxText">
               <strong>I have a family code</strong>
             </label>
-            <font-awesome-icon icon="question-circle" class="whiteIcon" />
+            <font-awesome-icon icon="question-circle" class="whiteIcon" title="A family code is a 7 digit code that adds your account into your family's group. If you are the first person to sign up, you can find your family code in the Settings page"/>
           </div>
           <!-- family code input field -->
           <div class="registerFamilyCode" v-if="isFamilyCode">
