@@ -126,7 +126,7 @@ export default {
         monthStr = "0" + monthStr;
       }
       let dayStr = "" + (this.day + 1);
-      if (monthStr.length==1) {
+      if (dayStr.length==1) {
         dayStr = "0" + dayStr;
       }
       this.date = "2019-" + monthStr + "-" + dayStr;
@@ -178,6 +178,9 @@ export default {
         // Calculate date from string, get month and day indexes
         let eventDate = new Date(this.date + "T00:00:00");
 
+        // Save who created the event before removing
+        let createdBy = this.events[this.eventIndex].createdBy
+
         // Remove original event by calling vuex store function
         this.$store.dispatch("removeEvent", {
           month: this.month,
@@ -198,9 +201,11 @@ export default {
             allDay: this.allDay,
             startTime: this.startTime,
             endTime: this.endTime,
-            description: this.description
+            description: this.description,
+            createdBy: createdBy
           });
         }
+        console.log("4");
         this.$store.dispatch("setSelectedEvent",-1); // Close Edit Event window
       }
     },
