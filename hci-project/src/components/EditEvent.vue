@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="editEventPanel">
     <!-- Can only have 1 parent element in a component -->
     <!-- All template inside of here -->
     <div class="dayHeader">
@@ -247,7 +247,9 @@ export default {
 /* If you want dynamic application of css, create a computed variable in computed section */
 /* Then apply by binding it to html tag by using :class="computedClass" */
 /* Include the padding and border in an element's total width and height */
-
+.editEventPanel {
+  width: 100%;
+}
 button{
   background: rgba(255, 255, 255);
   border: none;
@@ -266,7 +268,7 @@ button{
 }
 
 .eventDetails{
-  margin-left: -4vw;
+  /* margin-left: -4vw; */
 }
 
 .dayHeader {
@@ -346,7 +348,7 @@ button{
 .eventCreatedBy {
   margin-top: 8vh;
   /* text-align: center; */
-  margin-left: 8vw;
+  margin-left: 0;
 }
 .eventDeleteDiv {
   position: absolute;

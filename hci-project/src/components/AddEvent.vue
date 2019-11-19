@@ -285,8 +285,10 @@ button{
 }
 .errorField {
   height: 10vh;
+  /* width:100%; */
   padding-left: 5%;
   padding-right: 5%;
+  /* margin-left: 10vw; */
 }
 .eventError {
   border-radius: 20px;
