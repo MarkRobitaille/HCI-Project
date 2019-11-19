@@ -296,6 +296,7 @@ button {
 }
 
 .toggleWrapper {
+  margin-left: 20%;
   margin-top: 4vh;
   height: 5vh;
   min-height: 20px;
@@ -346,7 +347,7 @@ button {
 /* List Name Input */
 
 .listNameDiv {
-  width: 70%;
+  width: 69%;
   height: 12vh;
   float: left;
   text-align: center;
@@ -372,13 +373,15 @@ button {
 /* Add Item */
 
 .addItemDiv {
-  width: 15%;
+  width: 16%;
   height: 12vh;
   float: left;
   text-align: center;
 }
 
 .addItemButton {
+  float:left;
+  /* margin-left: */
   margin-top: 4vh;
   min-height: 20px;
   height: 5vh;
