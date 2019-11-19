@@ -151,7 +151,7 @@ export default {
 }
 
 a{
-  color:black;
+  color:rgb(206, 90, 33);
 }
 
 </style>
