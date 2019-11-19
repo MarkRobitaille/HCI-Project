@@ -5,8 +5,38 @@
       "checkboxes": true,
       "listItems": [
         {
-          "itemName": "Do HCI Project",
+          "itemName": "Do Social Studies homework",
+          "createdBy": 3,
+          "completed": false,
+          "completedBy": -1
+        },
+        {
+          "itemName": "Give Timmy his toy truck back",
+          "createdBy": 4,
+          "completed": false,
+          "completedBy": -1
+        },
+        {
+          "itemName": "Download Call of Duty Modern Warfare",
+          "createdBy": 3,
+          "completed": false,
+          "completedBy": -1
+        },
+        {
+          "itemName": "Pick up mail from post office",
           "createdBy": 2,
+          "completed": false,
+          "completedBy": 2
+        },
+        {
+          "itemName": "Take BMW i8 to BMW Dealership for maintenance",
+          "createdBy": 3,
+          "completed": false,
+          "completedBy": -1
+        },
+        {
+          "itemName": "Take pictures for Poochie's dog instagram",
+          "createdBy": 1,
           "completed": false,
           "completedBy": -1
         }
@@ -27,6 +57,24 @@
           "createdBy": 4,
           "completed": false,
           "completedBy": -1
+        },
+        {
+          "itemName": "Do laundry",
+          "createdBy": 2,
+          "completed": false,
+          "completedBy": -1
+        },
+        {
+          "itemName": "Organize fridge #1",
+          "createdBy": 1,
+          "completed": false,
+          "completedBy": -1
+        },
+        {
+          "itemName": "Clean margarita maker for saturday's book club",
+          "createdBy": 1,
+          "completed": true,
+          "completedBy": 1
         }
       ]
     },
@@ -35,14 +83,26 @@
       "checkboxes": false,
       "listItems": [
         {
-          "itemName": "Pizza",
-          "createdBy": 2,
+          "itemName": "Frozen pizza",
+          "createdBy": 4,
           "completed": false,
           "completedBy": -1
         },
         {
           "itemName": "Subs",
-          "createdBy": 1,
+          "createdBy": 4,
+          "completed": false,
+          "completedBy": -1
+        },
+        {
+          "itemName": "Pizza pops",
+          "createdBy": 4,
+          "completed": false,
+          "completedBy": -1
+        },
+        {
+          "itemName": "Ice cream",
+          "createdBy": 4,
           "completed": false,
           "completedBy": -1
         },
@@ -51,7 +111,36 @@
           "createdBy": 3,
           "completed": false,
           "completedBy": -1
-          
+        },
+        {
+          "itemName": "Kale",
+          "createdBy": 1,
+          "completed": false,
+          "completedBy": -1
+        },
+        {
+          "itemName": "Vegan frozen pizza",
+          "createdBy": 1,
+          "completed": false,
+          "completedBy": -1
+        },
+        {
+          "itemName": "10 avocados",
+          "createdBy": 1,
+          "completed": false,
+          "completedBy": -1
+        },
+        {
+          "itemName": "Ezekiel bread",
+          "createdBy": 1,
+          "completed": false,
+          "completedBy": -1
+        },
+        {
+          "itemName": "Miss Vickies salt and vinegar chips",
+          "createdBy": 2,
+          "completed": false,
+          "completedBy": -1
         }
       ]
     }
