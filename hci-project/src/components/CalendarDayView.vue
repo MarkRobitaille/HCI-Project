@@ -56,10 +56,8 @@
           </div>
         </div>
         <div v-else class="noEvents">There are no events scheduled for this day.</div>
-        <!-- </div> -->
       </div>
     </div>
-
     <div v-else>
       <EditEvent
         :events="day.events"
@@ -201,7 +199,7 @@ button {
   margin-top: 35%;
 }
 .windowAddEventButton {
-  margin-top: 10%;
+  margin-top: 7%;
   background: white;
   color: rgb(0, 167, 69);
   font-size: 1.5vw;

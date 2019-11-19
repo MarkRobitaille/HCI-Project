@@ -155,7 +155,9 @@ export default {
     removeList() {
       if (this.lists.length > 0) {
         this.lists.splice(this.selected, 1);
-        this.selected--;
+        if (this.selected!=0) {
+          this.selected--;
+        }
       }
     },
     changeListStyle() {
@@ -422,7 +424,6 @@ button {
   text-align: left;
   padding: 0;
   width: 100%;
-  padding-bottom: 10vh;
   list-style: none;
 }
 

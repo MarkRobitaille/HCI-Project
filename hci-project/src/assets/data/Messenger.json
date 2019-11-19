@@ -41,9 +41,61 @@
           "timeSent": "2019-11-13 18:25:43 GMT-0600"
         },
         {
+          "message": "goOd luck bobbY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
+          "senderId": 4,
+          "timeSent": "2019-11-13 18:25:43 GMT-0600"
+        },
+        {
           "message": "Thanks",
           "senderId": 3,
           "timeSent": "2019-11-13 18:25:43 GMT-0600"
+        }
+      ]
+    },
+    {
+      "name": "Timmy Tables",
+      "image": "Timmy.png",
+      "notification": true,
+      "messages": [
+        {
+          "message": "Bobby can i plz hav my toy truck back plz?",
+          "senderId": 4,
+          "timeSent": "2019-09-15 12:00:43 GMT-0600"
+        },
+        {
+          "message": "bobbY?",
+          "senderId": 4,
+          "timeSent": "2019-10-16 12:04:21 GMT-0600"
+        },
+        {
+          "message": "hello? bobby are u there",
+          "senderId": 4,
+          "timeSent": "2019-11-16 12:07:03 GMT-0600"
+        },
+        {
+          "message": "bObby plz stop ignoring me i'll tell mom",
+          "senderId": 4,
+          "timeSent": "2019-11-17 12:10:32 GMT-0600"
+        },
+        {
+          "message": "bobby pls....",
+          "senderId": 4,
+          "timeSent": "2019-11-17 13:01:03 GMT-0600"
+        },
+        {
+          "message": "HELLO????????? i'm telling mom",
+          "senderId": 4,
+          "timeSent": "2019-11-18 12:01:03 GMT-0600"
+        },
+        {
+          "message": "Sorry my phone died.",
+          "senderId": 3,
+          "timeSent": "2019-11-18 12:25:43 GMT-0600"
+        },
+        {
+          "message": "bobby it's been two months",
+          "senderId": 4,
+          "timeSent": "2019-11-18 12:26:03 GMT-0600"
         }
       ]
     },
@@ -63,9 +115,46 @@
           "timeSent": "2019-11-13 18:25:43 GMT-0600"
         },
         {
-          "message": "Okay, be safe <3",
+          "message": "Okay, be safe. Mom<3",
           "senderId": 1,
           "timeSent": "2019-11-13 18:25:43 GMT-0600"
+        },
+        {
+          "message": "Bobby please give Timmy his toy truck back. He's been pestering me for over two months now. Thanks sweetie, Mom <3",
+          "senderId": 1,
+          "timeSent": "2019-11-18 13:25:43 GMT-0600"
+        }
+      ]
+    },
+    {
+      "name": "Bob Tables",
+      "image": "Bob.png",
+      "notification": false,
+      "messages": [
+        {
+          "message": "Hey Bobby want to go get french fries?",
+          "senderId": 2,
+          "timeSent": "2019-11-11 10:25:43 GMT-0600"
+        },
+        {
+          "message": "yeah sure Dad, want to meet at Five Guys in half an hour?",
+          "senderId": 3,
+          "timeSent": "2019-11-11 10:40:02 GMT-0600"
+        },
+        {
+          "message": "okay kiddo i'll leave now!",
+          "senderId": 2,
+          "timeSent": "2019-11-11 11:00:21 GMT-0600"
+        },
+        {
+          "message": "I'm reading a book about anti-gravity. It's impossible to put down! ha ha ha ha hope you're having a good day son. -Dad",
+          "senderId": 2,
+          "timeSent": "2019-11-13 11:15:04 GMT-0600"
+        },
+        {
+          "message": "ok dad.",
+          "senderId": 3,
+          "timeSent": "2019-11-14 07:03:04 GMT-0600"
         }
       ]
     }
