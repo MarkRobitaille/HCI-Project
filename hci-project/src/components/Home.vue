@@ -7,9 +7,9 @@
     <p class="dateMessage">Today is {{formattedToday}}.</p>
 
     <div class="notifs">
-      <a href="#/Calendar" class="calendarNotifs"><strong>{{eventsTodayStr}}</strong></a>
+      <a href="#/Calendar" class="calendarNotifs" title="Click to go to Calendar"><strong>{{eventsTodayStr}}</strong></a>
       <br/>
-      <a href="#/Messenger" class="messageNotifs"><strong>{{conversationsStr}}</strong></a>
+      <a href="#/Messenger" class="messageNotifs" title="Click to go to Messenger"><strong>{{conversationsStr}}</strong></a>
     </div>
   </div>
 </template>
