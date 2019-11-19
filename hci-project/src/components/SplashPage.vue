@@ -203,7 +203,7 @@ export default {
 .mainScreen {
   width: 98%;
   height: 98vh;
-  background: linear-gradient(
+  /* background: linear-gradient(
       45deg,
       rgba(9, 36, 158, 0.5),
       rgba(73, 173, 206, 0.5),
@@ -213,12 +213,25 @@ export default {
       -45deg,
       rgba(10, 80, 104, 0.5),
       rgba(230, 14, 14, 0.5)
-    );
+    ); */
+
+       background: rgb(62, 95, 202);  /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    45deg, 
+    rgb(182, 233, 248), 
+    rgb(62, 95, 202)
+  );  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    -45deg, 
+    rgb(47, 148, 179), 
+    rgb(8, 87, 177)
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   margin: 0;
   padding-top: 1vh;
   padding-bottom: 1vh;
   padding-left: 1%;
   padding-right: 1%;
+  font-family: 'Roboto';
 }
 
 /* settings for text on the splash page */
@@ -226,6 +239,7 @@ export default {
   color: white;
   text-align: center;
   margin-top: 2%;
+  font-family: 'Alata';
 }
 
 /* settings for all of the text input boxes */
@@ -316,11 +330,11 @@ export default {
 }
 
 .enabledButton {
-  background-color: rgba(73, 173, 206, 0.75);
+  background-color:  rgb(62, 95, 202);
 }
 
 .disabledButton {
-  background-color: rgba(55, 125, 155, 0.25);
+  background-color: rgb(47, 148, 179, 0.5);
 }
 
 /* time for the register form */
@@ -410,4 +424,5 @@ export default {
 .fade-leave-active {
   transition: opacity 0.5s;
 }
+
 </style>
