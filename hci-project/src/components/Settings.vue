@@ -2,17 +2,17 @@
   <div class="settingsBacksplash">
     <!-- Can only have 1 parent element in a component -->
     <!-- All template inside of here -->
-    <h1>SETTINGS</h1>
-    <div class="settingsBG">
-
     <div class="settingsHead">
-      <!-- <h1>SETTINGS</h1> -->
+      <h1>SETTINGS</h1>
     </div>
 
+  <!-- Body of settings - Apply inner background on settingsBody class-->
     <div class="settingsBody">
-      <!-- General Profile Settings -->
+      <!-- Left column -->
+      <div class="settingsColumn">
+        <!-- General Profile Settings -->
       <!-- Make the name customize for who's profile you're in -->
-      <h2>{{currentUser.name}}'s Profile</h2>
+      <h2 class="profileName">{{currentUser.name}}'s Profile</h2>
       <img
         :src="require('../assets/' + currentUser.image)"
         alt="Profile picture"
@@ -35,15 +35,17 @@
           <a href="#/settings">Change calendar icon</a>
         </div>
       </h3>
-</div>
-      <!-- Family code -->
+      </div>
+      <!-- Right column -->
+      <div class="settingsColumn">
+        <!-- Family code -->
       <div class="familyCode">
         <h2 >
           Family code:
           <br />
           </h2>
           <div class="code">HN21Z77</div>
-        <!-- </h2> -->
+      </div>
       </div>
     </div>
   </div>
@@ -100,10 +102,10 @@ export default {
   margin-left: 2%;
   margin-right: 2%;
   /* margin-top:-5%; */
-  padding-top: 3%;
+  /* padding-top: 3%; */
   margin-bottom:2%;
   width: 96%;
-  height: 78%;
+  height: 75%;
   font-family: 'Roboto';
 }
 
@@ -113,19 +115,23 @@ export default {
   padding-bottom: 0.5%;
 }
 
-.familyCode h2 {
-  margin-left: 48%;
+.familyCode {
+  margin-top: 20vh;
   text-align: center;
-  margin-top: -25%;
+}
+.familyCode h2 {
+  /* margin-left: 48%; */
+  text-align: center;
+  /* margin-top: -25%; */
   color:black;
-  margin-bottom: 2vh;
+  /* margin-bottom: 2vh; */
   /* border: 1px solid black; */
 }
 
 .code {
-  width: 20%;
+  /* width: 20%; */
   font-size: 3.5vw;
-  margin-left: 49%;
+  /* margin-left: 49%; */
   border: 1px solid black;
   /* margin-top: 1vh; */
   padding: 1vh;
@@ -137,16 +143,44 @@ export default {
   color:white;
   font-family: 'Alata';
 }
+.profileName {
+  margin-top: 0;
+}
+
+.settingsHead {
+  height: 15vh;
+}
 .settingsBody {
   /* margin-top: 5%; */
-  margin-left: 5%;
+  border-radius: 25px;
+  margin-left: 2.5%;
+  width: 85%;
+  height: 75vh;
+  padding-top: 2.5vh;
+  padding-bottom: 2.5vh;
+  padding-left: 5%;
+  padding-right: 5%;
   text-align: justify;
   font-size: 1vw;
   color:black;
+  background:rgba(255, 255, 255, 0.85);
+  font-family: 'Roboto';
+  overflow-y: auto;
+}
+
+.settingsColumn {
+  width: 50%;
+  height: 100%;
+  float: left;
+}
+.rightSettings {
+  width: 50%;
+  height: 100%;
+  float: left;
 }
 .profileImg {
-  width: 10%;
-  height: 10%;
+  width: 15vh;
+  height: 15vh;;
   border-radius: 50%;
 }
 
