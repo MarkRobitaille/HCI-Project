@@ -36,12 +36,12 @@
               <button
                 :class="{'bulletButton': true, 'selectedListType': !lists[selected].checkboxes}"
               >
-                <font-awesome-icon icon="circle" />
+                <font-awesome-icon icon="circle" class="toggleIcon" />
               </button>
               <button
                 :class="{'checkboxButton': true, 'selectedListType': lists[selected].checkboxes}"
               >
-                <font-awesome-icon icon="check-square" />
+                <font-awesome-icon icon="check-square" class="toggleIcon"/>
               </button>
             </div>
           </div>
@@ -278,7 +278,7 @@ button{
 .toggleWrapper {
   margin-top: 4vh;
   height: 5vh;
-  min-height: 10px;
+  min-height: 20px;
   width: 40%;
   min-width: 70px;
   background-color: rgb(105, 215, 236);
@@ -287,21 +287,27 @@ button{
 }
 .bulletButton {
   /* margin-top: 4vh; */
+  padding: 0;
   min-height: 20px;
-  min-width: 30px;
+  min-width: 35px;
   height: 5vh;
   width: 50%;
   border-bottom-left-radius: 15px;
   border-top-left-radius: 15px;
   background:none;
-  font-size: 0.75vw;
+  /* font-size: 0.75vw; */
   color: white;
 }
 
+.toggleIcon {
+  font-size:  2vh;
+}
+
 .checkboxButton {
+  padding: 0;
   /* margin-top: 4vh; */
-  min-height: 0px;
-  min-width: 30px;
+  min-height: 20px;
+  min-width: 35px;
   height: 5vh;
   width: 50%;
   border-bottom-right-radius: 15px;
@@ -394,6 +400,7 @@ button{
   padding: 0;
   width: 100%;
   padding-bottom: 10vh;
+  list-style: none;
 }
 
 .listItem {
@@ -424,10 +431,8 @@ button{
 
 .listInput {
   width: 100%;
-  padding-top: 1%;
-  padding-bottom: 1%;
-  margin-left: 2%;
-  margin-right: 2%;
+  padding-top: 0.5%;
+  padding-bottom: 0.5%;
   background: none;
   border: none;
   font-size: 1.2vw;
