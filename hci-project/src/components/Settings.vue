@@ -2,10 +2,11 @@
   <div class="settingsBacksplash">
     <!-- Can only have 1 parent element in a component -->
     <!-- All template inside of here -->
+    <h1>SETTINGS</h1>
     <div class="settingsBG">
 
     <div class="settingsHead">
-      <h1>Change Settings</h1>
+      <!-- <h1>SETTINGS</h1> -->
     </div>
 
     <div class="settingsBody">
@@ -37,11 +38,12 @@
 </div>
       <!-- Family code -->
       <div class="familyCode">
-        <h2>
+        <h2 >
           Family code:
           <br />
+          </h2>
           <div class="code">HN21Z77</div>
-        </h2>
+        <!-- </h2> -->
       </div>
     </div>
   </div>
@@ -84,20 +86,25 @@ export default {
 /* Then apply by binding it to html tag by using :class="computedClass" */
 
 .settingsBacksplash{
-  background: #fc2222;
-  height: 97vh;
-  padding-top:2%;
+  background: #F37335;
+  height: 100vh;
+  /* padding-top:2%; */
 }
 
+.settingsBody h2{
+  font-size: 2vw;
+}
 
 .settingsBG{
   background:white;
   margin-left: 2%;
   margin-right: 2%;
-  /* margin-top:2%; */
+  /* margin-top:-5%; */
+  padding-top: 3%;
   margin-bottom:2%;
   width: 96%;
-  height: 96%;
+  height: 78%;
+  font-family: 'Roboto';
 }
 
 .settingsLink {
@@ -105,26 +112,46 @@ export default {
   padding-top: 0.5%;
   padding-bottom: 0.5%;
 }
-.familyCode {
-  margin-left: 0%;
+
+.familyCode h2 {
+  margin-left: 48%;
   text-align: center;
+  margin-top: -25%;
+  color:black;
+  margin-bottom: 2vh;
+  /* border: 1px solid black; */
 }
+
 .code {
   width: 20%;
   font-size: 3.5vw;
-  margin-left: 40%;
+  margin-left: 49%;
   border: 1px solid black;
+  /* margin-top: 1vh; */
+  padding: 1vh;
+  display:inline;
+  color:black;
 }
-.settingsHead {
+.settingsBacksplash h1{
   text-align: center;
+  color:white;
+  font-family: 'Alata';
 }
 .settingsBody {
+  /* margin-top: 5%; */
   margin-left: 5%;
   text-align: justify;
+  font-size: 1vw;
+  color:black;
 }
 .profileImg {
   width: 10%;
   height: 10%;
   border-radius: 50%;
 }
+
+a{
+  color:black;
+}
+
 </style>
