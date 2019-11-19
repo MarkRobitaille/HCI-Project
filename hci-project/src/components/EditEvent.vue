@@ -4,13 +4,13 @@
     <!-- All template inside of here -->
     <div class="dayHeader">
       <div class="smallDayCol">
-        <button class="dayButton" @click="updateEvent()">Save</button>
+        <button class="dayButton dayButtonSave" @click="updateEvent()">Save</button>
       </div>
       <div class="largeDayCol eventTitleHeader">
         <h2>Edit Event</h2>
       </div>
       <div class="smallDayCol">
-        <button class="dayButton" @click="closeWindow()">Cancel</button>
+        <button class="dayButton dayButtonCancel" @click="closeWindow()">Cancel</button>
       </div>
     </div>
 
@@ -247,9 +247,33 @@ export default {
 /* If you want dynamic application of css, create a computed variable in computed section */
 /* Then apply by binding it to html tag by using :class="computedClass" */
 /* Include the padding and border in an element's total width and height */
+
+button{
+  background: rgba(255, 255, 255);
+  border: none;
+  color:rgb(0, 167, 69);
+  /* color: #f12711; */
+  font-size: 1.5vw;
+  border-radius: 5vw;
+  outline:none;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  font-family:'Roboto';
+}
+
+.eventDeleteButton{
+  color: red;
+}
+
+.eventDetails{
+  margin-left: -4vw;
+}
+
 .dayHeader {
   height: 15vh;
   width: 100%;
+  font-family: 'Alata';
+  font-size: 1.7vw;
 }
 .smallDayCol {
   width: 20%;
@@ -272,14 +296,26 @@ export default {
   height: 10vh;
 }
 .dayButton {
-  margin-top: 3.5vh;
+   margin-top: 5.5vh;
 }
+
+.dayButtonSave{
+    margin-left: 2vw; 
+}
+
+.dayButtonCancel{
+    /* margin-right: 2.5vw; idk why this one doesnt work to move it left */
+    margin-left: -2.75vw;
+    color: #f12711;
+}
+
 .eventDetails {
   width: 100%;
 }
 .eventTitleHeader {
-  padding-top: calc(5vh - 24px);
+  /* padding-top: calc(5vh - 24px); */
 }
+
 .errorField {
   height: 10vh;
   padding-left: 5%;
@@ -298,6 +334,8 @@ export default {
 .eventInputField {
   vertical-align: middle;
   width: 100%;
+  width: 13vw;
+  margin-right: 3vw;
 }
 .eventInputLabel {
   margin-right: 5%;
@@ -306,16 +344,53 @@ export default {
   float: left;
 }
 .eventCreatedBy {
-  margin-top: 5vh;
+  margin-top: 8vh;
+  /* text-align: center; */
+  margin-left: 8vw;
 }
 .eventDeleteDiv {
   position: absolute;
   bottom: 0;
-  right: 0;
+  right: 4%;
   height: 10vh;
   width: 20%;
+  
 }
 .eventDeleteButton {
   margin-bottom: 3.5vh;
 }
+
+
+input[type=text], input[type=date], input[type=time]{
+  background: white;
+  height: 3vh;
+  border-radius: 5vw;
+  outline:none;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  box-shadow: none;
+  border:none;
+}
+
+input[type=checkbox]{
+  width: 2vw;
+  height: 2vh;
+}
+
+input:focus{
+outline: none;
+}
+
+textarea {
+  background: white;
+  height: 10vh;
+  box-shadow: none;
+  outline:none;
+  border-radius: 1vw;
+  outline:none;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  border:none;
+}
+
 </style>

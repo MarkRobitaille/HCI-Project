@@ -220,6 +220,14 @@ button {
   height: 5vh;
   position: absolute;
   right: 5vh;
+  background: white;
+  color:rgb(0, 167, 69);
+  font-size: 1.5vw;
+  border-radius: 5vw;
+  outline:none;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  font-family:'Roboto';
   /* top: 4vh; */
   /* margin-top: 59%; */
   /* margin-right: 40%; */

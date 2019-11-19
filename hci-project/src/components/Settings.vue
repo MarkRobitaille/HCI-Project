@@ -82,6 +82,7 @@ export default {
 /* Use classes to create css */
 /* If you want dynamic application of css, create a computed variable in computed section */
 /* Then apply by binding it to html tag by using :class="computedClass" */
+
 .settingsBacksplash{
   background: #fc2222;
   height: 97vh;

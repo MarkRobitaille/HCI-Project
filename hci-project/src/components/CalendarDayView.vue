@@ -128,6 +128,9 @@ export default {
   z-index: 5;
   background-color:   rgb(0, 167, 69);
   color:white;
+  font-family: 'Roboto';
+    font-style: bold;
+    font-size: 1.25vw;
 }
 
 button{
@@ -183,7 +186,17 @@ button{
 }
 .windowAddEventButton {
   margin-top: 10%;
+  background: white;
+  color:rgb(0, 167, 69);
+  font-size: 1.5vw;
+  border-radius: 5vw;
+  outline:none;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  font-family:'Roboto';
+  padding: 0.5vw;
 }
+
 .eventList {
   width: 100%;
   height: 65vh;
@@ -195,7 +208,9 @@ button{
   margin: 5%;
 }
 .eventTitleHeader {
-  padding-top: calc(6vh - 24px);
+  /* padding-top: calc(6vh - 24px); */
+  padding-top: 1vh;
+  font-family: 'Alata';
 }
 .eventsTitleHeader {
   /* Just fiddled with it till it looked right, feel free to change */

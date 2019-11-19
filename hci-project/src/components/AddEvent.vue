@@ -4,13 +4,13 @@
     <!-- All template inside of here -->
     <div class="dayHeader">
       <div class="smallDayCol">
-        <button class="dayButton" @click="createEvent()">Create</button>
+        <button class="dayButtonCreate" @click="createEvent()">Create</button>
       </div>
       <div class="largeDayCol eventTitleHeader">
         <h2>Add Event</h2>
       </div>
       <div class="smallDayCol">
-        <button class="dayButton" @click="closeWindow()">Cancel</button>
+        <button class="dayButtonCancel" @click="closeWindow()">Cancel</button>
       </div>
     </div>
 
@@ -229,9 +229,23 @@ button{
   background: rgba(255, 255, 255);
   border: none;
   color:rgb(0, 167, 69);
-  color: f12711;
+  /* color: #f12711; */
   font-size: 1.5vw;
+  border-radius: 5vw;
+  outline:none;
+  padding-left: 1vw;
+  padding-right: 1vw;
 
+}
+
+.dayButtonCreate{
+    margin-left: 2vw; 
+}
+
+.dayButtonCancel{
+    /* margin-right: 2.5vw; idk why this one doesnt work to move it left */
+    margin-left: -2.75vw;
+    color: #f12711;
 }
 
 .dayHeader {
@@ -258,14 +272,16 @@ button{
   float: left;
   height: 10vh;
 }
-.dayButton {
-  margin-top: 3.5vh;
+.dayButtonCancel, .dayButtonCreate {
+  margin-top: 5.5vh;
 }
 .eventDetails {
   width: 100%;
 }
 .eventTitleHeader {
-  padding-top: calc(5vh - 24px);
+  /* padding-top: calc(5vh - 24px); */
+  font-family: "Alata";
+  font-size: 1.7vw;
 }
 .errorField {
   height: 10vh;
@@ -288,7 +304,7 @@ button{
 }
 .eventInputField {
   vertical-align: middle;
-  width: 100%;
+  width: 13vw;
 }
 .eventInputLabel {
   margin-right: 5%;
@@ -297,9 +313,20 @@ button{
   float: left;
 }
 
-input[type=text]{
+input[type=text], input[type=date], input[type=time]{
   background: white;
   height: 3vh;
+  border-radius: 5vw;
+  outline:none;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  box-shadow: none;
+  border:none;
+}
+
+input[type=checkbox]{
+  width: 2vw;
+  height: 2vh;
 }
 
 input:focus{
@@ -308,9 +335,14 @@ outline: none;
 
 textarea {
   background: white;
-  height: 3vh;
+  height: 10vh;
   box-shadow: none;
   outline:none;
+  border-radius: 1vw;
+  outline:none;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  border:none;
 }
 
 </style>
