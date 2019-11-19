@@ -4,19 +4,27 @@
       <div class="outerDayViewCloseDiv">
         <div class="dayViewOffsetDiv"></div>
         <div class="dayViewCloseDiv">
-          <button class="dayViewCloseButton" @click="closeWindow()">Close<font-awesome-icon icon="times" class="rightIconOffset"/></button>
+          <button class="dayViewCloseButton" @click="closeWindow()">
+            Close
+            <font-awesome-icon icon="times" class="rightIconOffset" />
+          </button>
         </div>
       </div>
 
       <div class="dayHeader">
         <div class="smallDayCol">
-          <button class="dayButton" @click="setPrevDay()"><font-awesome-icon icon="angle-left" class="leftIconOffset"/>Prev</button>
+          <button class="dayButton" @click="setPrevDay()">
+            <font-awesome-icon icon="angle-left" class="leftIconOffset" />Prev
+          </button>
         </div>
         <div class="largeDayCol eventHeader">
           <h2 class="eventTitleHeader">{{monthName}} {{day.number}}, 2019</h2>
         </div>
         <div class="smallDayCol">
-          <button class="dayButton" @click="setNextDay()">Next<font-awesome-icon icon="angle-right" class="rightIconOffset"/></button>
+          <button class="dayButton" @click="setNextDay()">
+            Next
+            <font-awesome-icon icon="angle-right" class="rightIconOffset" />
+          </button>
         </div>
       </div>
       <div class="eventsHeader">
@@ -24,25 +32,31 @@
           <h3 class="eventsTitleHeader">Events:</h3>
         </div>
         <div class="mediumDayCol">
-          <button class="windowAddEventButton" @click="addEvent()">Add Event <font-awesome-icon icon="plus" class="rightIconOffset"/></button>
+          <button class="windowAddEventButton" @click="addEvent()">
+            Add Event
+            <font-awesome-icon icon="plus" class="rightIconOffset" />
+          </button>
         </div>
       </div>
       <div class="eventList">
-        <div
-          v-for="(item, index) in day.events"
-          :key="index"
-          @click="editEvent(index)"
-          class="largeEventBlobDiv"
-        >
-          <EventBlob
-            :event="item"
-            :size="3"
-            :month="calendarState.selectedMonth"
-            :day="calendarState.selectedDay"
-            :title="'Event added by ' + users[item.createdBy-1].name"
-          ></EventBlob>
-          <!-- :title="users[item.createdBy-1].name" -->
+        <div v-if="day.events.length>0">
+          <div
+            v-for="(item, index) in day.events"
+            :key="index"
+            @click="editEvent(index)"
+            class="largeEventBlobDiv"
+          >
+            <EventBlob
+              :event="item"
+              :size="3"
+              :month="calendarState.selectedMonth"
+              :day="calendarState.selectedDay"
+              :title="'Event added by ' + users[item.createdBy-1].name"
+            ></EventBlob>
+          </div>
         </div>
+        <div v-else class="noEvents">There are no events scheduled for this day.</div>
+        <!-- </div> -->
       </div>
     </div>
 
@@ -129,19 +143,18 @@ export default {
   right: 0;
   top: 0;
   z-index: 5;
-  background-color:   rgb(0, 167, 69);
-  color:white;
-  font-family: 'Roboto';
-    font-style: bold;
-    font-size: 1.25vw;
+  background-color: rgb(0, 167, 69);
+  color: white;
+  font-family: "Roboto";
+  font-style: bold;
+  font-size: 1.25vw;
 }
 
-button{
+button {
   background: none;
   border: none;
-  color:white;
+  color: white;
   font-size: 1.5vw;
-
 }
 
 .outerDayViewCloseDiv {
@@ -190,13 +203,13 @@ button{
 .windowAddEventButton {
   margin-top: 10%;
   background: white;
-  color:rgb(0, 167, 69);
+  color: rgb(0, 167, 69);
   font-size: 1.5vw;
   border-radius: 5vw;
-  outline:none;
+  outline: none;
   padding-left: 1vw;
   padding-right: 1vw;
-  font-family:'Roboto';
+  font-family: "Roboto";
   padding: 0.5vw;
 }
 
@@ -213,10 +226,15 @@ button{
 .eventTitleHeader {
   /* padding-top: calc(6vh - 24px); */
   padding-top: 1vh;
-  font-family: 'Alata';
+  font-family: "Alata";
 }
 .eventsTitleHeader {
   /* Just fiddled with it till it looked right, feel free to change */
   padding-top: calc(3vh - 24px);
+}
+.noEvents {
+  margin-top: 5vh;
+  color: black;
+
 }
 </style>
