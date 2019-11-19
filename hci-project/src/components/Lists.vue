@@ -163,9 +163,10 @@ export default {
 button {
   background: none;
   border: none;
-  color: black;
   color: f12711;
   /* font-size: 1.5vw; */
+  font-size: 1.2vw;
+  /* width: auto; */
 }
 
 @import url("https://fonts.googleapis.com/css?family=Alata|Roboto&display=swap");
@@ -197,12 +198,28 @@ button {
   color: white;
 }
 
+button{
+  /* background: rgba(255, 255, 255); */
+  border: none;
+  color: black;
+  /* color:rgb(0, 167, 69); */
+  /* color: #f12711; */
+  /* font-size: 1.5vw;*/
+  border-radius: 5vw;
+  outline:none;
+  padding-left: 1vw;
+  padding-right: 1vw; 
+
+}
+
 .addListButton {
+  background: white;
   margin-top: 4vh;
   min-height: 20px;
   height: 5vh;
   color: white;
-  font-size: 1vw;
+  font-size: 1.2vw;
+  color: rgb(0, 106, 124);
 }
 
 .list_list_items {
@@ -216,6 +233,7 @@ button {
 .list {
   border-bottom: solid 1px #c3dde6;
   padding: 10px;
+  
 }
 
 .activeList {
@@ -253,18 +271,19 @@ button {
   height: 12vh;
   float: left;
   text-align: center;
-  /* background-color: */
   color: white;
+  
 }
 
 .toggleWrapper {
   margin-top: 4vh;
   height: 5vh;
-  min-height: 20px;
+  min-height: 10px;
   width: 40%;
-  min-width: 60px;
+  min-width: 70px;
   background-color: rgb(105, 215, 236);
   border-radius: 15px;
+  font-size: 0.75vw;
 }
 .bulletButton {
   /* margin-top: 4vh; */
@@ -274,6 +293,8 @@ button {
   width: 50%;
   border-bottom-left-radius: 15px;
   border-top-left-radius: 15px;
+  background:none;
+  font-size: 0.75vw;
   color: white;
 }
 
@@ -335,14 +356,17 @@ button {
   margin-top: 4vh;
   min-height: 20px;
   height: 5vh;
-  color: white;
+  color: rgb(0, 106, 124);
+  font-size: 1.2vw;
+  background: white;
 }
 
 /* Delete List */
 
 .deleteListDiv {
   border-top: solid 1px #c3dde6;
-  background-color: rgb(114, 114, 114);
+  /* background-color: rgb(114, 114, 114); */
+   /* background-color: rgb(0, 106, 124); */
   bottom: 0;
   left: 0;
   height: 13vh;
@@ -353,8 +377,9 @@ button {
   margin-top: 4vh;
   min-height: 20px;
   height: 5vh;
-  color: white;
-  font-size: 1vw;
+  background-color: white;
+  color:red;
+  font-size: 1.2vw;
 }
 
 /* List Items */
@@ -424,6 +449,9 @@ button {
   /* min-height: 10px; */
   height: 3.5vh;
   min-height: 20px;
+  font-size: 1vw;
+  background: none;
+  color:red;
 }
 
 .fade-enter,
