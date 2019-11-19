@@ -41,7 +41,7 @@
               <button
                 :class="{'checkboxButton': true, 'selectedListType': lists[selected].checkboxes}"
               >
-                <font-awesome-icon icon="check-square" class="toggleIcon"/>
+                <font-awesome-icon icon="check-square" class="toggleIcon" />
               </button>
             </div>
           </div>
@@ -70,7 +70,13 @@
             >
               <div class="bulletCheckboxDiv">
                 <font-awesome-icon icon="circle" v-if="!lists[selected].checkboxes" />
-                <input type="checkbox" v-else v-model="item.completed" :title="item.completed && item.completedBy != -1? 'Marked as completed by ' + users[item.completedBy-1].name : ''" @click="markCompleted(index)"/>
+                <input
+                  type="checkbox"
+                  v-else
+                  v-model="item.completed"
+                  :title="item.completed && item.completedBy != -1? 'Marked as completed by ' + users[item.completedBy-1].name : ''"
+                  @click="markCompleted(index)"
+                />
               </div>
               <div class="listInputDiv">
                 <input
@@ -147,15 +153,20 @@ export default {
       this.selected = this.lists.length - 1;
     },
     removeList() {
-      this.lists.splice(this.selected, 1);
-      this.selected--;
+      if (this.lists.length > 0) {
+        this.lists.splice(this.selected, 1);
+        this.selected--;
+      }
     },
     changeListStyle() {
-      this.lists[this.selected].checkboxes = !this.lists[this.selected].checkboxes;
+      this.lists[this.selected].checkboxes = !this.lists[this.selected]
+        .checkboxes;
     },
     markCompleted(itemIndex) {
       if (this.lists[this.selected].listItems[itemIndex].completedBy == -1) {
-        this.lists[this.selected].listItems[itemIndex].completedBy = this.currentUser.id;
+        this.lists[this.selected].listItems[
+          itemIndex
+        ].completedBy = this.currentUser.id;
       } else {
         this.lists[this.selected].listItems[itemIndex].completedBy = -1;
       }
@@ -210,7 +221,7 @@ button {
   color: white;
 }
 
-button{
+button {
   /* background: rgba(255, 255, 255); */
   border: none;
   color: black;
@@ -218,10 +229,9 @@ button{
   /* color: #f12711; */
   /* font-size: 1.5vw;*/
   border-radius: 5vw;
-  outline:none;
+  outline: none;
   padding-left: 1vw;
-  padding-right: 1vw; 
-
+  padding-right: 1vw;
 }
 
 .addListButton {
@@ -245,7 +255,6 @@ button{
 .list {
   border-bottom: solid 1px #c3dde6;
   padding: 10px;
-  
 }
 
 .activeList {
@@ -284,7 +293,6 @@ button{
   float: left;
   text-align: center;
   color: white;
-  
 }
 
 .toggleWrapper {
@@ -306,13 +314,13 @@ button{
   width: 50%;
   border-bottom-left-radius: 15px;
   border-top-left-radius: 15px;
-  background:none;
+  background: none;
   /* font-size: 0.75vw; */
   color: white;
 }
 
 .toggleIcon {
-  font-size:  2vh;
+  font-size: 2vh;
 }
 
 .checkboxButton {
@@ -384,7 +392,7 @@ button{
 .deleteListDiv {
   border-top: solid 1px #c3dde6;
   /* background-color: rgb(114, 114, 114); */
-   /* background-color: rgb(0, 106, 124); */
+  /* background-color: rgb(0, 106, 124); */
   bottom: 0;
   left: 0;
   height: 13vh;
@@ -396,7 +404,7 @@ button{
   min-height: 20px;
   height: 5vh;
   background-color: white;
-  color:red;
+  color: red;
   font-size: 1.2vw;
 }
 
@@ -468,7 +476,7 @@ button{
   min-height: 20px;
   font-size: 1vw;
   background: none;
-  color:red;
+  color: red;
 }
 
 .fade-enter,
