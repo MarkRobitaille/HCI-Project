@@ -53,6 +53,11 @@ export default {
   created() {
     this.scrollToBottom();
   },
+  watch: {
+    selected: function () {
+      this.scrollToBottom();
+    }
+  },
   computed: {
     // Computed variables
     ...mapGetters({
