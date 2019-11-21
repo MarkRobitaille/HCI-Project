@@ -21,7 +21,8 @@
         placeholder="Type Message Here"
       />
       <!-- <input @click="sendMessage()" class="send" type="button" value="Send" /><font-awesome-icon icon="paper-plane" class = "homeIcon" size="2x" color="white"/> -->
-      <button @click="sendMessage()" class ="sendIcon" value="Send"><font-awesome-icon icon="paper-plane" size="2x"/></button>
+      <button v-if="sendButtonDisabled" disabled class ="sendIcon sendIconDisabled" value="Send"><font-awesome-icon icon="paper-plane" size="2x"/></button>
+      <button v-else @click="sendMessage()" class ="sendIcon" value="Send"><font-awesome-icon icon="paper-plane" size="2x"/></button>
     </div>
   </div>
 </template>
@@ -64,7 +65,10 @@ export default {
       users: "getUsers",
       messenger: "getMessenger",
       currentUser: "getCurrentUser"
-    })
+    }),
+    sendButtonDisabled: function() {
+      return this.newMessage == "";
+    }
   },
   methods: {
     // Methods in this component
@@ -157,6 +161,10 @@ input[type="text"]:focus {
   font-size: 1vw;
   text-align: center;
 
+}
+
+.sendIconDisabled {
+  color:#bbb9fc;
 }
 
 .send:focus {

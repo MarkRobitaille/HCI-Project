@@ -4,7 +4,8 @@
     <!-- All template inside of here -->
     <div class="dayHeader">
       <div class="smallDayCol">
-        <button class="dayButtonCreate" @click="createEvent()">Create</button>
+        <button v-if="addEventButtonDisabled" class="dayButtonCreate disabledEventButton" disabled key="1Add">Create</button>
+        <button v-else class="dayButtonCreate" @click="createEvent()" key="2Add">Create</button>
       </div>
       <div class="largeDayCol eventTitleHeader">
         <h2>Add Event</h2>
@@ -120,6 +121,9 @@ export default {
   },
   computed: {
     // Computed variables
+    addEventButtonDisabled: function() {
+      return this.name == "" || this.date == "";
+    }
   },
   methods: {
     // Methods in this component
@@ -238,6 +242,10 @@ button{
 
 }
 
+.disabledEventButton {
+  background: rgb(148, 206, 172);
+}
+
 .dayButtonCreate{
     margin-left: 2vw; 
 }
@@ -347,4 +355,14 @@ textarea {
   border:none;
 }
 
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+  position: absolute;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.25s;
+  position: absolute;
+}
 </style>

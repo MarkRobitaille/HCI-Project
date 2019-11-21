@@ -4,7 +4,8 @@
     <!-- All template inside of here -->
     <div class="dayHeader">
       <div class="smallDayCol">
-        <button class="dayButton dayButtonSave" @click="updateEvent()">Save</button>
+        <button v-if="editEventButtonDisabled" class="dayButton dayButtonSave disabledEventButton" key="1Edit" disabled>Save</button>
+        <button v-else class="dayButton dayButtonSave" @click="updateEvent()" key="2Edit">Save</button>
       </div>
       <div class="largeDayCol eventTitleHeader">
         <h2>Edit Event</h2>
@@ -148,6 +149,9 @@ export default {
         }
       }
       return name;
+    },
+    editEventButtonDisabled: function() {
+      return this.name == "" || this.date == "";
     }
   },
   methods: {
@@ -268,12 +272,12 @@ button{
   font-family:'Roboto';
 }
 
-.eventDeleteButton{
-  color: red;
+.disabledEventButton {
+  background: rgb(148, 206, 172);
 }
 
-.eventDetails{
-  /* margin-left: -4vw; */
+.eventDeleteButton{
+  color: red;
 }
 
 .dayHeader {
@@ -318,9 +322,6 @@ button{
 
 .eventDetails {
   width: 100%;
-}
-.eventTitleHeader {
-  /* padding-top: calc(5vh - 24px); */
 }
 
 .errorField {
