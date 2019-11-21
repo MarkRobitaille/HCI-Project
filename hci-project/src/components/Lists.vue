@@ -21,7 +21,16 @@
         </div>
       </div>
       <div class="deleteListDiv">
-        <button class="deleteListButton" @click="removeList()">
+        <button
+          v-if="deleteListButtonDisabled"
+          class="deleteListButton deleteListButtonDisabled"
+          @click="removeList()"
+          disabled
+        >
+          Delete List
+          <font-awesome-icon icon="trash" class="rightIconOffset" />
+        </button>
+        <button v-else class="deleteListButton" @click="removeList()">
           Delete List
           <font-awesome-icon icon="trash" class="rightIconOffset" />
         </button>
@@ -126,7 +135,10 @@ export default {
       lists: "getLists",
       currentUser: "getCurrentUser",
       users: "getUsers"
-    })
+    }),
+    deleteListButtonDisabled: function () {
+      return this.lists.length <= 0;
+    }
   },
   methods: {
     // Methods in this component
@@ -155,7 +167,7 @@ export default {
     removeList() {
       if (this.lists.length > 0) {
         this.lists.splice(this.selected, 1);
-        if (this.selected!=0) {
+        if (this.selected != 0) {
           this.selected--;
         }
       }
@@ -189,9 +201,7 @@ button {
   background: none;
   border: none;
   color: f12711;
-  /* font-size: 1.5vw; */
   font-size: 1.2vw;
-  /* width: auto; */
 }
 
 @import url("https://fonts.googleapis.com/css?family=Alata|Roboto&display=swap");
@@ -309,7 +319,6 @@ button {
   font-size: 0.75vw;
 }
 .bulletButton {
-  /* margin-top: 4vh; */
   padding: 0;
   min-height: 20px;
   min-width: 35px;
@@ -318,7 +327,6 @@ button {
   border-bottom-left-radius: 15px;
   border-top-left-radius: 15px;
   background: none;
-  /* font-size: 0.75vw; */
   color: white;
 }
 
@@ -328,7 +336,6 @@ button {
 
 .checkboxButton {
   padding: 0;
-  /* margin-top: 4vh; */
   min-height: 20px;
   min-width: 35px;
   height: 5vh;
@@ -339,11 +346,8 @@ button {
 }
 
 .selectedListType {
-  /* background-color: rgb(159, 236, 252); */
   background-color: rgb(0, 106, 124);
   border-radius: 15px;
-  /* border-color: rgb(131, 131, 131); */
-  /* transform: translateY(1px); */
 }
 
 /* List Name Input */
@@ -382,7 +386,7 @@ button {
 }
 
 .addItemButton {
-  float:left;
+  float: left;
   /* margin-left: */
   margin-top: 4vh;
   min-height: 20px;
@@ -396,8 +400,6 @@ button {
 
 .deleteListDiv {
   border-top: solid 1px #c3dde6;
-  /* background-color: rgb(114, 114, 114); */
-  /* background-color: rgb(0, 106, 124); */
   bottom: 0;
   left: 0;
   height: 13vh;
@@ -481,6 +483,11 @@ button {
   font-size: 1vw;
   background: none;
   color: red;
+}
+
+.deleteListButtonDisabled {
+  background: rgb(140, 175, 182);
+  color: rgb(0, 106, 124);
 }
 
 .fade-enter,
