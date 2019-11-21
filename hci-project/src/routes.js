@@ -1,4 +1,3 @@
-//import HelloWorld from './components/HelloWorld.vue'
 import Home from './components/Home.vue'
 import Messenger from './components/Messenger.vue'
 import Calendar from './components/Calendar.vue'

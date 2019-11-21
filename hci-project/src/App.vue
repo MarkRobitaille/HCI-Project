@@ -3,9 +3,6 @@
     <div class="splash" v-if="currentUser.id <= 0">
       <SplashPage></SplashPage>
     </div>
-    <!-- <<div class="navbar">
-      <a href="#/" :class="activeSection==0? 'activeNavbarSection' : 'navbarSection'">Home</a>
-    <a href="#/messenger" :class="activeSection==1? 'activeNavbarSection' : 'navbarSection'">-->
     <div v-else>
       <div class="navbar">
         <div
@@ -51,7 +48,8 @@
         </div>
         <div class="logoutButton">
           <button @click="logOut()">
-            <font-awesome-icon icon="power-off" class="logoutIcon" size="3x" /><br/>
+            <font-awesome-icon icon="power-off" class="logoutIcon" size="3x" />
+            <br />
             <h1>LOG OUT</h1>
           </button>
         </div>
@@ -67,7 +65,6 @@
 
 <script>
 import SplashPage from "./components/SplashPage.vue";
-// import HelloWorld from './components/HelloWorld.vue'
 import { mapGetters } from "vuex";
 
 export default {
@@ -93,11 +90,11 @@ export default {
     this.setActiveSection(this.$route.name);
   },
   watch: {
-    $route: function(to) {
+    $route: function (to) {
       // Track changes to route to update css
       this.setActiveSection(to.name);
     },
-    "currentUser.id": function() {
+    "currentUser.id": function () {
       this.setActiveSection(this.$route.name);
     }
   },
@@ -205,7 +202,6 @@ h1 {
   margin: 0;
 }
 .content {
-  /* background-color: #def5fc; */
   width: 80%;
   margin-left: 20%;
   padding: 0;
@@ -214,10 +210,7 @@ h1 {
   position: relative;
 }
 .navbarSection {
-  /* FADE OUT COLORS OF NOT ACTIVE TABS */
-  /* background: white; */
   margin-left: 4.5vh;
-  /* opacity: 0.8; */
 }
 .activeNavbarSection {
   font-weight: bold;
@@ -239,122 +232,78 @@ h1 {
   text-align: center;
   font-family: "Alata", sans-serif;
   padding-top: 2vh;
-  /* margin-left: 4vh; */
   height: 15vh;
-
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
-  /* border-bottom: solid 1.5px white; */
 }
 
 #homeTab {
-  /* margin-top: 0.5vh; */
-  background: rgb(78, 119, 233);  /* fallback for old browsers */
+  background: rgb(78, 119, 233);
   background: -webkit-linear-gradient(
-    to right, 
-    rgb(182, 233, 248), 
+    to right,
+    rgb(182, 233, 248),
     rgb(124, 148, 228)
-  );  /* Chrome 10-25, Safari 5.1-6 */
+  ); /* Chrome and old Safari */
   background: linear-gradient(
-    to right, 
-    rgb(153, 223, 245), 
+    to right,
+    rgb(153, 223, 245),
     rgb(78, 119, 233)
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  ); /* Edge/IE, Firefox, new Chrome, new Safari */
 }
 #messengerTab {
-  /* background: #11998e;
-  background: -webkit-linear-gradient(
-    to right,
-    #38ef7d,
-    #11998e
-  ); 
-  background: linear-gradient(
-    to right,
-    #38ef7d,
-    #11998e
-  );  */
-
- background: #9796f0; /* fallback for old browsers */
+  background: #9796f0;
   background: -webkit-linear-gradient(
     to right,
     #bbb9fc,
     #693dbb
-  ); /* Chrome 10-25, Safari 5.1-6 */
+  ); /* Chrome and old Safari */
   background: linear-gradient(
     to right,
     #bbb9fc,
     #693dbb
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-  /* background: #ee9ca7; 
-background: -webkit-linear-gradient(to right, #fcc9cf, #fc6b7e);  
-background: linear-gradient(to right, #fcc9cf, #fc6b7e);  */
+  ); /* Edge/IE, Firefox, new Chrome, new Safari */
 }
 
 #calendarTab {
-  /* background: #f12711; 
+  background: rgb(0, 167, 69);
   background: -webkit-linear-gradient(
     to right,
-    #f5af19,
-    #f12711
-  ); /
-  /* background: linear-gradient(
+    rgb(139, 247, 150),
+    rgb(0, 167, 69)
+  ); /* Chrome and old Safari */
+  background: linear-gradient(
     to right,
-    #f5af19,
-    #f12711
-  ); 
-  /* background: #FDC830; 
-background: -webkit-linear-gradient(to left, #F37335, #FDC830);  
-background: linear-gradient(to left, #F37335, #FDC830);  */
- background: rgb(0, 167, 69);  /* fallback for old browsers */
-background: -webkit-linear-gradient(
-  to right, 
-  rgb(139, 247, 150), 
-  rgb(0, 167, 69)
-  );  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(
-  to right, 
-  rgb(139, 247, 150), 
-  rgb(0, 167, 69)
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+    rgb(139, 247, 150),
+    rgb(0, 167, 69)
+  ); /* Edge/IE, Firefox, new Chrome, new Safari */
 }
 
 #listTab {
-
-    background: rgb(0, 155, 182);  /* fallback for old browsers */
+  background: rgb(0, 155, 182);
   background: -webkit-linear-gradient(
-    to right, 
+    to right,
     rgb(190, 239, 248),
     rgb(23, 185, 214)
-  );  /* Chrome 10-25, Safari 5.1-6 */
+  ); /* Chrome and old Safari */
   background: linear-gradient(
-    to right, 
+    to right,
     rgb(159, 236, 252),
     rgb(0, 155, 182)
-  ); 
-
+  ); /* Edge/IE, Firefox, new Chrome, new Safari */
 }
 
 #settingsTab {
-
-  /* background: #fc2222;  
+  background: #fdc830;
   background: -webkit-linear-gradient(
-    to right, 
-    #ffa3a3, 
-    #fc2222
-  ); 
+    to left,
+    #f37335,
+    #fdc830
+  ); /* Chrome and old Safari */
   background: linear-gradient(
-    to right, 
-    #ffa3a3, 
-    #fc2222
-  );  */
-
-  background: #FDC830;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to left, #F37335, #FDC830);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to left, #F37335, #FDC830); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-
+    to left,
+    #f37335,
+    #fdc830
+  ); /* Edge/IE, Firefox, new Chrome, new Safari */
 }
 
 .leftIconOffset {
@@ -383,8 +332,7 @@ background: linear-gradient(to left, #F37335, #FDC830); /* W3C, IE 10+/ Edge, Fi
 .slide-fade-leave-active {
   transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
 }
-.slide-fade-enter, .slide-fade-leave-to
-/* .slide-fade-leave-active below version 2.1.8 */ {
+.slide-fade-enter, .slide-fade-leave-to {
   transform: translateX(10px);
   opacity: 0;
 }
@@ -410,16 +358,13 @@ background: linear-gradient(to left, #F37335, #FDC830); /* W3C, IE 10+/ Edge, Fi
   height: 10vh;
   text-align: center;
   margin-top: 2.5vh;
-  
 }
 
 .logoutButton h1 {
-  
   font-size: 1vw;
   color: #404040;
   margin-top: 1vh;
-  /* clear:both; */
-  font-family: 'Alata';
+  font-family: "Alata";
   display: inline-block;
   white-space: nowrap;
 }

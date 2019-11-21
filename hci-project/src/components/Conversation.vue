@@ -20,9 +20,12 @@
         name="Type Here"
         placeholder="Type Message Here"
       />
-      <!-- <input @click="sendMessage()" class="send" type="button" value="Send" /><font-awesome-icon icon="paper-plane" class = "homeIcon" size="2x" color="white"/> -->
-      <button v-if="sendButtonDisabled" disabled class ="sendIcon sendIconDisabled" value="Send"><font-awesome-icon icon="paper-plane" size="2x"/></button>
-      <button v-else @click="sendMessage()" class ="sendIcon" value="Send"><font-awesome-icon icon="paper-plane" size="2x"/></button>
+      <button v-if="sendButtonDisabled" disabled class="sendIcon sendIconDisabled" value="Send">
+        <font-awesome-icon icon="paper-plane" size="2x" />
+      </button>
+      <button v-else @click="sendMessage()" class="sendIcon" value="Send">
+        <font-awesome-icon icon="paper-plane" size="2x" />
+      </button>
     </div>
   </div>
 </template>
@@ -66,7 +69,7 @@ export default {
       messenger: "getMessenger",
       currentUser: "getCurrentUser"
     }),
-    sendButtonDisabled: function() {
+    sendButtonDisabled: function () {
       return this.newMessage == "";
     }
   },
@@ -103,8 +106,7 @@ export default {
 <style scoped>
 .messageArea {
   background-color: white;
-  margin-left:25%;
-  /* width: 75%; */
+  margin-left: 25%;
   height: calc(100vh - 11.25vh);
   overflow-y: scroll;
 }
@@ -113,33 +115,25 @@ export default {
   display: flex;
   position: absolute;
   height: 11.25vh;
-  /* margin-left:2vw;; */
   min-width: 75%;
-  /* margin-left: 25%; */
-  /* background: #bce7f7; */
   bottom: 0;
 }
 
 .typingBox {
-
   box-sizing: border-box;
   min-width: 80%;
   height: 5vh;
   font-size: 16px;
-
   background: white;
-
   border: solid 1px rgba(0, 0, 0, 0);
   border-radius: 20px;
-
-  padding: 2vh 2vh; 
+  padding: 2vh 2vh;
   margin: 3vh;
   word-wrap: break-word;
-
 }
 
-.typingBox:hover{
-  background:#f5fffe
+.typingBox:hover {
+  background: #f5fffe;
 }
 
 input[type="text"]:focus {
@@ -148,31 +142,26 @@ input[type="text"]:focus {
 }
 
 .sendIcon {
-
-  color:white;
-  background:none;
-  border:none;
-  /* background: #11998e;
-  border:solid 1px #11998e; */
-  height:5vh;
+  color: white;
+  background: none;
+  border: none;
+  height: 5vh;
   width: 5vw;
   margin-top: 3vh;
   border-radius: 50%;
   font-size: 1vw;
   text-align: center;
-
 }
 
 .sendIconDisabled {
-  color:#bbb9fc;
+  color: #bbb9fc;
 }
 
 .send:focus {
   outline: none;
 }
 
-.send:hover{
-  background:#f5fffe;
+.send:hover {
+  background: #f5fffe;
 }
-
 </style>

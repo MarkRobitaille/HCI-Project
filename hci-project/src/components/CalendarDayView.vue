@@ -10,7 +10,6 @@
           </button>
         </div>
       </div>
-
       <div class="dayHeader">
         <div class="smallDayCol">
           <button class="dayButton" @click="setPrevDay()">
@@ -92,12 +91,6 @@ export default {
       required: true
     }
   },
-  data() {
-    // List of local data in this component
-    return {
-      // Variables go in here
-    };
-  },
   computed: {
     // Computed variables
     ...mapGetters({
@@ -120,7 +113,6 @@ export default {
       this.$store.dispatch("setAddEvent", true);
     },
     editEvent(index) {
-      console.log("Test edit button " + index);
       this.$store.dispatch("setSelectedEvent", index);
     }
   }
@@ -147,14 +139,12 @@ export default {
   font-style: bold;
   font-size: 1.25vw;
 }
-
 button {
   background: none;
   border: none;
   color: white;
   font-size: 1.5vw;
 }
-
 .outerDayViewCloseDiv {
   height: 10vh;
   width: 100%;
@@ -210,7 +200,6 @@ button {
   font-family: "Roboto";
   padding: 0.5vw;
 }
-
 .eventList {
   width: 100%;
   height: 65vh;
@@ -222,17 +211,14 @@ button {
   margin: 5%;
 }
 .eventTitleHeader {
-  /* padding-top: calc(6vh - 24px); */
   padding-top: 1vh;
   font-family: "Alata";
 }
 .eventsTitleHeader {
-  /* Just fiddled with it till it looked right, feel free to change */
   padding-top: calc(3vh - 24px);
 }
 .noEvents {
   margin-top: 5vh;
   color: black;
-
 }
 </style>

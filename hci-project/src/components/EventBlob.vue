@@ -2,15 +2,21 @@
   <div class="eventBlob" :style="'background-color: ' + (users[event.createdBy-1].color)">
     <div v-if="size==1">
       <div>
-        <font-awesome-icon :icon="users[event.createdBy-1].icon" class="smallEventIcon"/>
+        <font-awesome-icon :icon="users[event.createdBy-1].icon" class="smallEventIcon" />
       </div>
     </div>
     <div v-else-if="size==2" class="mediumEvent">
-      <div><font-awesome-icon :icon="users[event.createdBy-1].icon" class="mediumEventIcon mediumEventLeftAlign"/>{{event.name}}</div>
+      <div>
+        <font-awesome-icon
+          :icon="users[event.createdBy-1].icon"
+          class="mediumEventIcon mediumEventLeftAlign"
+        />
+        {{event.name}}
+      </div>
     </div>
     <div v-else class="largeEvent">
       <div class="largeEventWrapperDiv">
-        <font-awesome-icon :icon="users[event.createdBy-1].icon" class="largeEventIcon"/>
+        <font-awesome-icon :icon="users[event.createdBy-1].icon" class="largeEventIcon" />
         <div>{{event.name}} {{timeRange}}</div>
         <div>{{event.description}}</div>
       </div>
@@ -23,9 +29,6 @@ import { mapGetters } from 'vuex' // Used to get data from Vuex store
 
 export default {
   name: "EventBlob",
-  components: {
-    // List of all components used in this component
-  },
   props: {
     // List of data passed in from parent component
     event: {
@@ -45,25 +48,16 @@ export default {
       required: false
     }
   },
-  data() {
-    // List of local data in this component
-    return {
-      // Variables go in here
-    };
-  },
   computed: {
     // Computed variables
     ...mapGetters({
       users: "getUsers",
     }),
-    timeRange: function() {
+    timeRange: function () {
       let range;
       if (this.event.allDay) {
         range = "(all day)";
       } else {
-        // let start = new Date(this.event.startTime);
-        // let end = new Date(this.event.endTime);
-        // range = "(" + start.toLocaleTimeString() + " - " + end.toLocaleTimeString() + ")";
         if (this.month != undefined && this.day != undefined) {
           let monthStr = "" + (this.month + 1);
           if (monthStr.length == 1) {
@@ -95,9 +89,6 @@ export default {
       }
       return range;
     }
-  },
-  methods: {
-    // Methods in this component
   }
 };
 </script>
@@ -113,16 +104,14 @@ export default {
   width: 100%;
   height: 100%;
   min-height: 18px;
-  text-align: center; 
+  text-align: center;
   border-radius: 10px;
   min-width: 18px;
   color: black;
 }
 
-
 .smallEventIcon {
   padding: 1px;
-  /* padding-bottom: 1px; */
 }
 .mediumEventIcon {
   margin-top: 3px;
@@ -133,8 +122,8 @@ export default {
 }
 
 .mediumEvent {
-   width: 90%;
-   white-space: nowrap;
+  width: 90%;
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -142,21 +131,13 @@ export default {
   float: left;
   margin-left: 7.5%;
   margin-right: 2%;
-
 }
+
 .largeEvent {
   height: 100%;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* padding-top:5%;
-  padding-bottom: 5%; */
-}
-.largeEventLeftAlign {
-  /* display: inline-block; */
-  /* left: 0;
-  position: relative;
-  top: 0; */
 }
 </style>

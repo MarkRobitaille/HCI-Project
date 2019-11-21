@@ -20,7 +20,7 @@ Vue.config.productionTip = false
 
 // Use VueRouter
 Vue.use(VueRouter)
-const router = new VueRouter({routes})
+const router = new VueRouter({ routes })
 
 // Use Vuex
 Vue.use(Vuex)

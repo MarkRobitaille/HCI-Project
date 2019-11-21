@@ -1,32 +1,33 @@
 <template>
   <div>
     <div class="gradientBG">
-    <!-- Can only have 1 parent element in a component -->
-    <!-- <div class="conversationNameHeader"> Everyone </div> -->
-    <div class="message_list">
-      <div class="message_list_header">
-        <p>
-          <b class="convoHeader">CONVERSATIONS</b>
-        </p>
-      </div>
-      <div class="message_list_items">
-        <div
-          v-for="(item, i ) in messenger"
-          :key="i"
-          :class="{'convo': true, 'activeConvo': i === selected}"
-          @click="changeSelected(i)"
-        >
-          <div v-if="item.notification" class="notification messageNotificationOffset"></div>
-          <img class="convoImage" :src="require('../assets/' + item.image)" />
-          <!-- {{item.image}} -->
-          <p class="convoHeader">{{item.name}}</p>
-          <p
-            v-if="item.messages.length>0"
-          >"{{shortenString(item.messages[item.messages.length-1].message)}}"</p>
+      <!-- Can only have 1 parent element in a component -->
+      <div class="message_list">
+        <div class="message_list_header">
+          <p>
+            <b class="convoHeader">CONVERSATIONS</b>
+          </p>
+        </div>
+        <div class="message_list_items">
+          <div
+            v-for="(item, i ) in messenger"
+            :key="i"
+            :class="{'convo': true, 'activeConvo': i === selected}"
+            @click="changeSelected(i)"
+          >
+            <div class="notificationDiv">
+              <div v-if="item.notification" class="notification messageNotificationOffset"></div>
+            </div>
+            <img class="convoImage" :src="require('../assets/' + item.image)" />
+            <!-- {{item.image}} -->
+            <p class="convoHeader">{{item.name}}</p>
+            <p
+              v-if="item.messages.length>0"
+            >"{{shortenString(item.messages[item.messages.length-1].message)}}"</p>
+          </div>
         </div>
       </div>
-    </div>
-    <Conversation :selected="selected"></Conversation>
+      <Conversation :selected="selected"></Conversation>
     </div>
   </div>
 </template>
@@ -83,34 +84,21 @@ export default {
 @import url("https://fonts.googleapis.com/css?family=Alata|Roboto&display=swap");
 
 .conversationNameHeader {
-  /* border-bottom: solid 1px #ededed; */
   margin-left: 25%;
   height: 9.5vh;
   color: white;
-  /* padding-bottom: 2.5vh; */
   font-family: "Alata", sans-serif;
-  padding-top:1vh;
+  padding-top: 1vh;
   font-size: 5.5vh;
 }
 
-div{
-  font-family: 'Roboto',
+div {
+  font-family: "Roboto";
 }
 
-.gradientBG{
- background:  #693dbb; /* fallback for old browsers */
-  /* background: -webkit-linear-gradient(
-    to left,
-    #bbb9fc,
-    #693dbb
-  ); 
-  background: linear-gradient(
-    to left,
-    #bbb9fc,
-    #693dbb
-  ); */
-  
-    height: 100vh;
+.gradientBG {
+  background: #693dbb;
+  height: 100vh;
 }
 
 .convoHeader {
@@ -121,7 +109,6 @@ div{
 }
 
 .message_list {
-  /* margin-top: -9.25vh; */
   width: 25%;
   height: 100vh;
   float: left;
@@ -129,25 +116,21 @@ div{
 
 .message_list_items {
   width: 100%;
-  /* height: 70vh; */
   height: calc(88.5vh - 1px);
-  /* overflow-y: scroll; */
   overflow-y: auto;
 }
 
 .message_list_header {
-  height:6.5vh;
+  height: 6.5vh;
   border-bottom: solid 1px #b9e4e0c2;
   font-size: 20px;
-  padding-top:1vh;
-  padding-bottom:4vh;
+  padding-top: 1vh;
+  padding-bottom: 4vh;
 }
 
 .convo {
-  /* background-color: #29d4a1ab; */
   border-bottom: solid 1px #bbb9fc;
   padding: 10px;
-  /* font-family: 'Roboto', sans-serif; */
   color: white;
 }
 
@@ -163,21 +146,13 @@ div{
   border-radius: 50%;
 }
 
-/* Added to App.vue's global CSS */ 
- /* .notification {
-  background: red;
-  position: absolute;
-  border-radius: 50%;
-  width: 1.25vw;
-  height: 1.25vw;
-}  */
-
-.messageNotificationOffset {
-  margin-left: 1vw;
-  margin-top: 2.5vh;
+.notificationDiv {
+  position: relative;
 }
 
-/* Use classes to create css */
-/* If you want dynamic application of css, create a computed variable in computed section */
-/* Then apply by binding it to html tag by using :class="computedClass" */
+.messageNotificationOffset {
+  left: 1.5vw;
+  margin-top: 2.5vh;
+  display: static;
+}
 </style>

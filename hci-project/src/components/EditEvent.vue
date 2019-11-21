@@ -4,7 +4,12 @@
     <!-- All template inside of here -->
     <div class="dayHeader">
       <div class="smallDayCol">
-        <button v-if="editEventButtonDisabled" class="dayButton dayButtonSave disabledEventButton" key="1Edit" disabled>Save</button>
+        <button
+          v-if="editEventButtonDisabled"
+          class="dayButton dayButtonSave disabledEventButton"
+          key="1Edit"
+          disabled
+        >Save</button>
         <button v-else class="dayButton dayButtonSave" @click="updateEvent()" key="2Edit">Save</button>
       </div>
       <div class="largeDayCol eventTitleHeader">
@@ -68,12 +73,12 @@
         </div>
       </div>
       <div class="eventCreatedBy">Event added by {{createdBy}}.</div>
-      <!-- <div class="outerEventDeleteDiv">
-      <div class="eventDeleteOffsetDiv"></div>-->
       <div class="eventDeleteDiv">
-        <button class="eventDeleteButton" @click="deleteEvent()">Delete<font-awesome-icon icon="trash" class="rightIconOffset"/></button>
+        <button class="eventDeleteButton" @click="deleteEvent()">
+          Delete
+          <font-awesome-icon icon="trash" class="rightIconOffset" />
+        </button>
       </div>
-      <!-- </div> -->
     </div>
   </div>
 </template>
@@ -123,14 +128,14 @@ export default {
   created() {
     this.name = this.events[this.eventIndex].name;
     let monthStr = "" + (this.month + 1);
-      if (monthStr.length==1) {
-        monthStr = "0" + monthStr;
-      }
-      let dayStr = "" + (this.day + 1);
-      if (dayStr.length==1) {
-        dayStr = "0" + dayStr;
-      }
-      this.date = "2019-" + monthStr + "-" + dayStr;
+    if (monthStr.length == 1) {
+      monthStr = "0" + monthStr;
+    }
+    let dayStr = "" + (this.day + 1);
+    if (dayStr.length == 1) {
+      dayStr = "0" + dayStr;
+    }
+    this.date = "2019-" + monthStr + "-" + dayStr;
     this.allDay = this.events[this.eventIndex].allDay;
     this.startTime = this.events[this.eventIndex].startTime;
     this.endTime = this.events[this.eventIndex].endTime;
@@ -141,7 +146,7 @@ export default {
     ...mapGetters({
       users: "getUsers"
     }),
-    createdBy: function() {
+    createdBy: function () {
       let name = null;
       for (let i = 0; i < this.users.length && name == null; i++) {
         if (this.users[i].id == this.events[this.eventIndex].createdBy) {
@@ -150,8 +155,8 @@ export default {
       }
       return name;
     },
-    editEventButtonDisabled: function() {
-      return this.name == "" || this.date == "";
+    editEventButtonDisabled: function () {
+      return this.name == "" || this.date == "" || (!this.allDay && !(this.startTime != "" && this.endTime != ""));
     }
   },
   methods: {
@@ -166,7 +171,7 @@ export default {
         day: this.day,
         event: this.eventIndex
       });
-      this.$store.dispatch("setSelectedEvent",-1); // Close Edit Event window
+      this.$store.dispatch("setSelectedEvent", -1); // Close Edit Event window
     },
     updateEvent() {
       this.errorType = -1;
@@ -209,8 +214,7 @@ export default {
             createdBy: createdBy
           });
         }
-        console.log("4");
-        this.$store.dispatch("setSelectedEvent",-1); // Close Edit Event window
+        this.$store.dispatch("setSelectedEvent", -1); // Close Edit Event window
       }
     },
     inputCheck() {
@@ -218,13 +222,11 @@ export default {
 
       // Error 4 - No event name
       if (this.name == "") {
-        console.log("Error 4 found");
         this.errorType = 4;
       }
 
       // Error 5 - No date selected
       if (this.errorType < 0 && this.date == "") {
-        console.log("Error 5 found");
         this.errorType = 5;
       }
 
@@ -235,13 +237,11 @@ export default {
         ((this.startTime != "" && this.endTime == "") ||
           (this.startTime == "" && this.endTime != ""))
       ) {
-        console.log("Error 6 found");
         this.errorType = 6;
       }
 
       // Error 7 - Start time after end time
       if (this.errorType < 0 && this.startTime > this.endTime) {
-        console.log("Error 7 found");
         this.errorType = 7;
       }
     }
@@ -259,31 +259,31 @@ export default {
 .editEventPanel {
   width: 100%;
 }
-button{
+button {
   background: rgba(255, 255, 255);
   border: none;
-  color:rgb(0, 167, 69);
+  color: rgb(0, 167, 69);
   /* color: #f12711; */
   font-size: 1.5vw;
   border-radius: 5vw;
-  outline:none;
+  outline: none;
   padding-left: 1vw;
   padding-right: 1vw;
-  font-family:'Roboto';
+  font-family: "Roboto";
 }
 
 .disabledEventButton {
   background: rgb(148, 206, 172);
 }
 
-.eventDeleteButton{
+.eventDeleteButton {
   color: red;
 }
 
 .dayHeader {
   height: 15vh;
   width: 100%;
-  font-family: 'Alata';
+  font-family: "Alata";
   font-size: 1.7vw;
 }
 .smallDayCol {
@@ -307,17 +307,17 @@ button{
   height: 10vh;
 }
 .dayButton {
-   margin-top: 5.5vh;
+  margin-top: 5.5vh;
 }
 
-.dayButtonSave{
-    margin-left: 2vw; 
+.dayButtonSave {
+  margin-left: 2vw;
 }
 
-.dayButtonCancel{
-    /* margin-right: 2.5vw; idk why this one doesnt work to move it left */
-    margin-left: -2.75vw;
-    color: #f12711;
+.dayButtonCancel {
+  /* margin-right: 2.5vw; idk why this one doesnt work to move it left */
+  margin-left: -2.75vw;
+  color: #f12711;
 }
 
 .eventDetails {
@@ -362,43 +362,42 @@ button{
   right: 4%;
   height: 10vh;
   width: 20%;
-  
 }
 .eventDeleteButton {
   margin-bottom: 3.5vh;
 }
 
-
-input[type=text], input[type=date], input[type=time]{
+input[type="text"],
+input[type="date"],
+input[type="time"] {
   background: white;
   height: 3vh;
   border-radius: 5vw;
-  outline:none;
+  outline: none;
   padding-left: 1vw;
   padding-right: 1vw;
   box-shadow: none;
-  border:none;
+  border: none;
 }
 
-input[type=checkbox]{
+input[type="checkbox"] {
   width: 2vw;
   height: 2vh;
 }
 
-input:focus{
-outline: none;
+input:focus {
+  outline: none;
 }
 
 textarea {
   background: white;
   height: 10vh;
   box-shadow: none;
-  outline:none;
+  outline: none;
   border-radius: 1vw;
-  outline:none;
+  outline: none;
   padding-left: 1vw;
   padding-right: 1vw;
-  border:none;
+  border: none;
 }
-
 </style>

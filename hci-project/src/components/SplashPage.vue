@@ -67,7 +67,11 @@
             <label class="checkboxText">
               <strong>I have a family code</strong>
             </label>
-            <font-awesome-icon icon="question-circle" class="whiteIcon" title="A family code is a 7 character code that adds your account into your family's group. If you are the first person to sign up, you can find your family code in the Settings page"/>
+            <font-awesome-icon
+              icon="question-circle"
+              class="whiteIcon"
+              title="A family code is a 7 character code that adds your account into your family's group. If you are the first person to sign up, you can find your family code in the Settings page"
+            />
           </div>
           <!-- family code input field -->
           <div class="registerFamilyCode" v-if="isFamilyCode">
@@ -108,15 +112,12 @@ export default {
     // List of all components used in this component
     ErrorMessage
   },
-  props: {
-    // List of data passed in from parent component
-  },
   data() {
     // List of local data in this component
     return {
       // Variables go in here
-      loginEmail: "",
-      loginPassword: "",
+      loginEmail: "baseballbobby@gmail.com",
+      loginPassword: "baseball123",
       registerEmail: "",
       registerName: "",
       registerPassword: "",
@@ -131,10 +132,10 @@ export default {
     ...mapGetters({
       users: "getUsers"
     }),
-    loginDisabled: function() {
+    loginDisabled: function () {
       return this.loginEmail == "" || this.loginPassword == "";
     },
-    registerDisabled: function() {
+    registerDisabled: function () {
       return (
         this.registerEmail == "" ||
         this.registerName == "" ||
@@ -157,7 +158,6 @@ export default {
     inputCheck() {
       // Error 1 - Email isn't formatted right (lacks an @ symbol)
       if (this.loginEmail.indexOf("@") < 0) {
-        console.log("Error 1 found");
         this.errorType = 1;
       }
 
@@ -172,7 +172,6 @@ export default {
 
         if (found < 0) {
           // Not found
-          console.log("Error 2 found");
           this.errorType = 2;
         } else {
           // Save the index of the user we want to add
@@ -183,7 +182,6 @@ export default {
       // Error 3 - Incorrect password
       if (this.errorType < 0 && this.userIndex > 0) {
         if (this.users[this.userIndex].password != this.loginPassword) {
-          console.log("Error 3 found");
           this.errorType = 3;
         }
       }
@@ -203,35 +201,23 @@ export default {
 .mainScreen {
   width: 98%;
   height: 98vh;
-  /* background: linear-gradient(
-      45deg,
-      rgba(9, 36, 158, 0.5),
-      rgba(73, 173, 206, 0.5),
-      transparent
-    ),
-    repeating-linear-gradient(
-      -45deg,
-      rgba(10, 80, 104, 0.5),
-      rgba(230, 14, 14, 0.5)
-    ); */
-
-       background: rgb(62, 95, 202);  /* fallback for old browsers */
+  background: rgb(62, 95, 202);
   background: -webkit-linear-gradient(
-    45deg, 
-    rgb(182, 233, 248), 
+    45deg,
+    rgb(182, 233, 248),
     rgb(62, 95, 202)
-  );  /* Chrome 10-25, Safari 5.1-6 */
+  ); /* Chrome and old Safari */
   background: linear-gradient(
-    -45deg, 
-    rgb(47, 148, 179), 
+    -45deg,
+    rgb(47, 148, 179),
     rgb(8, 87, 177)
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  ); /* Edge/IE, Firefox, modern Safari */
   margin: 0;
   padding-top: 1vh;
   padding-bottom: 1vh;
   padding-left: 1%;
   padding-right: 1%;
-  font-family: 'Roboto';
+  font-family: "Roboto";
 }
 
 /* settings for text on the splash page */
@@ -239,7 +225,7 @@ export default {
   color: white;
   text-align: center;
   margin-top: 2%;
-  font-family: 'Alata';
+  font-family: "Alata";
 }
 
 /* settings for all of the text input boxes */
@@ -330,7 +316,7 @@ export default {
 }
 
 .enabledButton {
-  background-color:  rgb(62, 95, 202);
+  background-color: rgb(62, 95, 202);
 }
 
 .disabledButton {
@@ -424,5 +410,4 @@ export default {
 .fade-leave-active {
   transition: opacity 0.5s;
 }
-
 </style>

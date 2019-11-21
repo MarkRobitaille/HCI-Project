@@ -1,10 +1,14 @@
 <template>
   <div class="sideWindow">
     <!-- Can only have 1 parent element in a component -->
-    <!-- All template inside of here -->
     <div class="dayHeader">
       <div class="smallDayCol">
-        <button v-if="addEventButtonDisabled" class="dayButtonCreate disabledEventButton" disabled key="1Add">Create</button>
+        <button
+          v-if="addEventButtonDisabled"
+          class="dayButtonCreate disabledEventButton"
+          disabled
+          key="1Add"
+        >Create</button>
         <button v-else class="dayButtonCreate" @click="createEvent()" key="2Add">Create</button>
       </div>
       <div class="largeDayCol eventTitleHeader">
@@ -109,11 +113,11 @@ export default {
     // Determine passed in date and month
     if (this.day != undefined && this.day != null && this.day >= 0) {
       let monthStr = "" + (this.month + 1);
-      if (monthStr.length==1) {
+      if (monthStr.length == 1) {
         monthStr = "0" + monthStr;
       }
       let dayStr = "" + (this.day + 1);
-      if (dayStr.length==1) {
+      if (dayStr.length == 1) {
         dayStr = "0" + dayStr;
       }
       this.date = "2019-" + monthStr + "-" + dayStr;
@@ -121,8 +125,9 @@ export default {
   },
   computed: {
     // Computed variables
-    addEventButtonDisabled: function() {
-      return this.name == "" || this.date == "";
+    addEventButtonDisabled: function () {
+      return this.name == "" || this.date == "" || (!this.allDay && !(this.startTime != "" && this.endTime != ""));
+
     }
   },
   methods: {
@@ -134,7 +139,7 @@ export default {
       this.errorType = -1;
       // Check for errors in input
       this.inputCheck();
- 
+
       if (this.errorType < 0) {
         // If no time information entered, assume all day event
         if (!this.allDay && this.startTime == "" && this.endTime == "") {
@@ -164,16 +169,13 @@ export default {
     },
     inputCheck() {
       // If you find a more general error, ignore more specific ones
-
       // Error 3 - No event name
       if (this.name == "") {
-        console.log("Error 4 found");
         this.errorType = 4;
       }
 
       // Error 4 - No date selected
       if (this.errorType < 0 && this.date == "") {
-        console.log("Error 5 found");
         this.errorType = 5;
       }
 
@@ -183,13 +185,11 @@ export default {
         ((this.startTime != "" && this.endTime == "") ||
           (this.startTime == "" && this.endTime != ""))
       ) {
-        console.log("Error 6 found");
         this.errorType = 6;
       }
 
       // Error 6 - Start time after end time
       if (this.errorType < 0 && this.startTime > this.endTime) {
-        console.log("Error 7 found");
         this.errorType = 7;
       }
     }
@@ -212,110 +212,117 @@ export default {
   right: 0;
   top: 0;
   z-index: 10;
-  background:  rgb(0, 172, 72);  /* fallback for old browsers */
-background: -webkit-linear-gradient(
-  to right, 
-  rgb(5, 184, 79), 
-  rgb(0, 167, 69)
-  );  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(
-  to right, 
-   rgb(5, 184, 79), 
-  rgb(0, 172, 72)
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  color:white;
-    font-family: 'Roboto';
-    font-style: bold;
-    font-size: 1.25vw;
+  background: rgb(0, 172, 72);
+  background: -webkit-linear-gradient(
+    to right,
+    rgb(5, 184, 79),
+    rgb(0, 167, 69)
+  ); /* Chrome and old Safari */
+  background: linear-gradient(
+    to right,
+    rgb(5, 184, 79),
+    rgb(0, 172, 72)
+  ); /* Edge/IE, Firefox, new Chrome, new Safari */
+  color: white;
+  font-family: "Roboto";
+  font-style: bold;
+  font-size: 1.25vw;
 }
 
-button{
+button {
   background: rgba(255, 255, 255);
   border: none;
-  color:rgb(0, 167, 69);
-  /* color: #f12711; */
+  color: rgb(0, 167, 69);
   font-size: 1.5vw;
   border-radius: 5vw;
-  outline:none;
+  outline: none;
   padding-left: 1vw;
   padding-right: 1vw;
-
 }
 
 .disabledEventButton {
   background: rgb(148, 206, 172);
 }
 
-.dayButtonCreate{
-    margin-left: 2vw; 
+.dayButtonCreate {
+  margin-left: 2vw;
 }
 
-.dayButtonCancel{
-    /* margin-right: 2.5vw; idk why this one doesnt work to move it left */
-    margin-left: -2.75vw;
-    color: #f12711;
+.dayButtonCancel {
+  margin-left: -2.75vw;
+  color: #f12711;
 }
 
 .dayHeader {
   height: 15vh;
   width: 100%;
 }
+
 .smallDayCol {
   width: 20%;
   float: left;
   height: 10vh;
 }
+
 .mediumDayCol {
   width: 40%;
   float: left;
   height: 10vh;
 }
+
 .largeDayCol {
   width: 60%;
   float: left;
   height: 10vh;
 }
+
 .xLargeDayCol {
   width: 80%;
   float: left;
   height: 10vh;
 }
-.dayButtonCancel, .dayButtonCreate {
+
+.dayButtonCancel,
+.dayButtonCreate {
   margin-top: 5.5vh;
 }
+
 .eventDetails {
   width: 100%;
 }
+
 .eventTitleHeader {
-  /* padding-top: calc(5vh - 24px); */
   font-family: "Alata";
   font-size: 1.7vw;
 }
+
 .errorField {
   height: 10vh;
-  /* width:100%; */
   padding-left: 5%;
   padding-right: 5%;
-  /* margin-left: 10vw; */
 }
+
 .eventError {
   border-radius: 20px;
   padding: 0.5%;
 }
+
 .eventInput {
   height: 10vh;
   text-align: right;
-  /* vertical-align: middle; */
-  /* padding: 5%; */
   padding-left: 5%;
   padding-right: 20%;
-  /* margin-left:auto; 
-  margin-right:0; */
 }
+
 .eventInputField {
   vertical-align: middle;
   width: 13vw;
 }
+
+.eventInputField:disabled {
+  background: rgb(148, 206, 172);
+}
+
 .eventInputLabel {
   margin-right: 5%;
 }
@@ -323,36 +330,38 @@ button{
   float: left;
 }
 
-input[type=text], input[type=date], input[type=time]{
+input[type="text"],
+input[type="date"],
+input[type="time"] {
   background: white;
   height: 3vh;
   border-radius: 5vw;
-  outline:none;
+  outline: none;
   padding-left: 1vw;
   padding-right: 1vw;
   box-shadow: none;
-  border:none;
+  border: none;
 }
 
-input[type=checkbox]{
+input[type="checkbox"] {
   width: 2vw;
   height: 2vh;
 }
 
-input:focus{
-outline: none;
+input:focus {
+  outline: none;
 }
 
 textarea {
   background: white;
   height: 10vh;
   box-shadow: none;
-  outline:none;
+  outline: none;
   border-radius: 1vw;
-  outline:none;
+  outline: none;
   padding-left: 1vw;
   padding-right: 1vw;
-  border:none;
+  border: none;
 }
 
 .fade-enter,

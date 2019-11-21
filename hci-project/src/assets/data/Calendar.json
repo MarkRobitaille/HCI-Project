@@ -10,8 +10,8 @@
             {
               "name": "Bob's Birthday",
               "allDay": true,
-              "startTime": "10:00",
-              "endTime": "11:00",
+              "startTime": "",
+              "endTime": "",
               "description": "Test event",
               "createdBy": 2
             },

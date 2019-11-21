@@ -4,7 +4,10 @@
     <!-- All template inside of here -->
     <div class="date" v-if="newDay">{{formattedDate}}</div>
     <div class="bubble" v-if="sameUser">{{messageData.message}}</div>
-    <div class="receiveBubble" v-else><div v-if="groupConvo" class="sentByHeader">{{users[messageData.senderId-1].name}}:</div>{{messageData.message}}</div>
+    <div class="receiveBubble" v-else>
+      <div v-if="groupConvo" class="sentByHeader">{{users[messageData.senderId-1].name}}:</div>
+      {{messageData.message}}
+    </div>
   </div>
 </template>
 
@@ -13,9 +16,6 @@ import { mapGetters } from "vuex"; // Used to get data from Vuex store
 
 export default {
   name: "Message",
-  components: {
-    // List of all components used in this component
-  },
   props: {
     // List of data passed in from parent component
     messageData: {
@@ -53,7 +53,7 @@ export default {
     this.newDay = this.checkIfNewDay();
   },
   watch: {
-    prevDate: function() {
+    prevDate: function () {
       this.newDay = this.checkIfNewDay();
     }
   },
@@ -62,17 +62,17 @@ export default {
     ...mapGetters({
       users: "getUsers"
     }),
-    sameUser: function() {
+    sameUser: function () {
       return this.currentUser.id == this.messageData.senderId;
     },
-    formattedDate: function() {
+    formattedDate: function () {
       let curr = new Date(this.messageData.timeSent);
       return curr.toDateString() + " " + curr.toLocaleTimeString();
     }
   },
   methods: {
     // Methods in this component
-    checkIfNewDay: function() {
+    checkIfNewDay: function () {
       let newDay = false;
       if (this.prevDate != "") {
         let prev = new Date(this.prevDate);
@@ -114,12 +114,9 @@ export default {
   max-width: 80%;
   position: relative;
   clear: both;
-
   background: #bbb9fc;
-
   border: solid 1px rgba(0, 0, 0, 0);
   border-radius: 20px 20px 0px 20px;
-
   margin-bottom: 20px;
   padding: 6px 20px;
   margin-right: 20px;
@@ -135,13 +132,9 @@ export default {
   max-width: 80%;
   position: relative;
   clear: both;
-
   background: rgb(233, 232, 232);
-  /* background: #e6ccff; */
-
   border: solid 1px rgba(0, 0, 0, 0);
   border-radius: 20px 20px 20px 0px;
-
   margin-bottom: 20px;
   margin-left: 20px;
   padding: 6px 20px;
@@ -149,6 +142,7 @@ export default {
   word-wrap: break-word;
   text-align: left;
 }
+
 .sentByHeader {
   font-weight: bold;
   margin-bottom: 1vh;

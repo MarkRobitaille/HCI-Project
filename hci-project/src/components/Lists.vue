@@ -1,8 +1,6 @@
 <template>
   <div>
     <!-- Can only have 1 parent element in a component -->
-    <!-- All template inside of here -->
-
     <div class="list_list">
       <button class="addListButton" @click="addList()">
         Add List
@@ -116,12 +114,6 @@ import { mapGetters } from "vuex"; // Used to get data from Vuex store
 
 export default {
   name: "Lists",
-  components: {
-    // List of all components used in this component
-  },
-  props: {
-    // List of data passed in from parent component
-  },
   data() {
     // List of local data in this component
     return {
@@ -205,6 +197,7 @@ button {
 }
 
 @import url("https://fonts.googleapis.com/css?family=Alata|Roboto&display=swap");
+
 /* ***** List of Lists ***** */
 
 .listNameInput::placeholder {
@@ -225,7 +218,7 @@ button {
 }
 
 .list_list {
-  background: rgb(0, 155, 182); /* fallback for old browsers */
+  background: rgb(0, 155, 182);
   font-family: "Roboto";
   width: 25%;
   height: 100vh;
@@ -234,12 +227,8 @@ button {
 }
 
 button {
-  /* background: rgba(255, 255, 255); */
   border: none;
   color: black;
-  /* color:rgb(0, 167, 69); */
-  /* color: #f12711; */
-  /* font-size: 1.5vw;*/
   border-radius: 5vw;
   outline: none;
   padding-left: 1vw;
@@ -387,7 +376,6 @@ button {
 
 .addItemButton {
   float: left;
-  /* margin-left: */
   margin-top: 4vh;
   min-height: 20px;
   height: 5vh;
@@ -475,9 +463,6 @@ button {
 }
 
 .deleteItemButton {
-  /* right: 3vw; */
-  /* position: absolute; */
-  /* min-height: 10px; */
   height: 3.5vh;
   min-height: 20px;
   font-size: 1vw;

@@ -5,7 +5,6 @@ import Lists from "./assets/data/Lists.json"
 
 const storeModule = {
     state: {
-        counter: 1,
         currentUser: { id: 0 },
         users: [],
         messenger: [],
@@ -20,9 +19,6 @@ const storeModule = {
     },
 
     getters: {
-        getCounter: function (state) {
-            return state.counter;
-        },
         getUsers: function (state) {
             return state.users;
         },
@@ -38,7 +34,7 @@ const storeModule = {
         getCurrentUser: function (state) {
             return state.currentUser;
         },
-        getToday: function(state) {
+        getToday: function (state) {
             return state.today;
         },
         getUnreadMessageCount: function (state) {
@@ -61,9 +57,6 @@ const storeModule = {
     },
 
     mutations: {
-        incrementCounter(state) {
-            state.counter++;
-        },
         setUsers(state, payload) {
             state.users = payload.users;
         },
@@ -161,19 +154,16 @@ const storeModule = {
     },
 
     actions: {
-        incrementCounter({ commit }) {
-            commit('incrementCounter')
-        },
         initializeJSONData({ commit }) {
             commit('setUsers', Users);
             commit('setMessenger', Messenger);
             commit('setCalendar', Calendar);
             commit('setLists', Lists);
         },
-        setToday({commit}, payload) {
+        setToday({ commit }, payload) {
             commit('setToday', payload);
         },
-        setCurrentUser({commit}, payload) {
+        setCurrentUser({ commit }, payload) {
             commit('setCurrentUser', payload);
         },
         setSelectedMonth({ commit }, payload) {

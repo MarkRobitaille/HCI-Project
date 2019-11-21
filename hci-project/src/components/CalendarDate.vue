@@ -1,23 +1,21 @@
 <template>
   <div class="date">
     <!-- Can only have 1 parent element in a component -->
-    <!-- All template inside of here -->
     <div class="dateNumber">{{day.number}}</div>
-    <div class="eventsWrapper"> 
-    <div
-      v-for="(item, index) in day.events"
-      :key="index"
-      :class="day.events.length>2? 'smallEventBlobDiv' : 'mediumEventBlobDiv'"
-      :title="item.name + ' - ' + item.description"
-    >
-      <EventBlob :event="item" :size="day.events.length>2? 1 : 2"></EventBlob>
-    </div>
+    <div class="eventsWrapper">
+      <div
+        v-for="(item, index) in day.events"
+        :key="index"
+        :class="day.events.length>2? 'smallEventBlobDiv' : 'mediumEventBlobDiv'"
+        :title="item.name + ' - ' + item.description"
+      >
+        <EventBlob :event="item" :size="day.events.length>2? 1 : 2"></EventBlob>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-// import { mapGetters } from 'vuex' // Used to get data from Vuex store
 import EventBlob from "./EventBlob";
 
 export default {
@@ -32,18 +30,6 @@ export default {
       type: Object,
       required: true
     }
-  },
-  data() {
-    // List of local data in this component
-    return {
-      // Variables go in here
-    };
-  },
-  computed: {
-    // Computed variables
-  },
-  methods: {
-    // Methods in this component
   }
 };
 </script>
@@ -59,7 +45,6 @@ export default {
   height: 100%;
   width: 100%;
   text-align: left;
-  /* height: calc(70 / 6) vh; */
   overflow: hidden;
   color: black;
 }
@@ -67,10 +52,9 @@ export default {
   margin-left: 5%;
   margin-top: 5%;
   float: left;
-  /* margin-right: auto; */
 }
 
-.eventsWrapper{
+.eventsWrapper {
   margin-left: 20%;
   margin-right: 10%;
   margin-top: 15%;
