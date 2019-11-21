@@ -18,7 +18,7 @@
             <div class="notificationDiv">
               <div v-if="item.notification" class="notification messageNotificationOffset"></div>
             </div>
-            <img class="convoImage" :src="require('../assets/' + item.image)" />
+            <img class="convoImage" :alt="item.name" :src="require('../assets/' + item.image)" />
             <!-- {{item.image}} -->
             <p class="convoHeader">{{item.name}}</p>
             <p
