@@ -6,6 +6,14 @@
       <div class="login">
         <div class="innerSplash">
           <h1 class="splashText">Log in</h1>
+          <!-- Blurb for marker -->
+          <div class="markerNotice">
+            <strong>Note for marker:</strong>
+            <br />Email is:
+            <em>baseballbobby@gmail.com</em>
+            <br />Password is:
+            <em>baseball123</em>
+          </div>
           <!-- username/email -->
           <div class="loginUsername">
             <label class="fieldLabel">
@@ -70,7 +78,7 @@
             <font-awesome-icon
               icon="question-circle"
               class="whiteIcon"
-              title="A family code is a 7 character code that adds your account into your family's group. If you are the first person to sign up, you can find your family code in the Settings page"
+              title="A family code is a 7 character code that adds your account into your family's group. If you are the first person to sign up, you can find your family code in the settings page"
             />
           </div>
           <!-- family code input field -->
@@ -116,8 +124,8 @@ export default {
     // List of local data in this component
     return {
       // Variables go in here
-      loginEmail: "baseballbobby@gmail.com",
-      loginPassword: "baseball123",
+      loginEmail: "",
+      loginPassword: "",
       registerEmail: "",
       registerName: "",
       registerPassword: "",
@@ -132,10 +140,10 @@ export default {
     ...mapGetters({
       users: "getUsers"
     }),
-    loginDisabled: function () {
+    loginDisabled: function() {
       return this.loginEmail == "" || this.loginPassword == "";
     },
-    registerDisabled: function () {
+    registerDisabled: function() {
       return (
         this.registerEmail == "" ||
         this.registerName == "" ||
@@ -268,7 +276,9 @@ export default {
 
 .loginUsername {
   color: white;
-  margin-top: 13.5vh;
+  margin-top: 5.5vh;
+  /* CHANGE BACK AFTER REMOVING NOTE FOR MARKER */
+  /* margin-top: 13.5vh; */
   margin-left: 1.5vw;
 }
 
@@ -409,5 +419,16 @@ export default {
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s;
+}
+
+.markerNotice {
+  text-align: center;
+  color: white;
+  background: rgb(62, 95, 202);
+  width: 30vw;
+  margin-left: 5vw;
+  margin-top: 2%;
+  border-radius: 20px;
+  padding: 0.5%;
 }
 </style>

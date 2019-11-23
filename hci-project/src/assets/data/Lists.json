@@ -7,8 +7,8 @@
         {
           "itemName": "Do Social Studies homework",
           "createdBy": 3,
-          "completed": false,
-          "completedBy": -1
+          "completed": true,
+          "completedBy": 3
         },
         {
           "itemName": "Give Timmy his toy truck back",

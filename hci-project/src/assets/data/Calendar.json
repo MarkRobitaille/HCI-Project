@@ -16,12 +16,12 @@
               "createdBy": 2
             },
             {
-              "name": "Dads surprise party",
+              "name": "Dad's surprise party",
               "allDay": false,
-              "startTime": "1:00",
-              "endTime": "3:00",
-              "description": "dont tell dad",
-              "createdBy": 2
+              "startTime": "13:00",
+              "endTime": "16:00",
+              "description": "Don't tell dad",
+              "createdBy": 4
             }
           ]
         },
@@ -111,14 +111,16 @@
         },
         {
           "number": 23,
-          "events": [{
-            "name": "Timmy's Birthday",
-            "allDay": true,
-            "startTime": "",
-            "endTime": "",
-            "description": "",
-            "createdBy": 1
-          }]
+          "events": [
+            {
+              "name": "Timmy's Birthday",
+              "allDay": true,
+              "startTime": "",
+              "endTime": "",
+              "description": "",
+              "createdBy": 1
+            }
+          ]
         },
         {
           "number": 24,
@@ -130,14 +132,16 @@
         },
         {
           "number": 26,
-          "events": [{
-            "name": "Timmy's Birthday Party",
-            "allDay": false,
-            "startTime": "14:00",
-            "endTime": "16:00",
-            "description": "Call Chuck E. Cheese to book the party room",
-            "createdBy": 1
-          }]
+          "events": [
+            {
+              "name": "Timmy's Birthday Party",
+              "allDay": false,
+              "startTime": "14:00",
+              "endTime": "16:00",
+              "description": "Call Chuck E. Cheese to book the party room",
+              "createdBy": 1
+            }
+          ]
         },
         {
           "number": 27,
@@ -215,14 +219,16 @@
         },
         {
           "number": 13,
-          "events": [{
-            "name": "Grandma's Birthday",
-            "allDay": true,
-            "startTime": "",
-            "endTime": "",
-            "description": "",
-            "createdBy": 1
-          }]
+          "events": [
+            {
+              "name": "Grandma's Birthday",
+              "allDay": true,
+              "startTime": "",
+              "endTime": "",
+              "description": "",
+              "createdBy": 1
+            }
+          ]
         },
         {
           "number": 14,
@@ -270,22 +276,24 @@
         },
         {
           "number": 25,
-          "events": [{
-            "name": "Timmy's birthday",
-            "allDay": true,
-            "startTime": "",
-            "endTime": "",
-            "description": "",
-            "createdBy": 3
-          },
-          {
-            "name": "Ceilidh's Birthday",
-            "allDay": true,
-            "startTime": "",
-            "endTime": "",
-            "description": "",
-            "createdBy": 4
-          }]
+          "events": [
+            {
+              "name": "Timmy's birthday",
+              "allDay": true,
+              "startTime": "",
+              "endTime": "",
+              "description": "",
+              "createdBy": 3
+            },
+            {
+              "name": "Ceilidh's Birthday",
+              "allDay": true,
+              "startTime": "",
+              "endTime": "",
+              "description": "",
+              "createdBy": 4
+            }
+          ]
         },
         {
           "number": 26,
@@ -351,14 +359,16 @@
         },
         {
           "number": 12,
-          "events": [{
-            "name": "English Exam",
-            "allDay": false,
-            "startTime": "8:00",
-            "endTime": "11:00",
-            "description": "",
-            "createdBy": 3
-          }]
+          "events": [
+            {
+              "name": "English Exam",
+              "allDay": false,
+              "startTime": "8:00",
+              "endTime": "11:00",
+              "description": "",
+              "createdBy": 3
+            }
+          ]
         },
         {
           "number": 13,
@@ -414,14 +424,16 @@
         },
         {
           "number": 26,
-          "events": [{
-            "name": "Group project due today",
-            "allDay": true,
-            "startTime": "",
-            "endTime": "",
-            "description": "",
-            "createdBy": 3
-          }]
+          "events": [
+            {
+              "name": "Group project due today",
+              "allDay": true,
+              "startTime": "",
+              "endTime": "",
+              "description": "",
+              "createdBy": 3
+            }
+          ]
         },
         {
           "number": 27,
@@ -459,22 +471,24 @@
         },
         {
           "number": 4,
-          "events": [{
-            "name": "Karen's Birthday",
-            "allDay": true,
-            "startTime": "",
-            "endTime": "",
-            "description": "",
-            "createdBy": 1
-          },
-          {
-            "name": "Karen's birthday dinner",
-            "allDay": false,
-            "startTime": "19:00",
-            "endTime": "21:00",
-            "description": "Make sure to book the reservation two days before",
-            "createdBy": 2
-          }]
+          "events": [
+            {
+              "name": "Karen's Birthday",
+              "allDay": true,
+              "startTime": "",
+              "endTime": "",
+              "description": "",
+              "createdBy": 1
+            },
+            {
+              "name": "Karen's birthday dinner",
+              "allDay": false,
+              "startTime": "19:00",
+              "endTime": "21:00",
+              "description": "Make sure to book the reservation two days before",
+              "createdBy": 2
+            }
+          ]
         },
         {
           "number": 5,
@@ -514,14 +528,16 @@
         },
         {
           "number": 14,
-          "events": [{
-            "name": "Mark's Birthday",
-            "allDay": true,
-            "startTime": "",
-            "endTime": "",
-            "description": "",
-            "createdBy": 3
-          }]
+          "events": [
+            {
+              "name": "Mark's Birthday",
+              "allDay": true,
+              "startTime": "",
+              "endTime": "",
+              "description": "",
+              "createdBy": 3
+            }
+          ]
         },
         {
           "number": 15,
@@ -533,7 +549,16 @@
         },
         {
           "number": 17,
-          "events": []
+          "events": [
+            {
+              "name": "Dentist appointments",
+              "allDay": false,
+              "startTime": "15:00",
+              "endTime": "17:00",
+              "description": "I'll pick you all up from school",
+              "createdBy": 3
+            }
+          ]
         },
         {
           "number": 18,
@@ -585,14 +610,16 @@
         },
         {
           "number": 30,
-          "events": [{
-            "name": "Call Poolplaza to book an appointment",
-            "allDay": false,
-            "startTime": "10:00",
-            "endTime": "10:30",
-            "description": "Ask for Chad",
-            "createdBy": 1
-          }]
+          "events": [
+            {
+              "name": "Call Poolplaza to book an appointment",
+              "allDay": false,
+              "startTime": "10:00",
+              "endTime": "10:30",
+              "description": "Ask for Chad",
+              "createdBy": 1
+            }
+          ]
         }
       ]
     },
@@ -658,41 +685,45 @@
         },
         {
           "number": 15,
-          "events": [{
-            "name": "Baseball tryouts",
-            "allDay": false,
-            "startTime": "10:00",
-            "endTime": "17:00",
-            "description": "Tryouts for Jr Varsity",
-            "createdBy": 3
-          },
-          {
-            "name": "Post-tryout dinner",
-            "allDay": false,
-            "startTime": "18:00",
-            "endTime": "19:00",
-            "description": "",
-            "createdBy": 3
-          },
-          {
-            "name": "Pool party",
-            "allDay": false,
-            "startTime": "19:30",
-            "endTime": "23:00",
-            "description": "",
-            "createdBy": 3
-          }]
+          "events": [
+            {
+              "name": "Baseball tryouts",
+              "allDay": false,
+              "startTime": "10:00",
+              "endTime": "17:00",
+              "description": "Tryouts for Jr Varsity",
+              "createdBy": 3
+            },
+            {
+              "name": "Post-tryout dinner",
+              "allDay": false,
+              "startTime": "18:00",
+              "endTime": "19:00",
+              "description": "",
+              "createdBy": 3
+            },
+            {
+              "name": "Pool party",
+              "allDay": false,
+              "startTime": "19:30",
+              "endTime": "23:00",
+              "description": "",
+              "createdBy": 3
+            }
+          ]
         },
         {
           "number": 16,
-          "events": [{
-            "name": "Tryout results",
-            "allDay": false,
-            "startTime": "10:00",
-            "endTime": "11:00",
-            "description": "",
-            "createdBy": 2
-          }]
+          "events": [
+            {
+              "name": "Tryout results",
+              "allDay": false,
+              "startTime": "10:00",
+              "endTime": "11:00",
+              "description": "",
+              "createdBy": 2
+            }
+          ]
         },
         {
           "number": 17,
@@ -740,14 +771,16 @@
         },
         {
           "number": 28,
-          "events": [{
-            "name": "First baseball practice",
-            "allDay": false,
-            "startTime": "10:00",
-            "endTime": "12:00",
-            "description": "",
-            "createdBy": 3
-          }]
+          "events": [
+            {
+              "name": "First baseball practice",
+              "allDay": false,
+              "startTime": "10:00",
+              "endTime": "12:00",
+              "description": "",
+              "createdBy": 3
+            }
+          ]
         },
         {
           "number": 29,
@@ -769,7 +802,16 @@
       "days": [
         {
           "number": 1,
-          "events": []
+          "events": [
+            {
+              "name": "Summer block party",
+              "allDay": false,
+              "startTime": "17:00",
+              "endTime": "22:00",
+              "description": "Bring snacks",
+              "createdBy": 2
+            }
+          ]
         },
         {
           "number": 2,
@@ -785,14 +827,16 @@
         },
         {
           "number": 5,
-          "events": [{
-            "name": "Baseball practice",
-            "allDay": false,
-            "startTime": "10:00",
-            "endTime": "12:00",
-            "description": "",
-            "createdBy": 3
-          }]
+          "events": [
+            {
+              "name": "Baseball practice",
+              "allDay": false,
+              "startTime": "10:00",
+              "endTime": "12:00",
+              "description": "",
+              "createdBy": 3
+            }
+          ]
         },
         {
           "number": 6,
@@ -824,14 +868,16 @@
         },
         {
           "number": 13,
-          "events": [{
-            "name": "First baseball game",
-            "allDay": false,
-            "startTime": "19:00",
-            "endTime": "21:00",
-            "description": "",
-            "createdBy": 3
-          }]
+          "events": [
+            {
+              "name": "First baseball game",
+              "allDay": false,
+              "startTime": "19:00",
+              "endTime": "21:00",
+              "description": "",
+              "createdBy": 3
+            }
+          ]
         },
         {
           "number": 14,
@@ -843,14 +889,16 @@
         },
         {
           "number": 16,
-          "events": [{
-            "name": "Baseball practice",
-            "allDay": false,
-            "startTime": "10:00",
-            "endTime": "12:00",
-            "description": "",
-            "createdBy": 3
-          }]
+          "events": [
+            {
+              "name": "Baseball practice",
+              "allDay": false,
+              "startTime": "10:00",
+              "endTime": "12:00",
+              "description": "",
+              "createdBy": 3
+            }
+          ]
         },
         {
           "number": 17,
@@ -858,14 +906,16 @@
         },
         {
           "number": 18,
-          "events": [{
-            "name": "Baseball practice",
-            "allDay": false,
-            "startTime": "10:00",
-            "endTime": "12:00",
-            "description": "",
-            "createdBy": 3
-          }]
+          "events": [
+            {
+              "name": "Baseball practice",
+              "allDay": false,
+              "startTime": "10:00",
+              "endTime": "12:00",
+              "description": "",
+              "createdBy": 3
+            }
+          ]
         },
         {
           "number": 19,
@@ -877,14 +927,16 @@
         },
         {
           "number": 21,
-          "events": [{
-            "name": "Baseball practice",
-            "allDay": false,
-            "startTime": "10:00",
-            "endTime": "12:00",
-            "description": "",
-            "createdBy": 3
-          }]
+          "events": [
+            {
+              "name": "Baseball practice",
+              "allDay": false,
+              "startTime": "10:00",
+              "endTime": "12:00",
+              "description": "",
+              "createdBy": 3
+            }
+          ]
         },
         {
           "number": 22,
@@ -896,14 +948,16 @@
         },
         {
           "number": 24,
-          "events": [{
-            "name": "Baseball practice",
-            "allDay": false,
-            "startTime": "10:00",
-            "endTime": "12:00",
-            "description": "",
-            "createdBy": 3
-          }]
+          "events": [
+            {
+              "name": "Baseball practice",
+              "allDay": false,
+              "startTime": "10:00",
+              "endTime": "12:00",
+              "description": "",
+              "createdBy": 3
+            }
+          ]
         },
         {
           "number": 25,
@@ -915,14 +969,16 @@
         },
         {
           "number": 27,
-          "events": [{
-            "name": "Baseball practice",
-            "allDay": false,
-            "startTime": "10:00",
-            "endTime": "12:00",
-            "description": "",
-            "createdBy": 3
-          }]
+          "events": [
+            {
+              "name": "Baseball practice",
+              "allDay": false,
+              "startTime": "10:00",
+              "endTime": "12:00",
+              "description": "",
+              "createdBy": 3
+            }
+          ]
         },
         {
           "number": 28,
@@ -934,14 +990,16 @@
         },
         {
           "number": 30,
-          "events": [{
-            "name": "Baseball practice",
-            "allDay": false,
-            "startTime": "10:00",
-            "endTime": "12:00",
-            "description": "",
-            "createdBy": 3
-          }]
+          "events": [
+            {
+              "name": "Baseball practice",
+              "allDay": false,
+              "startTime": "10:00",
+              "endTime": "12:00",
+              "description": "",
+              "createdBy": 3
+            }
+          ]
         }
       ]
     },
@@ -955,14 +1013,16 @@
         },
         {
           "number": 2,
-          "events": [{
-            "name": "Baseball practice",
-            "allDay": false,
-            "startTime": "10:00",
-            "endTime": "12:00",
-            "description": "",
-            "createdBy": 3
-          }]
+          "events": [
+            {
+              "name": "Baseball practice",
+              "allDay": false,
+              "startTime": "10:00",
+              "endTime": "12:00",
+              "description": "",
+              "createdBy": 3
+            }
+          ]
         },
         {
           "number": 3,
@@ -978,14 +1038,16 @@
         },
         {
           "number": 6,
-          "events": [{
-            "name": "Baseball practice",
-            "allDay": false,
-            "startTime": "10:00",
-            "endTime": "12:00",
-            "description": "",
-            "createdBy": 3
-          }]
+          "events": [
+            {
+              "name": "Baseball practice",
+              "allDay": false,
+              "startTime": "10:00",
+              "endTime": "12:00",
+              "description": "",
+              "createdBy": 3
+            }
+          ]
         },
         {
           "number": 7,
@@ -1001,14 +1063,16 @@
         },
         {
           "number": 10,
-          "events": [{
-            "name": "Baseball practice",
-            "allDay": false,
-            "startTime": "10:00",
-            "endTime": "12:00",
-            "description": "",
-            "createdBy": 3
-          }]
+          "events": [
+            {
+              "name": "Baseball practice",
+              "allDay": false,
+              "startTime": "10:00",
+              "endTime": "12:00",
+              "description": "",
+              "createdBy": 3
+            }
+          ]
         },
         {
           "number": 11,
@@ -1016,7 +1080,16 @@
         },
         {
           "number": 12,
-          "events": []
+          "events": [
+            {
+              "name": "Meeting with editor",
+              "allDay": false,
+              "startTime": "12:00",
+              "endTime": "14:00",
+              "description": "At local coffee shop",
+              "createdBy": 2
+            }
+          ]
         },
         {
           "number": 13,
@@ -1028,14 +1101,16 @@
         },
         {
           "number": 15,
-          "events": [{
-            "name": "Baseball practice",
-            "allDay": false,
-            "startTime": "10:00",
-            "endTime": "12:00",
-            "description": "",
-            "createdBy": 3
-          }]
+          "events": [
+            {
+              "name": "Baseball practice",
+              "allDay": false,
+              "startTime": "10:00",
+              "endTime": "12:00",
+              "description": "",
+              "createdBy": 3
+            }
+          ]
         },
         {
           "number": 16,
@@ -1051,14 +1126,16 @@
         },
         {
           "number": 19,
-          "events": [{
-            "name": "Baseball practice",
-            "allDay": false,
-            "startTime": "10:00",
-            "endTime": "12:00",
-            "description": "",
-            "createdBy": 3
-          }]
+          "events": [
+            {
+              "name": "Baseball practice",
+              "allDay": false,
+              "startTime": "10:00",
+              "endTime": "12:00",
+              "description": "",
+              "createdBy": 3
+            }
+          ]
         },
         {
           "number": 20,
@@ -1074,14 +1151,16 @@
         },
         {
           "number": 23,
-          "events": [{
-            "name": "Baseball practice",
-            "allDay": false,
-            "startTime": "10:00",
-            "endTime": "12:00",
-            "description": "",
-            "createdBy": 3
-          }]
+          "events": [
+            {
+              "name": "Baseball practice",
+              "allDay": false,
+              "startTime": "10:00",
+              "endTime": "12:00",
+              "description": "",
+              "createdBy": 3
+            }
+          ]
         },
         {
           "number": 24,
@@ -1097,14 +1176,16 @@
         },
         {
           "number": 27,
-          "events": [{
-            "name": "Baseball practice",
-            "allDay": false,
-            "startTime": "10:00",
-            "endTime": "12:00",
-            "description": "",
-            "createdBy": 3
-          }]
+          "events": [
+            {
+              "name": "Baseball practice",
+              "allDay": false,
+              "startTime": "10:00",
+              "endTime": "12:00",
+              "description": "",
+              "createdBy": 3
+            }
+          ]
         },
         {
           "number": 28,
@@ -1120,14 +1201,16 @@
         },
         {
           "number": 31,
-          "events": [{
-            "name": "Baseball practice",
-            "allDay": false,
-            "startTime": "10:00",
-            "endTime": "12:00",
-            "description": "",
-            "createdBy": 3
-          }]
+          "events": [
+            {
+              "name": "Baseball practice",
+              "allDay": false,
+              "startTime": "10:00",
+              "endTime": "12:00",
+              "description": "",
+              "createdBy": 3
+            }
+          ]
         }
       ]
     },
@@ -1157,14 +1240,16 @@
         },
         {
           "number": 6,
-          "events": [{
-            "name": "Baseball practice",
-            "allDay": false,
-            "startTime": "10:00",
-            "endTime": "12:00",
-            "description": "",
-            "createdBy": 3
-          }]
+          "events": [
+            {
+              "name": "Baseball practice",
+              "allDay": false,
+              "startTime": "10:00",
+              "endTime": "12:00",
+              "description": "",
+              "createdBy": 3
+            }
+          ]
         },
         {
           "number": 7,
@@ -1180,14 +1265,16 @@
         },
         {
           "number": 10,
-          "events": [{
-            "name": "Baseball practice",
-            "allDay": false,
-            "startTime": "10:00",
-            "endTime": "12:00",
-            "description": "",
-            "createdBy": 3
-          }]
+          "events": [
+            {
+              "name": "Baseball practice",
+              "allDay": false,
+              "startTime": "10:00",
+              "endTime": "12:00",
+              "description": "",
+              "createdBy": 3
+            }
+          ]
         },
         {
           "number": 11,
@@ -1203,14 +1290,16 @@
         },
         {
           "number": 14,
-          "events": [{
-            "name": "Baseball practice",
-            "allDay": false,
-            "startTime": "10:00",
-            "endTime": "12:00",
-            "description": "",
-            "createdBy": 3
-          }]
+          "events": [
+            {
+              "name": "Baseball practice",
+              "allDay": false,
+              "startTime": "10:00",
+              "endTime": "12:00",
+              "description": "",
+              "createdBy": 3
+            }
+          ]
         },
         {
           "number": 15,
@@ -1230,14 +1319,16 @@
         },
         {
           "number": 19,
-          "events": [{
-            "name": "Baseball practice",
-            "allDay": false,
-            "startTime": "10:00",
-            "endTime": "12:00",
-            "description": "",
-            "createdBy": 3
-          }]
+          "events": [
+            {
+              "name": "Baseball practice",
+              "allDay": false,
+              "startTime": "10:00",
+              "endTime": "12:00",
+              "description": "",
+              "createdBy": 3
+            }
+          ]
         },
         {
           "number": 20,
@@ -1253,14 +1344,16 @@
         },
         {
           "number": 23,
-          "events": [{
-            "name": "Baseball practice",
-            "allDay": false,
-            "startTime": "10:00",
-            "endTime": "12:00",
-            "description": "",
-            "createdBy": 3
-          }]
+          "events": [
+            {
+              "name": "Baseball practice",
+              "allDay": false,
+              "startTime": "10:00",
+              "endTime": "12:00",
+              "description": "",
+              "createdBy": 3
+            }
+          ]
         },
         {
           "number": 24,
@@ -1280,14 +1373,16 @@
         },
         {
           "number": 28,
-          "events": [{
-            "name": "Baseball practice",
-            "allDay": false,
-            "startTime": "10:00",
-            "endTime": "12:00",
-            "description": "",
-            "createdBy": 3
-          }]
+          "events": [
+            {
+              "name": "Baseball practice",
+              "allDay": false,
+              "startTime": "10:00",
+              "endTime": "12:00",
+              "description": "",
+              "createdBy": 3
+            }
+          ]
         },
         {
           "number": 29,
@@ -1299,14 +1394,16 @@
         },
         {
           "number": 31,
-          "events": [{
-            "name": "Baseball practice",
-            "allDay": false,
-            "startTime": "10:00",
-            "endTime": "12:00",
-            "description": "",
-            "createdBy": 3
-          }]
+          "events": [
+            {
+              "name": "Baseball practice",
+              "allDay": false,
+              "startTime": "10:00",
+              "endTime": "12:00",
+              "description": "",
+              "createdBy": 3
+            }
+          ]
         }
       ]
     },
@@ -1324,14 +1421,16 @@
         },
         {
           "number": 3,
-          "events": [{
-            "name": "Baseball practice",
-            "allDay": false,
-            "startTime": "10:00",
-            "endTime": "12:00",
-            "description": "",
-            "createdBy": 3
-          }]
+          "events": [
+            {
+              "name": "Baseball practice",
+              "allDay": false,
+              "startTime": "10:00",
+              "endTime": "12:00",
+              "description": "",
+              "createdBy": 3
+            }
+          ]
         },
         {
           "number": 4,
@@ -1339,14 +1438,16 @@
         },
         {
           "number": 5,
-          "events": [{
-            "name": "First day of school",
-            "allDay": false,
-            "startTime": "8:00",
-            "endTime": "3:30",
-            "description": "",
-            "createdBy": 1
-          }]
+          "events": [
+            {
+              "name": "First day of school",
+              "allDay": false,
+              "startTime": "8:00",
+              "endTime": "3:30",
+              "description": "",
+              "createdBy": 1
+            }
+          ]
         },
         {
           "number": 6,
@@ -1358,14 +1459,16 @@
         },
         {
           "number": 8,
-          "events": [{
-            "name": "Baseball practice",
-            "allDay": false,
-            "startTime": "10:00",
-            "endTime": "12:00",
-            "description": "",
-            "createdBy": 3
-          }]
+          "events": [
+            {
+              "name": "Baseball practice",
+              "allDay": false,
+              "startTime": "10:00",
+              "endTime": "12:00",
+              "description": "",
+              "createdBy": 3
+            }
+          ]
         },
         {
           "number": 9,
@@ -1389,14 +1492,16 @@
         },
         {
           "number": 14,
-          "events": [{
-            "name": "Baseball practice",
-            "allDay": false,
-            "startTime": "10:00",
-            "endTime": "12:00",
-            "description": "",
-            "createdBy": 3
-          }]
+          "events": [
+            {
+              "name": "Baseball practice",
+              "allDay": false,
+              "startTime": "10:00",
+              "endTime": "12:00",
+              "description": "",
+              "createdBy": 3
+            }
+          ]
         },
         {
           "number": 15,
@@ -1408,14 +1513,16 @@
         },
         {
           "number": 17,
-          "events": [{
-            "name": "Baseball practice",
-            "allDay": false,
-            "startTime": "10:00",
-            "endTime": "12:00",
-            "description": "",
-            "createdBy": 3
-          }]
+          "events": [
+            {
+              "name": "Baseball practice",
+              "allDay": false,
+              "startTime": "10:00",
+              "endTime": "12:00",
+              "description": "",
+              "createdBy": 3
+            }
+          ]
         },
         {
           "number": 18,
@@ -1431,14 +1538,16 @@
         },
         {
           "number": 21,
-          "events": [{
-            "name": "Baseball practice",
-            "allDay": false,
-            "startTime": "10:00",
-            "endTime": "12:00",
-            "description": "",
-            "createdBy": 3
-          }]
+          "events": [
+            {
+              "name": "Baseball practice",
+              "allDay": false,
+              "startTime": "10:00",
+              "endTime": "12:00",
+              "description": "",
+              "createdBy": 3
+            }
+          ]
         },
         {
           "number": 22,
@@ -1446,7 +1555,16 @@
         },
         {
           "number": 23,
-          "events": []
+          "events": [
+            {
+              "name": "Dentist appointments",
+              "allDay": false,
+              "startTime": "14:00",
+              "endTime": "16:00",
+              "description": "Leave school early",
+              "createdBy": 3
+            }
+          ]
         },
         {
           "number": 24,
@@ -1462,14 +1580,16 @@
         },
         {
           "number": 27,
-          "events": [{
-            "name": "Baseball practice",
-            "allDay": false,
-            "startTime": "10:00",
-            "endTime": "12:00",
-            "description": "",
-            "createdBy": 3
-          }]
+          "events": [
+            {
+              "name": "Baseball practice",
+              "allDay": false,
+              "startTime": "10:00",
+              "endTime": "12:00",
+              "description": "",
+              "createdBy": 3
+            }
+          ]
         },
         {
           "number": 28,
@@ -1511,14 +1631,16 @@
         },
         {
           "number": 6,
-          "events": [{
-            "name": "Bobby's Birthday",
-            "allDay": true,
-            "startTime": "",
-            "endTime": "",
-            "description": "",
-            "createdBy": 4
-          }]
+          "events": [
+            {
+              "name": "Bobby's Birthday",
+              "allDay": true,
+              "startTime": "",
+              "endTime": "",
+              "description": "",
+              "createdBy": 4
+            }
+          ]
         },
         {
           "number": 7,
@@ -1579,18 +1701,29 @@
         },
         {
           "number": 19,
-          "events": [{
-            "name": "Homecoming",
-            "allDay": false,
-            "startTime": "20:00",
-            "endTime": "23:30",
-            "description": "",
-            "createdBy": 3
-          }]
+          "events": [
+            {
+              "name": "Homecoming",
+              "allDay": false,
+              "startTime": "20:00",
+              "endTime": "23:30",
+              "description": "",
+              "createdBy": 3
+            }
+          ]
         },
         {
           "number": 20,
-          "events": []
+          "events": [
+            {
+              "name": "Aunt and Uncle arrive",
+              "allDay": false,
+              "startTime": "16:30",
+              "endTime": "17:00",
+              "description": "Get to the airport by 4pm latest",
+              "createdBy": 1
+            }
+          ]
         },
         {
           "number": 21,
@@ -1643,14 +1776,16 @@
         },
         {
           "number": 31,
-          "events": [{
-            "name": "Mark's Halloween Party",
-            "allDay": false,
-            "startTime": "20:00",
-            "endTime": "23:00",
-            "description": "",
-            "createdBy": 3
-          }]
+          "events": [
+            {
+              "name": "Mark's Halloween Party",
+              "allDay": false,
+              "startTime": "20:00",
+              "endTime": "23:00",
+              "description": "",
+              "createdBy": 3
+            }
+          ]
         }
       ]
     },
@@ -1680,14 +1815,16 @@
         },
         {
           "number": 6,
-          "events": [{
-            "name": "Pep rally",
-            "allDay": false,
-            "startTime": "10:00",
-            "endTime": "12:00",
-            "description": "",
-            "createdBy": 3
-          }]
+          "events": [
+            {
+              "name": "Pep rally",
+              "allDay": false,
+              "startTime": "10:00",
+              "endTime": "12:00",
+              "description": "",
+              "createdBy": 3
+            }
+          ]
         },
         {
           "number": 7,
@@ -1723,14 +1860,16 @@
         },
         {
           "number": 15,
-          "events": [{
-            "name": "Sport Festival",
-            "allDay": false,
-            "startTime": "10:00",
-            "endTime": "14:00",
-            "description": "",
-            "createdBy": 3
-          }]
+          "events": [
+            {
+              "name": "Sport Festival",
+              "allDay": false,
+              "startTime": "10:00",
+              "endTime": "14:00",
+              "description": "",
+              "createdBy": 3
+            }
+          ]
         },
         {
           "number": 16,
@@ -1750,14 +1889,16 @@
         },
         {
           "number": 20,
-          "events": [{
-            "name": "Book Signing",
-            "allDay": false,
-            "startTime": "10:00",
-            "endTime": "14:00",
-            "description": "At the south bookstore",
-            "createdBy": 1
-          }]
+          "events": [
+            {
+              "name": "Book Signing",
+              "allDay": false,
+              "startTime": "10:00",
+              "endTime": "14:00",
+              "description": "At the south bookstore",
+              "createdBy": 2
+            }
+          ]
         },
         {
           "number": 21,
@@ -1769,14 +1910,7 @@
         },
         {
           "number": 23,
-          "events": [{
-            "name": "Macy's Christmas Parade",
-            "allDay": false,
-            "startTime": "19:00",
-            "endTime": "20:00",
-            "description": "",
-            "createdBy": 3
-          }]
+          "events": []
         },
         {
           "number": 24,
@@ -1792,18 +1926,29 @@
         },
         {
           "number": 27,
-          "events": [{
-            "name": "Sharon's Birthday",
-            "allDay": true,
-            "startTime": "10:00",
-            "endTime": "12:00",
-            "description": "",
-            "createdBy": 1
-          }]
+          "events": [
+            {
+              "name": "Sharon's Birthday",
+              "allDay": true,
+              "startTime": "10:00",
+              "endTime": "12:00",
+              "description": "",
+              "createdBy": 1
+            }
+          ]
         },
         {
           "number": 28,
-          "events": []
+          "events": [
+            {
+              "name": "Macy's Christmas Parade",
+              "allDay": false,
+              "startTime": "9:00",
+              "endTime": "13:00",
+              "description": "",
+              "createdBy": 3
+            }
+          ]
         },
         {
           "number": 29,
@@ -1811,14 +1956,16 @@
         },
         {
           "number": 30,
-          "events": [{
-            "name": "Bookclub",
-            "allDay": false,
-            "startTime": "19:00",
-            "endTime": "21:00",
-            "description": "",
-            "createdBy": 1
-          }]
+          "events": [
+            {
+              "name": "Bookclub",
+              "allDay": false,
+              "startTime": "19:00",
+              "endTime": "21:00",
+              "description": "",
+              "createdBy": 1
+            }
+          ]
         }
       ]
     },
@@ -1917,14 +2064,16 @@
         },
         {
           "number": 21,
-          "events": [{
-            "name": "Ana's Birthday",
-            "allDay": true,
-            "startTime": "10:00",
-            "endTime": "12:00",
-            "description": "",
-            "createdBy": 3
-          }]
+          "events": [
+            {
+              "name": "Ana's Birthday",
+              "allDay": true,
+              "startTime": "10:00",
+              "endTime": "12:00",
+              "description": "",
+              "createdBy": 3
+            }
+          ]
         },
         {
           "number": 22,
@@ -1947,6 +2096,14 @@
               "startTime": "",
               "endTime": "",
               "description": "",
+              "createdBy": 1
+            },
+            {
+              "name": "Christmas Breakfast",
+              "allDay": false,
+              "startTime": "10:00",
+              "endTime": "12:30",
+              "description": "Meeting up at grandma's house",
               "createdBy": 1
             },
             {
@@ -1981,14 +2138,16 @@
         },
         {
           "number": 31,
-          "events": [{
-            "name": "New Years Eve",
-            "allDay": true,
-            "startTime": "",
-            "endTime": "",
-            "description": "",
-            "createdBy": 1
-          }]
+          "events": [
+            {
+              "name": "New Years Eve",
+              "allDay": true,
+              "startTime": "",
+              "endTime": "",
+              "description": "",
+              "createdBy": 1
+            }
+          ]
         }
       ]
     }
