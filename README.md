@@ -11,6 +11,6 @@ This is our group's HCI high-fidelity prototype. It is designed as a communicati
 
 ## Credits  
 * [Mark Robitaille](https://github.com/MarkRobitaille)  
-* [Ana Ingat](https://github.com/anaignat)  
+* [Ana Ignat](https://github.com/anaignat)  
 * [Brittaney Barber](https://github.com/BrittBarber)  
 * [Ceilidh Simon](https://github.com/LeeSimon77)  
